@@ -38,7 +38,6 @@ ScrollTrigger.refresh();
 // BARBA TRANSITION -------------------
 
 
-
 // --- 000 - INTRO ANIMATION --------------------------------------------------------------------------
 
 // SPLITTING 
