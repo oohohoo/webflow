@@ -35,8 +35,23 @@ ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
 ScrollTrigger.refresh();
 
-// BARBA TRANSITION -------------------
+// 
 
+// Horizontal gallery scrolltrigger pin (demo---)
+gsap.to(".pin-wrap", {
+  xPercent: -100, 
+  x: innerWidth,
+  ease: "none",
+  scrollTrigger: {
+  scroller: ".smooth-scroll",
+    trigger: ".pin-wrap",
+    start: "top top",
+    end: () => innerWidth * 5,
+    scrub: true,
+    pin: true,
+    anticipatePin: 1
+  }
+});
 
 // --- 000 - INTRO ANIMATION --------------------------------------------------------------------------
 
