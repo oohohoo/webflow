@@ -233,16 +233,16 @@ ScrollTrigger.create({
 // --- GALLERY BATCH --------------------
 
 gsap.defaults({ease: "power3"});
-gsap.set(".lazy", {y: 100});
+gsap.set(".lazy", {y: 300});
 
 ScrollTrigger.batch(".lazy", {
   scroller: ".smooth-scroll",
   //interval: 5, // time window (in seconds) for batching to occur. 
   batchMax: 3,   // maximum batch size (targets)
   onEnter: batch => gsap.to(batch, {opacity: 1, y: 0, stagger: {each: 0.15, grid: [1, 3]}, overwrite: true}),
-  onLeave: batch => gsap.set(batch, {opacity: 0, y: -100, overwrite: true}),
+  onLeave: batch => gsap.set(batch, {opacity: 0, y: -300, overwrite: true}),
   onEnterBack: batch => gsap.to(batch, {opacity: 1, y: 0, stagger: 0.15, overwrite: true}),
-  onLeaveBack: batch => gsap.set(batch, {opacity: 0, y: 100, overwrite: true})
+  onLeaveBack: batch => gsap.set(batch, {opacity: 0, y: 300, overwrite: true})
   // you can also define things like start, end, etc.
 });
 
