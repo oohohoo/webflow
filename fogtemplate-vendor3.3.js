@@ -304,7 +304,55 @@ function createAnimation(i, element) {
 }
 
 	
-	
+// ---- HEADER SWITCH
+//gsap.registerPlugin(ScrollTrigger);
+
+gsap.to(".infoarea", {
+		scrollTrigger: {
+     scroller: ".smooth-scroll",
+			trigger: ".section-1",
+			scrub:1,
+			toggleActions: 'play reverse play reverse'
+		},
+		color: '#fff',
+		backgroundColor: '#080808',
+		height:'5vh',
+		duration: 1, 
+	  ease: "power4.inOut",
+	});
+
+gsap.to(".menushr", {
+		scrollTrigger: {
+     scroller: ".smooth-scroll",
+					trigger: ".section-1",
+			scrub:1,
+			toggleActions: 'play reverse play reverse',
+		},
+  y:-45,
+  		color: '#fff',
+  scale: 0.6,
+	  ease: "power4.inOut",
+	});
+
+// SHOW HIDE SCROLLTRIGGER
+
+ScrollTrigger.create({
+  trigger: ".arrow-wrap",
+    scroller: ".smooth-scroll",
+  start: 'top 500',
+  end: 99999,
+  scrub:2,
+  onUpdate: self => {
+  console.log("direction:", self.direction);
+            let { direction } = self;
+            const featureBoxes = document.querySelectorAll('.hidescroll');
+            if (direction == -1) {
+                featureBoxes[0].classList.remove('is-hidden')
+            } else if (direction == 1) {
+                featureBoxes[0].classList.add('is-hidden')
+            }
+      }
+});	
 	
 	
 	
