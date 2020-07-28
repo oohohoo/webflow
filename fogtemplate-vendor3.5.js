@@ -356,7 +356,7 @@ ScrollTrigger.create({
 	
 // --- 005 - MENU TOGGLE FUNCTION MOVE CONTENT TO REVEAL MENU --------------------------------------------------------------------------
 // AKO SE KOD NE UČITA PA NE RADI, UBACIMO SVE U OVO
-window.onload=function(){
+//window.onload=function(){
 
 
 var trigger = document.querySelector('.whitekrugxxx');
