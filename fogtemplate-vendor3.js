@@ -274,7 +274,7 @@ ScrollTrigger.batch(".lazy", {
 ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".lazy", {y: 0}));
 
 	
-/ --- GALLERY BATCH --------------------
+
 	
 	
 //onaj	
