@@ -354,6 +354,278 @@ ScrollTrigger.create({
       }
 });	
 	
+// --- 005 - MENU TOGGLE FUNCTION MOVE CONTENT TO REVEAL MENU --------------------------------------------------------------------------
+// AKO SE KOD NE UČITA PA NE RADI, UBACIMO SVE U OVO
+window.onload=function(){
+
+
+var trigger = document.querySelector('.whitekrugxxx');
+var tl = gsap.timeline({ paused: true, reversed: true })
+//var tl_2 = gsap.timeline({ paused: true, reversed: true})
+
+tl.to('.video-bg', { 
+ //yPercent:50,
+ //color: '#ff0000',
+ height: "100%", 
+  duration:1,
+  ease: "power4.inOut" 
+})
+
+/*tl_2.to(".turning", {
+  duration:.75,
+  ease: "elastic.out(1, 0.3)", 
+  rotation:180,
+  opacity:0, 
+  overwrite: true, 
+})
+*/
+trigger.addEventListener('click', function () {
+  toggleState(tl)
+  toggleState(tl_2)
+})
+
+function toggleState(tl) {
+  tl.reversed() ? tl.play() : tl.reverse()
+}
+
+function toggleState(tl_2) {
+  tl_2.reversed() ? tl_2.play() : tl_2.reverse()
+}
+
+
+
+//// ---- SIMPLE SLIDER RGB
+var imgs =gsap.utils.toArray(".motiv")
+
+var next = 3; // time to change
+
+function crossfade(){
+  
+  var action = gsap.timeline()
+  .to(imgs,  {y:'-=200', duration:1})
+  .to(imgs[0], {y:'+=600', duration:0}) // the first to the end
+
+  imgs.push( imgs.shift() ); // the first (shift) to the end (push) from the array
+  console.log(imgs);
+
+  // start endless run
+  gsap.delayedCall(next, crossfade);
+
+}
+
+// start the crossfade after next = 3 sec
+gsap.delayedCall(next, crossfade);
+
+/// ----- MOUSE + CLICK
+
+
+
+gsap.set(".h-page", {autoAlpha:1})
+
+var $button = $('.linkclick'),
+    $page = $('.h-page'),
+    $click = $('.click');
+
+$button.on('mouseenter', function(e) {
+  var $thisPage = $(this).attr('id');
+  var $thisClick = ($thisPage + "Click");
+
+  gsap.to($thisPage, 1, {autoAlpha:1});
+  gsap.to($page.not($thisPage), 0.5, {autoAlpha:0}); // faster
+  gsap.to($thisClick, 0.4, {autoAlpha:0});
+
+});
+
+
+$button.on('click', function() {
+
+  var $thisPage = $(this).attr('id');
+  var $thisClick = ($thisPage + "Click");
+
+
+  gsap.to($thisPage, 0.8, {autoAlpha:1});
+  gsap.to($page.not($thisPage), 0.4, {autoAlpha:0});
+  gsap.to($click.not($thisClick), 0.4, {autoAlpha:0});
+  gsap.to($thisClick, 0.4, {autoAlpha:1});
+
+
+});
+
+// --- MENU IMAGE OVERLAY
+var cursor = $(".cursor"),
+    overlay = $(".project-overlay");
+
+gsap.set(cursor, {opacity:0});
+
+function moveCircle(e) {
+  gsap.to(cursor, {
+    duration:.5,
+    css: {
+      left: e.pageX,
+      top: e.pageY
+    }
+  });
+}
+
+$(".p-1").hover(function(){
+  $(".cursor").css({"background-image": "url(https://uploads-ssl.webflow.com/5e3ac0099daa812301be51d5/5ed694a7d99be97ea1381299_tosja-long-woolblend-coat-side-front-800x1067.png)" });
+});
+
+$(".p-2").hover(function(){
+  $(".cursor").css({ "background-image": "url(https://uploads-ssl.webflow.com/5e3ac0099daa812301be51d5/5ed694a65ebae463717d52be_zazi-long-printed-dress-side-front-800x1067.jpg)" });
+});
+$(".p-3").hover(function(){
+  $(".cursor").css({ "background-image": "url(https://uploads-ssl.webflow.com/5e3ac0099daa812301be51d5/5ed694a5bf55014325e86f75_romke-hooded-jacket-side-front-800x1067.png)" });
+});
+$(".p-4").hover(function(){
+  $(".cursor").css({ "background-image": "url(https://uploads-ssl.webflow.com/5e3ac0099daa812301be51d5/5ed694a4d1429d2e3a740e4a_oved-straight-dress-side-front-800x1067.jpg)" });
+});
+$(".p-4").hover(function(){
+  $(".cursor").css({ "background-image": "url(https://uploads-ssl.webflow.com/5e3ac0099daa812301be51d5/5ed694a3023d8e2af1a6099c_paskal-long-knitted-vest-side-front-800x1067.jpg)" });
+});
+
+var flag = false;
+$(overlay).mousemove(function() {
+  flag = true;
+  gsap.to(cursor, {duration: 0.3, scale: 1, autoAlpha: 1});
+  $(overlay).on("mousemove", moveCircle);
+});
+
+$(overlay).mouseout(function() {
+  flag = false;
+  gsap.to(cursor, {duration: 0.3, scale: 0.1, autoAlpha: 0});
+});
+
+// --- PROGRES LAJNA ŽUTA
+//gsap.set(cursor, {opacity:0});
+gsap.from(".line-1", {
+  scrollTrigger: {
+    trigger: ".barba-container",
+    scroller: ".smooth-scroll",
+    scrub: true,
+    start: "top top",
+    end: "bottom bottom",
+   // onUpdate: self => textProgress.innerText = self.progress.toFixed(3) + "%"
+  },
+  scaleX: 0, 
+  transformOrigin: "left center", 
+  ease: "none"
+});
+
+/*
+	// BATCH REVEAL LILA BOXES  // NE RADI TESTIRAJ DALJE
+
+gsap.set(".reveal", {opacity: 0});
+
+ScrollTrigger.batch(".reveal", {
+  onEnter: batch => gsap.to(batch, {duration:1,  opacity: 1, stagger: 0.1, overwrite: true}),
+  onLeave: batch => gsap.set(batch, {duration:1, opacity: 0, overwrite: true}),
+  onEnterBack: batch => gsap.to(batch, {duration:1, opacity: 1, stagger: 0.1, overwrite: true}),
+  onLeaveBack: batch => gsap.set(batch, {duration:1, opacity: 0, overwrite: true})
+});
+*/
+
+// --- CUSTOM MOUSE
+
+gsap.set(".c-ball", {xPercent: -50, yPercent: -50});
+
+var ball = document.querySelector(".c-ball");
+var pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+var mouse = { x: pos.x, y: pos.y };
+var speed = .07;
+
+var xSet = gsap.quickSetter(ball, "x", "px");
+var ySet = gsap.quickSetter(ball, "y", "px");
+
+window.addEventListener("mousemove", e => {    
+  mouse.x = e.x;
+  mouse.y = e.y;  
+});
+
+gsap.ticker.add(() => {
+  pos.x += (mouse.x - pos.x) * speed;
+  pos.y += (mouse.y - pos.y) * speed;
+  xSet(pos.x);
+  ySet(pos.y);
+});
+
+gsap.set(".c-ball2", {xPercent: -50, yPercent: -50});
+
+var ball_2 = document.querySelector(".c-ball2");
+var pos_2 = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+var mouse_2 = { x: pos.x, y: pos.y };
+var speed_2 = .1;
+
+var xSet_2 = gsap.quickSetter(ball_2, "x", "px");
+var ySet_2 = gsap.quickSetter(ball_2, "y", "px");
+
+window.addEventListener("mousemove", e => {    
+  mouse_2.x = e.x;
+  mouse_2.y = e.y;  
+});
+
+gsap.ticker.add(() => {
+  pos_2.x += (mouse_2.x - pos_2.x) * speed_2;
+  pos_2.y += (mouse_2.y - pos_2.y) * speed_2;
+  xSet_2(pos_2.x);
+  ySet_2(pos_2.y);
+});
+
+
+
+$(".link").on("mouseenter", function() {
+  
+  gsap.to(ball, {
+        width: "110px",
+        height: "110px",
+        opacity:1,
+        duration:1,
+        ease: "elastic.out(1, 0.3)", 
+        border:"2px solid white", 
+        background:"none",
+        overwrite: true, 
+        background:"white"
+    });
+    
+});
+
+$(".link").on("mouseleave", function() {
+     gsap.to(ball, {
+        width: "30px",
+        height: "30px",
+        opacity:1,
+        duration:1,
+        ease: "elastic.out(1, 0.3)", 
+        border:"1px solid white", 
+        overwrite: true, 
+        background:"none"
+    });
+});
+
+// --- SCROLLTRIGGER FADE IN ELEMENTS
+
+ gsap.utils.toArray('.imagefadein').forEach(box => {
+ gsap.fromTo(box, {
+      autoAlpha: 0,
+      scale:.01
+    }, {
+      scrollTrigger: {
+     scroller: ".smooth-scroll",
+      trigger: box,
+      toggleActions: 'play stop play reverse',
+      once: false,
+      scrub:1,
+      end:"+=200%"
+    },
+      scale:1,
+      duration: 1, 
+      autoAlpha: 1, 
+      ease:"power4.out",
+  }, 6);
+});
+
+
+	
 	
 	
 	
