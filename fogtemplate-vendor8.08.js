@@ -905,11 +905,12 @@ gsap.utils.toArray(".small-link-wrapper").forEach(container => {
         direction: 'horizontal',
 	   autoplay: {
     delay: 3000,
+disableOnInteraction: false,
   },
 	 freeMode: true,
         //resistanceRatio:0.2,
         slidesPerView: 1,
-	 disableOnInteraction: false,
+	 
 	// centeredSlides: 0,
       //  longSwipes:true,
       //  longSwipesRatio:0.5,
