@@ -894,7 +894,57 @@ gsap.utils.toArray(".small-link-wrapper").forEach(container => {
 });
 
 
-	
+// SWIPERI
+
+// SWIPER 01 ---
+
+// HORIZONTAL SWIPER DRAGGABLE
+
+ var swipera = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        direction: 'horizontal',
+        resistanceRatio:0.5,
+        slidesPerView: 1.3,
+        longSwipes:true,
+        longSwipesRatio:0.5,
+        touchRatio:5,
+        paginationClickable: true,
+        spaceBetween: 160,
+        mousewheelControl: true,
+        parallax: true,
+        preloadImages: true,
+        updateOnImagesReady: true,
+       // centeredSlides: true,
+       slidesOffsetBefore: 100,
+        speed: 1000,
+        breakpoints: {
+                        500: {
+                            spaceBetween: 30,
+                            loopedSlides: 3,
+                            slidesPerView: 1
+                        },
+                        1e3: {
+                            loopedSlides: 3,
+                            spaceBetween: 85,
+                            slidesPerView: 1.1
+                        },
+                        1200: {
+                            spaceBetween: 100,
+                            slidesPerView: 1.2
+                        }
+                    }
+
+    });
+
+$('.gsapefekt').on('mousedown touchstart', function(event) {
+  gsap.to('.swiper-slide', {scale: 0.9, duration: 0.4});
+});
+
+$('.gsapefekt').on('mouseup touchend', function(event) {
+ gsap.to('.swiper-slide', {scale:1, duration: 0.4, delay:0.2});
+});
+
+// SWIPER 02
 	
 	
 //onaj	
