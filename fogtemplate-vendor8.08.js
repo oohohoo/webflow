@@ -955,7 +955,28 @@ $('.swiper-slide').on('mouseup touchend', function(event) {
 
 // SWIPER 02
 	
-	
+
+
+
+
+
+
+// SIMPLE FADE IN / FADE OUT / AUTOALPHA 023 simple fadein fadeout
+
+
+var action = gsap.timeline({repeat:-1, defaults:{duration:0.8, ease:'none'}})
+
+.to('.fadein-slide', {autoAlpha:1, stagger:5})
+.to('.fadein-slide', {autoAlpha:0, stagger:5}, 4)
+
+
+
+
+
+
+
+
+
 //onaj	
 //}
 	
