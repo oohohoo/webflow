@@ -909,7 +909,56 @@ function gen_ytdefer_clk(i)
     window.addEventListener('load', ytdefer_setup);
 	
 	
+// ACCORDION
+var animations = $(".accordion-group").map(createAnimation);
 
+$(".accordion-menu").click(playAnimation);
+
+function playAnimation(event) {
+  
+  var selected = this;
+  
+  animations.each(function(i, animate) {
+    animate(selected);
+  });
+}
+
+function createAnimation(i, element) {
+    
+  var menu = element.querySelector(".accordion-menu");
+  var box  = element.querySelector(".accordion-content");
+  
+  gsap.set(box, { height: "auto"})
+  var tween = gsap.from(box, { duration:0.5, height: 0, ease: Power1.easeInOut }).reverse();
+  
+  return function(selected) {
+    
+    var reversed = selected !== menu ? true : !tween.reversed();
+    tween.reversed(reversed);
+  }
+}
+
+//// ---- SIMPLE SLIDER RGB
+var imgs =gsap.utils.toArray(".motiv")
+
+var next = 3; // time to change
+
+function crossfade(){
+  
+  var action = gsap.timeline()
+  .to(imgs,  {y:'-=200', duration:1})
+  .to(imgs[0], {y:'+=600', duration:0}) // the first to the end
+
+  imgs.push( imgs.shift() ); // the first (shift) to the end (push) from the array
+  console.log(imgs);
+
+  // start endless run
+  gsap.delayedCall(next, crossfade);
+
+}
+
+// start the crossfade after next = 3 sec
+gsap.delayedCall(next, crossfade);
   
   
 
