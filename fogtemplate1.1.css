@@ -1,4 +1,8 @@
+/* FIRST SCREEN hide elements on load FUOP */
 
+.clip, .char {
+visibility: hidden;
+}
 
 /* SWIPER SLIDER onaj od karla videka koji se snapa - ovaj css je možda od one druge verzije pa je nepotreban */
 
