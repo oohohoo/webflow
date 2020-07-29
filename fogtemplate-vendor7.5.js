@@ -57,7 +57,7 @@ gsap.to(".pin-wrap", {
   }
 });
 
-// --- 000 - INTRO ANIMATION --------------------------------------------------------------------------
+// --- 000 - INTRO ANIMATION --------------------------------------------------------------------------------
 
 // SPLITTING 
 Splitting();
@@ -122,7 +122,7 @@ snap: {snapTo: 0.5, duration: 0.6, delay: 0, ease: "power4.inOut"},
  // snap: 1 / 3 // snap whole page to the closest section!
 }); 
 
-// --- SCROLLTRIGGER FADE IN ELEMENTS
+// --- 003 SCROLLTRIGGER FADE IN ELEMENTS
 
  gsap.utils.toArray('.imagefadein').forEach(box => {
  gsap.fromTo(box, {
@@ -144,7 +144,7 @@ snap: {snapTo: 0.5, duration: 0.6, delay: 0, ease: "power4.inOut"},
   }, 6);
 });	
 	
-// --- 006 - TEXT REVEAL BATCH --------------------------------------------------------------------------
+// --- 004 - TEXT REVEAL BATCH --------------------------------------------------------------------------
 gsap.set('.b-text', {autoAlpha: 0, yPercent: 200});
 
 ScrollTrigger.batch(".batch-text", {
@@ -165,7 +165,7 @@ scroller: ".smooth-scroll",
   start: "top 95%"
 });
 	
-// --- 008 GALLERY BATCH --------------------
+// --- 005 GALLERY BATCH --------------------
 
 gsap.defaults({ease: "power3"});
 gsap.set(".lazy", {autoAlpha:0, y: 100});
@@ -190,7 +190,7 @@ ScrollTrigger.batch(".lazy", {
 ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".lazy", {y: 0}));
 
 	
-// --- 007 - STICKY FOOTER ----------------------------------------------
+// --- 006 - STICKY FOOTER ----------------------------------------------
 
 ScrollTrigger.create({
   trigger: "#stickywrap",
@@ -202,8 +202,9 @@ ScrollTrigger.create({
   onLeaveBack: () => gsap.set('#sticky', {autoAlpha:0}),
 });
 
-/*	
-// ---- HEADER SWITCH
+
+// --- 007 - SHEADER SWITCH ----------------------------------------------
+
 //gsap.registerPlugin(ScrollTrigger);
 
 gsap.to(".infoarea", {
@@ -233,8 +234,7 @@ gsap.to(".menushr", {
 	  ease: "power4.inOut",
 	});
 
-// SHOW HIDE SCROLLTRIGGER
-
+// --- 007 - SHOW HIDE MENU HEADER SWITCH WITH SCROLLTRIGGER ----------------------------------------------
 ScrollTrigger.create({
   trigger: ".arrow-wrap",
     scroller: ".smooth-scroll",
@@ -252,9 +252,16 @@ ScrollTrigger.create({
             }
       }
 });		
-*/	
+	
+// --- 007a - SHOW HIDE MENU HEADER SWITCH (first version from locomotive scroll github ----------------------------------------------
+
+// MENU HIDE / ENTER ON SCROLL
+locoScroll.on('scroll', (instance) => {
+    document.documentElement.setAttribute('data-direction', instance.direction)
+});
+
 /*
-// --- 003 / PARALAX NEK STOJI IAKO JE MOŽDA NEPOTREBNO-----------------------------------------------------------------
+// --- 008 / PARALAX NEK STOJI IAKO JE MOŽDA NEPOTREBNO-----------------------------------------------------------------
 //https://greensock.com/forums/topic/24805-scrolltrigger-parallax-and-locomotive-scroll/
 const parallax = document.querySelectorAll(".para-image");
 parallax.forEach(elem => {
@@ -270,7 +277,7 @@ parallax.forEach(elem => {
 });
 */
 
-// --- 004 - SWIPER --------------------------------------------------------------------------
+// --- 009 - SWIPER --------------------------------------------------------------------------
 
 // svaka fotka ima: data-swiper-parallax-y: "35%"
 const slider = document.getElementById("js-cta-slider");
@@ -312,7 +319,7 @@ const swiper = new Swiper(slider, {
 });
 
 
-// --- 005 - MENU TOGGLE FUNCTION MOVE CONTENT TO REVEAL MENU --------------------------------------------------------------------------
+// --- 010 - MENU TOGGLE FUNCTION MOVE CONTENT TO REVEAL MENU --------------------------------------------------------------------------
 
 var trigger = document.querySelector('.menu-trigger');
 var tl = gsap.timeline({ paused: true, reversed: true })
@@ -345,8 +352,8 @@ function toggleState(tl_2) {
   tl_2.reversed() ? tl_2.play() : tl_2.reverse()
 }
 
-	
-// ------ ACCORDION
+// --- 011 - ACCORDION --------------------------------------------------------------------------	
+
 var animations = $(".accordion-group").map(createAnimation);
 
 $(".accordion-menu").click(playAnimation);
@@ -375,10 +382,8 @@ function createAnimation(i, element) {
   }
 }
 
-	
 
-	
-// --- 005 - OPEN FULLSCREEN VIDEO AND PLAY/PAUSE  --------------------------------------------------------------------------
+// --- 012 - OPEN FULLSCREEN VIDEO AND PLAY/PAUSE  --------------------------------------------------------------------------
 var trigger = document.querySelector('.whitekrugxxx');
 var tl = gsap.timeline({ paused: true, reversed: true })
 //var tl_2 = gsap.timeline({ paused: true, reversed: true})
@@ -412,9 +417,8 @@ function toggleState(tl_2) {
   tl_2.reversed() ? tl_2.play() : tl_2.reverse()
 }
 
+// --- 013 - SIMPLE SLIDER RGB  --------------------------------------------------------------------------
 
-
-//// ---- SIMPLE SLIDER RGB
 var imgs =gsap.utils.toArray(".motiv")
 
 var next = 3; // time to change
@@ -436,8 +440,7 @@ function crossfade(){
 // start the crossfade after next = 3 sec
 gsap.delayedCall(next, crossfade);
 
-
-// --- MENU IMAGE OVERLAY
+// --- 014 - MENU IMAGE OVERLAY  --------------------------------------------------------------------------
 var cursor = $(".cursor"),
     overlay = $(".project-overlay");
 
@@ -482,7 +485,8 @@ $(overlay).mouseout(function() {
   gsap.to(cursor, {duration: 0.3, scale: 0.1, autoAlpha: 0});
 });
 
-// --- PROGRES LAJNA ŽUTA
+// --- 015 - PROGRES LAJNA ŽUTA  --------------------------------------------------------------------------
+
 //gsap.set(cursor, {opacity:0});
 gsap.from(".line-1", {
   scrollTrigger: {
@@ -499,8 +503,8 @@ gsap.from(".line-1", {
 });
 
 
+// --- 016 - CUSTOM MOUSE  --------------------------------------------------------------------------
 
-// --- CUSTOM MOUSE
 
 gsap.set(".c-ball", {xPercent: -50, yPercent: -50});
 
@@ -580,14 +584,7 @@ $(".link").on("mouseleave", function() {
 
 
 
-
-// MENU HIDE / ENTER ON SCROLL
-locoScroll.on('scroll', (instance) => {
-    document.documentElement.setAttribute('data-direction', instance.direction)
-});
-
-
-
+// --- 017 - LOCOMOTIVE SCROLL TO  --------------------------------------------------------------------------
 
 // ScrollTo - Menu funkcije
 $( "#sec" ).on( "click", function() {
@@ -609,8 +606,7 @@ $( "#sec5" ).on( "click", function() {
 locoScroll.scrollTo('#section5')
 });
 
-// CLICK ON BOX ZOOM TO FULLSCREEN
-
+// --- 018 - CLICK ON BOX ZOOM TO FULLSCREEN (druga metoda je FLIP) ova je old school ali pametna i radi sa više boxeva --------------------------------------------------------------------------
 //console.clear();
 
 var root  = document.documentElement;
@@ -693,9 +689,9 @@ function calculatePosition(element) {
   };
 }
   
-// --- YOUTUBE PLAYER ONAJ FENSI
+// --- 019 - YOUTUBE PLAYER ONAJ FENSI  --------------------------------------------------------------------------
 
-	/*
+/*
 
 var ytdefer_ic_w=73;var ytdefer_ic_h=52;var yt_icon='<svg height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#eb3223"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>';var yt_dark_icon='<svg height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>';function ytdefer_setup()
 {var d=document;var els=d.getElementsByClassName('ytdefer');for(var i=0;i<els.length;i++)
