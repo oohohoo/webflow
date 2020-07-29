@@ -1,4 +1,6 @@
-<!-- VERTICAL SLIDER w/ PARRALAX, ARROW AND CSS -->
+
+
+/* SWIPER SLIDER onaj od karla videka koji se snapa - ovaj css je možda od one druge verzije pa je nepotreban */
 
   .cta__slider .swiper-slide {
 	 overflow: hidden;
@@ -24,7 +26,7 @@
     right: 1000px !important;
 }
 
-/* YTDEFER - onaj prvi super mebed - kasnije sam naša onaj kropani */
+/* YTDEFER - onaj prvi super embed - kasnije sam naša onaj kropani */
 .ytdefer-wrapper {
 position: relative;
     padding-bottom: 56.25%;
@@ -34,7 +36,8 @@ position: relative;
 height: 65vh;
 }
 
-/* SHOW HIDE NAVBAR - ono prvo rješenje sa loco githuba */
+/* 007a - SHOW HIDE MENU HEADER SWITCH (first version from locomotive scroll github */
+
 #header {
  /* position: fixed;
   top: 0; left: 0; */
@@ -46,7 +49,7 @@ html[data-direction="down"] #header {
   transform: translate3d(0,-100%,0);
 }
 
-/* FLIP GSAP CSS */ nedovršeno!
+/* --------------- FLIP GSAP CSS */ nedovršeno!
 
 
 #container1::before, #container2::before{
@@ -58,7 +61,7 @@ html[data-direction="down"] #header {
   color: #999;
 }
 
-/* MAIN MENU SHOW HIDE ON SCROLL - rješenje 2 */
+/* 007 - SHOW HIDE MENU HEADER SWITCH WITH SCROLLTRIGGER */
 .hidescroll {
     transition: 2s cubic-bezier(0.23, 1, 0.32, 1);
 }
