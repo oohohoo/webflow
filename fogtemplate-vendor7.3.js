@@ -202,6 +202,7 @@ ScrollTrigger.create({
   onLeaveBack: () => gsap.set('#sticky', {autoAlpha:0}),
 });
 
+/*	
 // ---- HEADER SWITCH
 //gsap.registerPlugin(ScrollTrigger);
 
@@ -251,7 +252,7 @@ ScrollTrigger.create({
             }
       }
 });		
-	
+*/	
 /*
 // --- 003 / PARALAX NEK STOJI IAKO JE MOŽDA NEPOTREBNO-----------------------------------------------------------------
 //https://greensock.com/forums/topic/24805-scrolltrigger-parallax-and-locomotive-scroll/
