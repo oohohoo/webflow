@@ -723,6 +723,7 @@ function gen_ytdefer_clk(i)
 */
 
 // --- 020 - YOUTUBE CROP + FULLSCREEN bez YT pizdarija  --------------------------------------------------------------------------
+
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement("script");
 
@@ -811,8 +812,66 @@ function onPlayerReady(event) {
 }
 */
 
-  
+// --- 021 - MENU ANIMATION - TL - PLAY REVERSE HOVER UTILSTO ARRAY ------------------------------------------------------------------
 
+gsap.utils.toArray(".link-wrapper").forEach(container => {
+  let 
+  /*info = container.querySelector(".information"),*/
+     linkcolor = container.querySelector(".main-link"),
+     supscript = container.querySelector(".superscript"),
+      tl = gsap.timeline({ paused: true });
+  
+  tl
+  /*.to(info, { yPercent: 20 })*/
+    .from(supscript, { ease: "power2.inOut", duration: 0.2, y: 20, autoAlpha:0, color: "#12335B", overwrite:"all" }, 0)
+   .to(linkcolor, { ease: "power2.inOut", duration: 0.2, autoAlpha:0.7}, 0);
+  
+  
+  container.addEventListener("mouseenter", () => tl.play() );
+  container.addEventListener("mouseleave", () => tl.reverse() );
+});
+
+// --- 022 - MENU ANIMATION - TL - UNDERLINE ------------------------------------------------------------------
+
+// Mouseenter function
+function enterAnimation(link, e, index) {
+  link.tl.tweenFromTo(0, "midway");
+}
+// Mouseleave function
+function leaveAnimation(link, e) {
+  link.tl.play();
+}
+// Animations variables
+let workLinkUnderlineAnimEnter;
+let workLinkUnderlineAnimLeave;
+
+// Get all links
+let workLinks = document.querySelectorAll(".line-wrapper");
+
+workLinks.forEach((link, index, value) => {
+  
+  let underline = link.querySelector(".underline");
+    link.tl = gsap.timeline({paused: true});
+  
+  link.tl.fromTo(underline, {width: "0%", left: "0%",}, 
+  {width: "100%", duration: 0.3, ease: "power1.out",});
+  		
+  link.tl.add("midway");
+  
+  link.tl.fromTo(underline, {width: "100%", left: "0%",}, 
+  {width: "0%", left: "100%", duration: 0.3, ease: "power1.in", immediateRender: false});
+
+  // Mouseenter
+  link.addEventListener("mouseenter", (e) => {
+    enterAnimation(link, e, index);
+  });
+
+  // Mouseleave
+  link.addEventListener("mouseleave", (e) => {
+    leaveAnimation(link, e);
+  });
+
+});
 	
 	
 	
