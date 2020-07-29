@@ -906,7 +906,7 @@ gsap.utils.toArray(".small-link-wrapper").forEach(container => {
 	   autoplay: {
     delay: 3000,
   },
-	// freeMode: true,
+	 freeMode: true,
         //resistanceRatio:0.2,
         slidesPerView: 1,
 	 disableOnInteraction: true,
