@@ -908,7 +908,7 @@ gsap.utils.toArray(".small-link-wrapper").forEach(container => {
   },
 	// freeMode: true,
         resistanceRatio:0.2,
-        slidesPerView: 1.2,
+        //slidesPerView: 1.2,
         longSwipes:true,
         longSwipesRatio:0.5,
         touchRatio:5,
@@ -919,8 +919,8 @@ gsap.utils.toArray(".small-link-wrapper").forEach(container => {
         preloadImages: true,
         updateOnImagesReady: true,
        // centeredSlides: true,
-       slidesOffsetBefore: 100,
-        speed: 800,
+       //slidesOffsetBefore: 100,
+        speed: 400,
         breakpoints: {
                         500: {
                             spaceBetween: 30,
