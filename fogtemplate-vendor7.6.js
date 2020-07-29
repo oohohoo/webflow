@@ -722,7 +722,94 @@ function gen_ytdefer_clk(i)
 
 */
 
+// --- 020 - YOUTUBE CROP + FULLSCREEN bez YT pizdarija  --------------------------------------------------------------------------
+// 2. This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement("script");
 
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName("script")[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player("player", {
+    host: "https://www.youtube.com",
+    /* no need to specify player 
+    size here since it is handled 
+    by the player-size div */
+    videoId: "jkWWJ9W5300",
+    playerVars: {
+      enablejsapi: 1,
+      playsinline: 1,
+     /* autoplay:1,
+      mute:0,*/
+      start: 0,
+      disablekb: 0
+    },
+    events: {
+      onStateChange: onPlayerStateChange,
+       // call this function when player is ready to use
+     'onReady': onPlayerReady
+    }
+  });
+}
+
+
+function onPlayerStateChange(event) {
+  console.log("player state: " + player.getPlayerState());
+}
+
+function updateVideoId() {
+  let videoId = document.getElementById("videoId").value;
+  player.loadVideoById(videoId, -1);
+}
+
+function stopVideo() {
+  player.stopVideo();
+}
+
+// BOTUNI ZA PLAY STOP
+ // 3. The API calls this function when the video player is ready.
+    function onPlayerReady(event) {
+        $('#play-button').click(function(event){
+            player.playVideo();
+        });
+    }
+
+    // 4. The API calls this function when the player's state changes.
+    function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING) {
+            $('#play-button').click(function(event){
+            player.pauseVideo();
+ 					   });
+        }
+        else {
+            $('#play-button').click(function(event){
+                player.playVideo();
+            });
+        } 
+    }
+
+
+/* ODVOJENI PLAY STOP BOTUNI
+function onPlayerReady(event) {
+
+    // bind events
+    var playButton = document.getElementById("play-button");
+    playButton.addEventListener("click", function() {
+        player.playVideo();
+    });
+
+     var stopButton = document.getElementById("stop-button");
+    stopButton.addEventListener("click", function() {
+        player.stopVideo();
+    });
+
+}
+*/
 
   
 
