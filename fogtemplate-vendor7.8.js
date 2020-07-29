@@ -873,8 +873,27 @@ workLinks.forEach((link, index, value) => {
 
 });
 	
-	
-	
+// --- 022 - MENU ANIMATION - TL - PLAY REVERSE HOVER UTILSTO ARRAY CHANGE COLOR ------------------------------------------------------------------
+
+//gsap.set(".information", {yPercent: 100});
+
+gsap.utils.toArray(".small-link-wrapper").forEach(container => {
+  let 
+  /*info = container.querySelector(".information"),*/
+     linkcolor = container.querySelector(".linko"),
+      tl = gsap.timeline({ paused: true });
+  
+  tl
+  /*.to(info, { yPercent: 20 })*/
+    .to(linkcolor, { xPercent:3, ease: "power2.inOut", duration: 0.2, color: "#ff0000" }, 0);
+  
+  
+  
+  container.addEventListener("mouseenter", () => tl.play() );
+  container.addEventListener("mouseleave", () => tl.reverse() );
+});
+
+
 	
 	
 	
