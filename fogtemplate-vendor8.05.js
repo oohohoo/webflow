@@ -916,7 +916,7 @@ gsap.utils.toArray(".small-link-wrapper").forEach(container => {
        // touchRatio:5,
 	 loop: true,
 	 grabCursor: false,
-        loopFillGroupWithBlank: false,
+        //loopFillGroupWithBlank: false,
        // paginationClickable: true,
         spaceBetween: 30,
        // mousewheelControl: true,
