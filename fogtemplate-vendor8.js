@@ -908,7 +908,7 @@ gsap.utils.toArray(".small-link-wrapper").forEach(container => {
   },
 	// freeMode: true,
         //resistanceRatio:0.2,
-        slidesPerView: 1.3,
+        slidesPerView: 1,
 	 disableOnInteraction: 1,
 	 centeredSlides: 0,
         longSwipes:true,
