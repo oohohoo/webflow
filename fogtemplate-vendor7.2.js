@@ -122,6 +122,136 @@ snap: {snapTo: 0.5, duration: 0.6, delay: 0, ease: "power4.inOut"},
  // snap: 1 / 3 // snap whole page to the closest section!
 }); 
 
+// --- SCROLLTRIGGER FADE IN ELEMENTS
+
+ gsap.utils.toArray('.imagefadein').forEach(box => {
+ gsap.fromTo(box, {
+      autoAlpha: 0,
+      scale:.01
+    }, {
+      scrollTrigger: {
+     scroller: ".smooth-scroll",
+      trigger: box,
+      toggleActions: 'play stop play reverse',
+      once: false,
+      scrub:1,
+      end:"+=200%"
+    },
+      scale:1,
+      duration: 1, 
+      autoAlpha: 1, 
+      ease:"power4.out",
+  }, 6);
+});	
+	
+// --- 006 - TEXT REVEAL BATCH --------------------------------------------------------------------------
+gsap.set('.b-text', {autoAlpha: 0, yPercent: 200});
+
+ScrollTrigger.batch(".batch-text", {
+scroller: ".smooth-scroll",
+  onEnter: batch => {
+    batch.forEach((section, i) => {
+      gsap.to(section.querySelectorAll(".b-text"), {
+        autoAlpha: 1,
+        yPercent: 0,
+        duration: 0.8,
+        ease: "power1.inOut", 
+        stagger: 0.1,
+        delay: i * 0.3,
+        toggleActions: "restart pause reverse pause"
+      });
+    });
+  },
+  start: "top 95%"
+});
+	
+// --- 008 GALLERY BATCH --------------------
+
+gsap.defaults({ease: "power3"});
+gsap.set(".lazy", {autoAlpha:0, y: 100});
+
+ScrollTrigger.batch(".lazy", {
+  scroller: ".smooth-scroll",
+  //interval: 5, // time window (in seconds) for batching to occur. 
+  batchMax: 3,   // maximum batch size (targets)
+  onEnter: batch => gsap.to(batch, {autoAlpha:1, y: 0, stagger: {each: 0.15, grid: [1, 3]}, overwrite: true}),
+  onLeave: batch => gsap.set(batch, {autoAlpha:0, y: -100, overwrite: true}),
+  onEnterBack: batch => gsap.to(batch, {autoAlpha:1, y: 0, stagger: 0.15, overwrite: true}),
+  onLeaveBack: batch => gsap.set(batch, {autoAlpha:0, y: 100, overwrite: true})
+  // you can also define things like start, end, etc.
+});
+
+
+// when ScrollTrigger does a refresh(), it maps all the positioning data which 
+// factors in transforms, but in this example we're initially setting all the ".box"
+// elements to a "y" of 100 solely for the animation in which would throw off the normal 
+// positioning, so we use a "refreshInit" listener to reset the y temporarily. When we 
+// return a gsap.set() in the listener, it'll automatically revert it after the refresh()!
+ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".lazy", {y: 0}));
+
+	
+// --- 007 - STICKY FOOTER ----------------------------------------------
+
+ScrollTrigger.create({
+  trigger: "#stickywrap",
+  scroller: ".smooth-scroll",
+  start: "top 20%",
+  end:"bottom 80%",
+  pin:'#sticky',
+  onEnter: () => gsap.set('#sticky', {autoAlpha:1}),
+  onLeaveBack: () => gsap.set('#sticky', {autoAlpha:0}),
+});
+
+// ---- HEADER SWITCH
+//gsap.registerPlugin(ScrollTrigger);
+
+gsap.to(".infoarea", {
+		scrollTrigger: {
+     scroller: ".smooth-scroll",
+			trigger: ".section-1",
+			scrub:1,
+			toggleActions: 'play reverse play reverse'
+		},
+		color: '#fff',
+		backgroundColor: '#080808',
+		height:'5vh',
+		duration: 1, 
+	  ease: "power4.inOut",
+	});
+
+gsap.to(".menushr", {
+		scrollTrigger: {
+     scroller: ".smooth-scroll",
+					trigger: ".section-1",
+			scrub:1,
+			toggleActions: 'play reverse play reverse',
+		},
+  y:-45,
+  		color: '#fff',
+  scale: 0.6,
+	  ease: "power4.inOut",
+	});
+
+// SHOW HIDE SCROLLTRIGGER
+
+ScrollTrigger.create({
+  trigger: ".arrow-wrap",
+    scroller: ".smooth-scroll",
+  start: 'top 500',
+  end: 99999,
+  scrub:2,
+  onUpdate: self => {
+  console.log("direction:", self.direction);
+            let { direction } = self;
+            const featureBoxes = document.querySelectorAll('.hidescroll');
+            if (direction == -1) {
+                featureBoxes[0].classList.remove('is-hidden')
+            } else if (direction == 1) {
+                featureBoxes[0].classList.add('is-hidden')
+            }
+      }
+});		
+	
 /*
 // --- 003 / PARALAX NEK STOJI IAKO JE MOŽDA NEPOTREBNO-----------------------------------------------------------------
 //https://greensock.com/forums/topic/24805-scrolltrigger-parallax-and-locomotive-scroll/
@@ -214,65 +344,6 @@ function toggleState(tl_2) {
   tl_2.reversed() ? tl_2.play() : tl_2.reverse()
 }
 
-
-// --- 006 - TEXT REVEAL BATCH --------------------------------------------------------------------------
-gsap.set('.b-text', {autoAlpha: 0, yPercent: 200});
-
-ScrollTrigger.batch(".batch-text", {
-scroller: ".smooth-scroll",
-  onEnter: batch => {
-    batch.forEach((section, i) => {
-      gsap.to(section.querySelectorAll(".b-text"), {
-        autoAlpha: 1,
-        yPercent: 0,
-        duration: 0.8,
-        ease: "power1.inOut", 
-        stagger: 0.1,
-        delay: i * 0.3,
-        toggleActions: "restart pause reverse pause"
-      });
-    });
-  },
-  start: "top 95%"
-});
-
-// --- 007 - STICKY FOOTER ----------------------------------------------
-
-ScrollTrigger.create({
-  trigger: "#stickywrap",
-  scroller: ".smooth-scroll",
-  start: "top 20%",
-  end:"bottom 80%",
-  pin:'#sticky',
-  onEnter: () => gsap.set('#sticky', {autoAlpha:1}),
-  onLeaveBack: () => gsap.set('#sticky', {autoAlpha:0}),
-});
-
-
-// --- 008 GALLERY BATCH --------------------
-
-gsap.defaults({ease: "power3"});
-gsap.set(".lazy", {autoAlpha:0, y: 100});
-
-ScrollTrigger.batch(".lazy", {
-  scroller: ".smooth-scroll",
-  //interval: 5, // time window (in seconds) for batching to occur. 
-  batchMax: 3,   // maximum batch size (targets)
-  onEnter: batch => gsap.to(batch, {autoAlpha:1, y: 0, stagger: {each: 0.15, grid: [1, 3]}, overwrite: true}),
-  onLeave: batch => gsap.set(batch, {autoAlpha:0, y: -100, overwrite: true}),
-  onEnterBack: batch => gsap.to(batch, {autoAlpha:1, y: 0, stagger: 0.15, overwrite: true}),
-  onLeaveBack: batch => gsap.set(batch, {autoAlpha:0, y: 100, overwrite: true})
-  // you can also define things like start, end, etc.
-});
-
-
-// when ScrollTrigger does a refresh(), it maps all the positioning data which 
-// factors in transforms, but in this example we're initially setting all the ".box"
-// elements to a "y" of 100 solely for the animation in which would throw off the normal 
-// positioning, so we use a "refreshInit" listener to reset the y temporarily. When we 
-// return a gsap.set() in the listener, it'll automatically revert it after the refresh()!
-ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".lazy", {y: 0}));
-
 	
 // ------ ACCORDION
 var animations = $(".accordion-group").map(createAnimation);
@@ -304,55 +375,7 @@ function createAnimation(i, element) {
 }
 
 	
-// ---- HEADER SWITCH
-//gsap.registerPlugin(ScrollTrigger);
 
-gsap.to(".infoarea", {
-		scrollTrigger: {
-     scroller: ".smooth-scroll",
-			trigger: ".section-1",
-			scrub:1,
-			toggleActions: 'play reverse play reverse'
-		},
-		color: '#fff',
-		backgroundColor: '#080808',
-		height:'5vh',
-		duration: 1, 
-	  ease: "power4.inOut",
-	});
-
-gsap.to(".menushr", {
-		scrollTrigger: {
-     scroller: ".smooth-scroll",
-					trigger: ".section-1",
-			scrub:1,
-			toggleActions: 'play reverse play reverse',
-		},
-  y:-45,
-  		color: '#fff',
-  scale: 0.6,
-	  ease: "power4.inOut",
-	});
-
-// SHOW HIDE SCROLLTRIGGER
-
-ScrollTrigger.create({
-  trigger: ".arrow-wrap",
-    scroller: ".smooth-scroll",
-  start: 'top 500',
-  end: 99999,
-  scrub:2,
-  onUpdate: self => {
-  console.log("direction:", self.direction);
-            let { direction } = self;
-            const featureBoxes = document.querySelectorAll('.hidescroll');
-            if (direction == -1) {
-                featureBoxes[0].classList.remove('is-hidden')
-            } else if (direction == 1) {
-                featureBoxes[0].classList.add('is-hidden')
-            }
-      }
-});	
 	
 // --- 005 - OPEN FULLSCREEN VIDEO AND PLAY/PAUSE  --------------------------------------------------------------------------
 var trigger = document.querySelector('.whitekrugxxx');
@@ -553,27 +576,7 @@ $(".link").on("mouseleave", function() {
     });
 });
 
-// --- SCROLLTRIGGER FADE IN ELEMENTS
 
- gsap.utils.toArray('.imagefadein').forEach(box => {
- gsap.fromTo(box, {
-      autoAlpha: 0,
-      scale:.01
-    }, {
-      scrollTrigger: {
-     scroller: ".smooth-scroll",
-      trigger: box,
-      toggleActions: 'play stop play reverse',
-      once: false,
-      scrub:1,
-      end:"+=200%"
-    },
-      scale:1,
-      duration: 1, 
-      autoAlpha: 1, 
-      ease:"power4.out",
-  }, 6);
-});
 
 
 
