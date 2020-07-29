@@ -1,0 +1,74 @@
+<!-- VERTICAL SLIDER w/ PARRALAX, ARROW AND CSS -->
+
+  .cta__slider .swiper-slide {
+	 overflow: hidden;
+}
+  .cta__slider-item {
+	 position: relative;
+}
+ .cta__slider-item .media-wrapper {
+	 position: absolute;
+	 width: 100%;
+	 height: 100%;
+	 left: 0;
+	 top: 0;
+}
+ .cta__slider-item img {
+	 width: 100%;
+	 height: 100%;
+	 object-fit: cover;
+}
+/* KILL WEBFLOW BADGE */
+.w-webflow-badge {
+    position: relative !important;
+    right: 1000px !important;
+}
+
+/* YTDEFER - onaj prvi super mebed - kasnije sam naša onaj kropani */
+.ytdefer-wrapper {
+position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+/*width: calc(65vh*1920/1800);
+height: 65vh;
+}
+
+/* SHOW HIDE NAVBAR - ono prvo rješenje sa loco githuba */
+#header {
+ /* position: fixed;
+  top: 0; left: 0; */
+  transform: translate3d(0,0,0);
+  transition: transform .5s ease-in-out;
+}
+
+html[data-direction="down"] #header {
+  transform: translate3d(0,-100%,0);
+}
+
+/* FLIP GSAP CSS */ nedovršeno!
+
+
+#container1::before, #container2::before{
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #999;
+}
+
+/* MAIN MENU SHOW HIDE ON SCROLL - rješenje 2 */
+.hidescroll {
+    transition: 2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+ 
+ .hidescroll.is-hidden {
+        transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+    transform: translate3d(0,-20vh,0);
+    position: fixed;
+
+  }
+
+
+
