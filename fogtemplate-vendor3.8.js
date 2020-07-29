@@ -769,6 +769,115 @@ function gen_ytdefer_clk(i)
 
 
 
+// MENU HIDE / ENTER ON SCROLL (VERZIJA 1)
+locoScroll.on('scroll', (instance) => {
+    document.documentElement.setAttribute('data-direction', instance.direction)
+});
+
+// ScrollTo - Menu funkcije
+$( "#sec" ).on( "click", function() {
+locoScroll.scrollTo('#section')
+});
+$( "#sec1" ).on( "click", function() {
+locoScroll.scrollTo('#section1')
+});
+$( "#sec2" ).on( "click", function() {
+locoScroll.scrollTo('#section2')
+});
+$( "#sec3" ).on( "click", function() {
+locoScroll.scrollTo('#section3')
+});
+$( "#sec4" ).on( "click", function() {
+locoScroll.scrollTo('#section4')
+});
+$( "#sec5" ).on( "click", function() {
+locoScroll.scrollTo('#section5')
+});
+
+
+// CLICK ON BOX ZOOM TO FULLSCREEN
+//console.clear();
+
+var root  = document.documentElement;
+var body  = document.body;
+var pages = document.querySelectorAll(".page");
+var tiles = document.querySelectorAll(".tile");
+
+for (var i = 0; i < tiles.length; i++) {  
+  addListeners(tiles[i], pages[i]);
+}
+
+function addListeners(tile, page) {
+  
+  var closeBtn = page.querySelector(".b-close");
+  
+  tile.addEventListener("click", function() {
+    animateHero(tile, page);
+     gsap.to(".b-close", {duration: 0.3, delay:0.3, opacity:1})
+  });
+  
+ /*page.addEventListener("click", function() {
+    animateHero(page, tile);
+  });  */
+    closeBtn.addEventListener("click", function() {
+    animateHero(page, tile);
+    gsap.to(".b-close", {duration: 0.2, opacity:0})
+  }); 
+  
+  
+}
+
+function animateHero(fromHero, toHero) {
+    
+  var clone = fromHero.cloneNode(true);
+      
+  var from = calculatePosition(fromHero);
+  var to = calculatePosition(toHero);
+  
+  gsap.set([fromHero, toHero], { visibility: "hidden" });
+  gsap.set(clone, { position: "absolute", margin: 0 });
+  
+  body.appendChild(clone);  
+      
+  var style = {
+    x: to.left - from.left,
+    y: to.top - from.top,
+    width: to.width,
+    height: to.height,
+    autoRound: false,
+    ease: "power1.Out",
+    onComplete: onComplete
+  };
+   
+  gsap.set(clone, from);  
+  gsap.to(clone, 0.3, style)
+
+    
+  function onComplete() {
+    
+    gsap.set(toHero, { visibility: "visible" });
+    body.removeChild(clone);
+  }
+}
+
+function calculatePosition(element) {
+    
+  var rect = element.getBoundingClientRect();
+  
+  var scrollTop  = window.pageYOffset || root.scrollTop  || body.scrollTop  || 0;
+  var scrollLeft = window.pageXOffset || root.scrollLeft || body.scrollLeft || 0;
+  
+  var clientTop  = root.clientTop  || body.clientTop  || 0;
+  var clientLeft = root.clientLeft || body.clientLeft || 0;
+    
+  return {
+    top: Math.round(rect.top + scrollTop - clientTop),
+    left: Math.round(rect.left + scrollLeft - clientLeft),
+    height: rect.height,
+    width: rect.width,
+  };
+}
+  
 	
 	
 	
