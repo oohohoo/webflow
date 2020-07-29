@@ -903,9 +903,9 @@ gsap.utils.toArray(".small-link-wrapper").forEach(container => {
  var swipera = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
         direction: 'horizontal',
-	 freeMode: true,
+	// freeMode: true,
         resistanceRatio:0.5,
-        //slidesPerView: 1.3,
+        slidesPerView: 1.3,
         longSwipes:true,
         longSwipesRatio:0.5,
         touchRatio:5,
