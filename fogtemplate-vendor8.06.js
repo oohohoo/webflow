@@ -945,11 +945,11 @@ gsap.utils.toArray(".small-link-wrapper").forEach(container => {
 
     });
 
-$('#swipgsap').on('mousedown touchstart', function(event) {
+$('swiper-slide').on('mousedown touchstart', function(event) {
   gsap.to('.swiper-slide', {scale: 0.9, duration: 0.4});
 });
 
-$('#swipgsap').on('mouseup touchend', function(event) {
+$('.swiper-slide').on('mouseup touchend', function(event) {
  gsap.to('.swiper-slide', {scale:1, duration: 0.4, delay:0.2});
 });
 
