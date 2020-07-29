@@ -40,18 +40,6 @@ position: relative;
 height: 65vh;
 }
 
-/* 007a - SHOW HIDE MENU HEADER SWITCH (first version from locomotive scroll github */
-
-#header {
- /* position: fixed;
-  top: 0; left: 0; */
-  transform: translate3d(0,0,0);
-  transition: transform .5s ease-in-out;
-}
-
-html[data-direction="down"] #header {
-  transform: translate3d(0,-100%,0);
-}
 
 /* --------------- FLIP GSAP CSS */ nedovršeno!
 
@@ -65,17 +53,7 @@ html[data-direction="down"] #header {
   color: #999;
 }
 
-/* 007 - SHOW HIDE MENU HEADER SWITCH WITH SCROLLTRIGGER */
-.hidescroll {
-    transition: 2s cubic-bezier(0.23, 1, 0.32, 1);
-}
- 
- .hidescroll.is-hidden {
-        transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
-    transform: translate3d(0,-20vh,0);
-    position: fixed;
 
-  }
 
 
 
