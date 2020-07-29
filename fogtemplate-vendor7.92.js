@@ -937,11 +937,11 @@ gsap.utils.toArray(".small-link-wrapper").forEach(container => {
 
     });
 
-$('.gsapefekt').on('mousedown touchstart', function(event) {
+$('#swipgsap').on('mousedown touchstart', function(event) {
   gsap.to('.swiper-slide', {scale: 0.9, duration: 0.4});
 });
 
-$('.gsapefekt').on('mouseup touchend', function(event) {
+$('#swipgsap').on('mouseup touchend', function(event) {
  gsap.to('.swiper-slide', {scale:1, duration: 0.4, delay:0.2});
 });
 
