@@ -1,0 +1,182 @@
+
+/* HOVER+CLICK */
+.h-page, .click{
+  visibility: hidden;
+}
+
+/* FIRST SCREEN hide elements on load FUOP */
+.clip, .char {
+visibility: hidden;
+}
+
+/* 009 - SWIPER */
+  .cta__slider .swiper-slide {
+	 overflow: hidden;
+}
+  .cta__slider-item {
+	 position: relative;
+}
+ .cta__slider-item .media-wrapper {
+	 position: absolute;
+	 width: 100%;
+	 height: 100%;
+	 left: 0;
+	 top: 0;
+}
+ .cta__slider-item img {
+	 width: 100%;
+	 height: 100%;
+	 object-fit: cover;
+}
+
+/*020 - YOUTUBE CROP + FULLSCREEN bez YT pizdarija*/
+#player-size {
+  /* comment below line for responsive 16:9 ratio based on 
+     user's window width */
+  width: 100vw;
+  /* only need to specify width since 16:9 ratio is  
+     preserved / automatically applied */
+}
+
+#cropping-div {
+  overflow: hidden;
+}
+
+#div-to-crop {
+  overflow: hidden;
+  margin-top: -51%;
+  margin-bottom: -20%;
+}
+
+#player-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding-top: 128.25%;
+}
+
+#player {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 124%;
+  
+}
+
+
+/* 007 - SHOW HIDE MENU HEADER SWITCH WITH SCROLLTRIGGER */
+.hidescroll {
+    transition: 2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+ 
+ .hidescroll.is-hidden {
+        transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+    transform: translate3d(0,-20vh,0);
+    position: fixed;
+
+  }
+  
+  /* 007a - SHOW HIDE MENU HEADER SWITCH (first version from locomotive scroll github */
+
+#header {
+ /* position: fixed;
+  top: 0; left: 0; */
+  transform: translate3d(0,0,0);
+  transition: transform .5s ease-in-out;
+}
+
+html[data-direction="down"] #header {
+  transform: translate3d(0,-100%,0);
+}
+
+/*LOCOMOTIVE CSS*/
+html.has-scroll-smooth {
+overflow: hidden; }
+html.has-scroll-dragging {
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none; }
+.has-scroll-smooth body {
+overflow: hidden; }
+.c-scrollbar {
+position: absolute;
+right: 0;
+top: 0;
+width: 5px;
+height: 100vh;
+transform-origin: center right;
+transition: transform 0.3s, opacity 0.3s;
+opacity: 0; }
+.c-scrollbar:hover {
+transform: scaleX(2); }
+.c-scrollbar:hover, .has-scroll-scrolling .c-scrollbar, .has-scroll-dragging .c-scrollbar {
+opacity: 1; }
+.c-scrollbar_thumb {
+position: absolute;
+top: 0;
+right: 0;
+background-color: #080808;
+opacity: 0.8;
+width: 5px;
+border-radius: 0px;
+margin: 2px;
+cursor: -webkit-grab;
+cursor: grab; }
+.has-scroll-dragging .c-scrollbar_thumb {
+cursor: -webkit-grabbing;
+cursor: grabbing; }
+
+
+
+/* onaj barba overlay blue
+.loader {
+    visibility: hidden;
+} 
+
+
+/* NEKI PLAYER MOGUĆE DA JE ZA BACIT */
+#player-size {
+  /* comment below line for responsive 16:9 ratio based on 
+     user's window width */
+  width: 1440;
+ 
+  /* only need to specify width since 16:9 ratio is  
+     preserved / automatically applied */
+}
+
+
+
+/* KILL WEBFLOW BADGE */
+.w-webflow-badge {
+    position: relative !important;
+    right: 1000px !important;
+}
+
+/* YTDEFER - onaj prvi super embed - kasnije sam naša onaj kropani */
+.ytdefer-wrapper {
+position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+/*width: calc(65vh*1920/1800);
+height: 65vh;
+}
+
+
+/* --------------- FLIP GSAP CSS */ nedovršeno!
+
+
+#container1::before, #container2::before{
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #999;
+}
+
+    
+
+
+
+
