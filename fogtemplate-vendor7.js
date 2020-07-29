@@ -249,7 +249,7 @@ ScrollTrigger.create({
 });
 
 
-// --- GALLERY BATCH --------------------
+// --- 008 GALLERY BATCH --------------------
 
 gsap.defaults({ease: "power3"});
 gsap.set(".lazy", {autoAlpha:0, y: 100});
@@ -354,11 +354,7 @@ ScrollTrigger.create({
       }
 });	
 	
-// --- 005 - MENU TOGGLE FUNCTION MOVE CONTENT TO REVEAL MENU --------------------------------------------------------------------------
-// AKO SE KOD NE UČITA PA NE RADI, UBACIMO SVE U OVO
-//window.onload=function(){
-
-
+// --- 005 - OPEN FULLSCREEN VIDEO AND PLAY/PAUSE  --------------------------------------------------------------------------
 var trigger = document.querySelector('.whitekrugxxx');
 var tl = gsap.timeline({ paused: true, reversed: true })
 //var tl_2 = gsap.timeline({ paused: true, reversed: true})
@@ -416,40 +412,6 @@ function crossfade(){
 // start the crossfade after next = 3 sec
 gsap.delayedCall(next, crossfade);
 
-/// ----- MOUSE + CLICK
-
-
-
-gsap.set(".h-page", {autoAlpha:1})
-
-var $button = $('.linkclick'),
-    $page = $('.h-page'),
-    $click = $('.click');
-
-$button.on('mouseenter', function(e) {
-  var $thisPage = $(this).attr('id');
-  var $thisClick = ($thisPage + "Click");
-
-  gsap.to($thisPage, 1, {autoAlpha:1});
-  gsap.to($page.not($thisPage), 0.5, {autoAlpha:0}); // faster
-  gsap.to($thisClick, 0.4, {autoAlpha:0});
-
-});
-
-
-$button.on('click', function() {
-
-  var $thisPage = $(this).attr('id');
-  var $thisClick = ($thisPage + "Click");
-
-
-  gsap.to($thisPage, 0.8, {autoAlpha:1});
-  gsap.to($page.not($thisPage), 0.4, {autoAlpha:0});
-  gsap.to($click.not($thisClick), 0.4, {autoAlpha:0});
-  gsap.to($thisClick, 0.4, {autoAlpha:1});
-
-
-});
 
 // --- MENU IMAGE OVERLAY
 var cursor = $(".cursor"),
@@ -512,18 +474,7 @@ gsap.from(".line-1", {
   ease: "none"
 });
 
-/*
-	// BATCH REVEAL LILA BOXES  // NE RADI TESTIRAJ DALJE
 
-gsap.set(".reveal", {opacity: 0});
-
-ScrollTrigger.batch(".reveal", {
-  onEnter: batch => gsap.to(batch, {duration:1,  opacity: 1, stagger: 0.1, overwrite: true}),
-  onLeave: batch => gsap.set(batch, {duration:1, opacity: 0, overwrite: true}),
-  onEnterBack: batch => gsap.to(batch, {duration:1, opacity: 1, stagger: 0.1, overwrite: true}),
-  onLeaveBack: batch => gsap.set(batch, {duration:1, opacity: 0, overwrite: true})
-});
-*/
 
 // --- CUSTOM MOUSE
 
@@ -769,197 +720,9 @@ function gen_ytdefer_clk(i)
 
 
 
-// MENU HIDE / ENTER ON SCROLL (VERZIJA 1)
-locoScroll.on('scroll', (instance) => {
-    document.documentElement.setAttribute('data-direction', instance.direction)
-});
-
-// ScrollTo - Menu funkcije
-$( "#sec" ).on( "click", function() {
-locoScroll.scrollTo('#section')
-});
-$( "#sec1" ).on( "click", function() {
-locoScroll.scrollTo('#section1')
-});
-$( "#sec2" ).on( "click", function() {
-locoScroll.scrollTo('#section2')
-});
-$( "#sec3" ).on( "click", function() {
-locoScroll.scrollTo('#section3')
-});
-$( "#sec4" ).on( "click", function() {
-locoScroll.scrollTo('#section4')
-});
-$( "#sec5" ).on( "click", function() {
-locoScroll.scrollTo('#section5')
-});
 
 
-// CLICK ON BOX ZOOM TO FULLSCREEN
-//console.clear();
 
-var root  = document.documentElement;
-var body  = document.body;
-var pages = document.querySelectorAll(".page");
-var tiles = document.querySelectorAll(".tile");
-
-for (var i = 0; i < tiles.length; i++) {  
-  addListeners(tiles[i], pages[i]);
-}
-
-function addListeners(tile, page) {
-  
-  var closeBtn = page.querySelector(".b-close");
-  
-  tile.addEventListener("click", function() {
-    animateHero(tile, page);
-     gsap.to(".b-close", {duration: 0.3, delay:0.3, opacity:1})
-  });
-  
- /*page.addEventListener("click", function() {
-    animateHero(page, tile);
-  });  */
-    closeBtn.addEventListener("click", function() {
-    animateHero(page, tile);
-    gsap.to(".b-close", {duration: 0.2, opacity:0})
-  }); 
-  
-  
-}
-
-function animateHero(fromHero, toHero) {
-    
-  var clone = fromHero.cloneNode(true);
-      
-  var from = calculatePosition(fromHero);
-  var to = calculatePosition(toHero);
-  
-  gsap.set([fromHero, toHero], { visibility: "hidden" });
-  gsap.set(clone, { position: "absolute", margin: 0 });
-  
-  body.appendChild(clone);  
-      
-  var style = {
-    x: to.left - from.left,
-    y: to.top - from.top,
-    width: to.width,
-    height: to.height,
-    autoRound: false,
-    ease: "power1.Out",
-    onComplete: onComplete
-  };
-   
-  gsap.set(clone, from);  
-  gsap.to(clone, 0.3, style)
-
-    
-  function onComplete() {
-    
-    gsap.set(toHero, { visibility: "visible" });
-    body.removeChild(clone);
-  }
-}
-
-function calculatePosition(element) {
-    
-  var rect = element.getBoundingClientRect();
-  
-  var scrollTop  = window.pageYOffset || root.scrollTop  || body.scrollTop  || 0;
-  var scrollLeft = window.pageXOffset || root.scrollLeft || body.scrollLeft || 0;
-  
-  var clientTop  = root.clientTop  || body.clientTop  || 0;
-  var clientLeft = root.clientLeft || body.clientLeft || 0;
-    
-  return {
-    top: Math.round(rect.top + scrollTop - clientTop),
-    left: Math.round(rect.left + scrollLeft - clientLeft),
-    height: rect.height,
-    width: rect.width,
-  };
-}
-  
-	
-// --- YOUTUBE PLAYER ONAJ FENSI EMBEDD
-
-
-var ytdefer_ic_w=73;var ytdefer_ic_h=52;var yt_icon='<svg height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#eb3223"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>';var yt_dark_icon='<svg height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>';function ytdefer_setup()
-{var d=document;var els=d.getElementsByClassName('ytdefer');for(var i=0;i<els.length;i++)
-{var e=els[i];var ds=e.getAttribute('data-src');if(!ds)
-{alert("data-src missing for video");return;}
-var w=e.clientWidth;var h=e.clientHeight;var dv=d.createElement('div');dv.id='ytdefer_vid'+i;dv.style.width=w+'px';dv.style.height=h+'px';dv.style.position='relative';dv.onresize=ytdefer_resize;e.appendChild(dv);var im=d.createElement('img');var res='0';if(w>480)
-{res='maxresdefault';}
-im.src='https://uploads-ssl.webflow.com/5e3ac0099daa812301be51d5/5f00471be68b4fa9a600ad7f_4.jpg';im.id='ytdefer_img'+i;im.style.width='100%';im.style.height='100%';im.style.objectFit='cover';im.style.position='relative';im.onclick=gen_ytdefer_clk(i);dv.appendChild(im);var bt=d.createElement('button');bt.style.backgroundImage="url(data:image/svg+xml;base64,"+window.btoa(yt_dark_icon)+")";bt.id='ytdefer_icon'+i;bt.style.position='absolute';bt.style.border='0';bt.style.backgroundColor='transparent';bt.style.left=(w/2-ytdefer_ic_w/2)+'px';bt.style.top=(h/2-ytdefer_ic_h/2)+'px';bt.style.width=ytdefer_ic_w+'px';bt.style.height=ytdefer_ic_h+'px';bt.style.pointerEvents='none';dv.appendChild(bt);im.onmouseover=gen_mouseover(bt);im.onmouseout=gen_mouseout(bt);}
-if(typeof(YT)=='undefined')
-{var js=d.createElement("script");js.type="text/javascript";js.src="https://www.youtube.com/player_api";d.body.appendChild(js);}
-window.addEventListener('resize',ytdefer_resize);}
-function ytdefer_resize()
-{var d=document;var els=d.getElementsByClassName('ytdefer');for(var i=0;i<els.length;i++)
-{var e=els[i];var w=e.clientWidth;var h=e.clientHeight;var dv=d.getElementById('ytdefer_vid'+i);dv.style.width=w+'px';dv.style.height=h+'px';var ic=d.getElementById('ytdefer_icon'+i);if(null!=ic)
-{ic.style.left=(w/2-ytdefer_ic_w/2)+'px';ic.style.top=(h/2-ytdefer_ic_h/2)+'px';}}}
-function gen_mouseout(bt)
-{return function()
-{bt.style.backgroundImage="url(data:image/svg+xml;base64,"+window.btoa(yt_dark_icon)+")";}}
-function gen_mouseover(bt)
-{return function()
-{bt.style.backgroundImage="url(data:image/svg+xml;base64,"+window.btoa(yt_icon)+")";}}
-function gen_ytdefer_clk(i)
-{return function()
-{var d=document;var el=d.getElementById('ytdefer_vid'+i);var vid_id=el.parentNode.getAttribute('data-src');var player=new YT.Player(el.id,{height:el.style.height,width:el.style.width,videoId:vid_id,playerVars:{'color':'white','enablejsapi':1, 'controls':1,'autoplay':1,'mute':1, 'modestbranding': 0},events:{'onReady':function(ev){ev.target.playVideo()}}});}}
-
-    window.addEventListener('load', ytdefer_setup);
-	
-	
-// ACCORDION
-var animations = $(".accordion-group").map(createAnimation);
-
-$(".accordion-menu").click(playAnimation);
-
-function playAnimation(event) {
-  
-  var selected = this;
-  
-  animations.each(function(i, animate) {
-    animate(selected);
-  });
-}
-
-function createAnimation(i, element) {
-    
-  var menu = element.querySelector(".accordion-menu");
-  var box  = element.querySelector(".accordion-content");
-  
-  gsap.set(box, { height: "auto"})
-  var tween = gsap.from(box, { duration:0.5, height: 0, ease: Power1.easeInOut }).reverse();
-  
-  return function(selected) {
-    
-    var reversed = selected !== menu ? true : !tween.reversed();
-    tween.reversed(reversed);
-  }
-}
-
-//// ---- SIMPLE SLIDER RGB
-var imgs =gsap.utils.toArray(".motiv")
-
-var next = 3; // time to change
-
-function crossfade(){
-  
-  var action = gsap.timeline()
-  .to(imgs,  {y:'-=200', duration:1})
-  .to(imgs[0], {y:'+=600', duration:0}) // the first to the end
-
-  imgs.push( imgs.shift() ); // the first (shift) to the end (push) from the array
-  console.log(imgs);
-
-  // start endless run
-  gsap.delayedCall(next, crossfade);
-
-}
-
-// start the crossfade after next = 3 sec
-gsap.delayedCall(next, crossfade);
-  
   
 
 	
