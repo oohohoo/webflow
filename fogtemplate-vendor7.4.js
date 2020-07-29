@@ -1,4 +1,4 @@
-window.onload=function(){
+// window.onload=function(){
 
 
 
@@ -737,5 +737,5 @@ function gen_ytdefer_clk(i)
 	
 	
 //onaj	
-}
+//}
 	
