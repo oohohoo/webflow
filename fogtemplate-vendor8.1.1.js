@@ -1,4 +1,4 @@
-// window.onload=function(){
+ window.onload=function(){
 
 
 
@@ -979,5 +979,5 @@ var action = gsap.timeline({repeat:-1, defaults:{duration:0.8, ease:'none'}})
 
 
 //onaj	
-//}
+}
 	
