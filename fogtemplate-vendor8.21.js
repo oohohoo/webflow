@@ -976,5 +976,5 @@ gsap.to(".pin-wrap", {
 
 
 //onaj	
-}
+//}
 	
