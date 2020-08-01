@@ -975,7 +975,7 @@ gsap.to(".pin-wrap", {
 // HORIZZONTAL SCROLL WITH CHILD ANIMATION
 
 let sections = gsap.utils.toArray(".h-scroll--slide");
-let container = document.querySelector(".horiz-pin");
+let container = document.querySelector(".h-scroll--wrapper");
 let elements = gsap.utils.toArray(document.querySelectorAll(".h-scroll--content > *"));
 
 let timeline = gsap.timeline();
