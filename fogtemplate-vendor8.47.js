@@ -1043,8 +1043,7 @@ elements.forEach((element) => {
 gsap.set("#red", {autoAlpha:1})
 
 var $button = $('.c-button'),
-    $page = $('.var $button = $('.c-button'),
-'),
+    $page = $('.c-scroll--slide'),
     $click = $('.click');
 
 $button.on('mouseenter', function(e) {
