@@ -1036,6 +1036,45 @@ elements.forEach((element) => {
 });
 
 
+// ------ 028 HOVER + CLICK GSAP 3 MANFRED
+
+gsap.set("#red", {autoAlpha:1})
+
+var $button = $('.c-button'),
+    $page = $('.c-scroll--slide'),
+    $click = $('.c-scroll--content');
+
+$button.on('mouseenter', function(e) {
+  var $thisPage = $(this).attr('id');
+  var $thisClick = ($thisPage + "Click");
+
+  gsap.to($thisPage, 1, {autoAlpha:1});
+  gsap.to($page.not($thisPage), 0.5, {autoAlpha:0}); // faster
+  gsap.to($thisClick, 0.4, {autoAlpha:0});
+
+});
+
+
+$button.on('click', function() {
+
+  var $thisPage = $(this).attr('id');
+  var $thisClick = ($thisPage + "Click");
+
+
+  gsap.to($thisPage, 0.8, {autoAlpha:1});
+  gsap.to($page.not($thisPage), 0.4, {autoAlpha:0});
+  gsap.to($click.not($thisClick), 0.4, {autoAlpha:0});
+  gsap.to($thisClick, 0.4, {autoAlpha:1});
+
+
+});
+
+
+
+
+
+
+
 
 //onaj	
 //}
