@@ -972,6 +972,62 @@ gsap.to(".pin-wrap", {
 });
 
 
+// HORIZZONTAL SCROLL WITH CHILD ANIMATION
+
+let sections = gsap.utils.toArray(".h-scroll--slide");
+let container = document.querySelector(".h-scroll--wrapper");
+let elements = gsap.utils.toArray(document.querySelectorAll(".h-scroll--content > *"));
+
+let timeline = gsap.timeline();
+
+timeline.to(sections, {
+    x: () =>
+        -(container.scrollWidth - document.documentElement.clientWidth) + "px",
+    ease: "none",
+    scrollTrigger: {
+        pin: true,
+        scrub: 1,
+        overwrite: "auto",
+        trigger: container,
+        end: () => container.scrollWidth - document.documentElement.clientWidth
+    }
+});
+
+let scrollTriggerTimeline = gsap.timeline();
+
+elements.forEach((element) => {
+    scrollTriggerTimeline.from(element, {
+        yPercent: 300,
+        opacity: 0,
+        overwrite: "auto",
+        scrollTrigger: {
+            scrub: 1,
+            start: () => element.parentNode.offsetLeft - window.innerWidth,
+            end: () =>
+                element.parentNode.offsetLeft -
+                window.innerWidth +
+                element.parentNode.getBoundingClientRect().width
+        }
+    });
+});
+
+elements.forEach((element) => {
+    scrollTriggerTimeline.to(element, {
+        yPercent: 300,
+        opacity: 0,
+        overwrite: "auto",
+        scrollTrigger: {
+            scrub: 1,
+            immediateRender: false,
+            start: () =>
+                element.parentNode.offsetLeft -
+                element.parentNode.getBoundingClientRect().width / 2,
+            end: () =>
+                element.parentNode.offsetLeft +
+                element.parentNode.getBoundingClientRect().width
+        }
+    });
+});
 
 
 
