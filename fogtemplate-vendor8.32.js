@@ -985,6 +985,7 @@ timeline.to(sections, {
         -(container.scrollWidth - document.documentElement.clientWidth) + "px",
     ease: "none",
     scrollTrigger: {
+	      scroller: ".smooth-scroll",
         pin: true,
         scrub: 1,
         overwrite: "auto",
@@ -1001,6 +1002,7 @@ elements.forEach((element) => {
         opacity: 0,
         overwrite: "auto",
         scrollTrigger: {
+	scroller: ".smooth-scroll",
             scrub: 1,
             start: () => element.parentNode.offsetLeft - window.innerWidth,
             end: () =>
@@ -1017,6 +1019,7 @@ elements.forEach((element) => {
         opacity: 0,
         overwrite: "auto",
         scrollTrigger: {
+	scroller: ".smooth-scroll",
             scrub: 1,
             immediateRender: false,
             start: () =>
