@@ -998,7 +998,7 @@ let scrollTriggerTimeline = gsap.timeline();
 
 elements.forEach((element) => {
     scrollTriggerTimeline.from(element, {
-        yPercent: 300,
+        yPercent: 10,
         opacity: 0,
         overwrite: "auto",
         scrollTrigger: {
@@ -1015,7 +1015,7 @@ elements.forEach((element) => {
 
 elements.forEach((element) => {
     scrollTriggerTimeline.to(element, {
-        yPercent: 300,
+        yPercent: 10,
         opacity: 0,
         overwrite: "auto",
         scrollTrigger: {
