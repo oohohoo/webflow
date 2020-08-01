@@ -976,6 +976,7 @@ gsap.to(".pin-wrap", {
 
 let sections = gsap.utils.toArray(".h-scroll--slide");
 let container = document.querySelector(".h-scroll--wrapper");
+let pinner = document.querySelector(".h-scroll--");
 let elements = gsap.utils.toArray(document.querySelectorAll(".h-scroll--slide > *"));
 
 let timeline = gsap.timeline();
@@ -990,7 +991,7 @@ timeline.to(sections, {
 	    pin: true,
         scrub: 1,
         overwrite: "auto",
-        trigger: container,
+        trigger: pinner,
         end: () => container.scrollWidth - document.documentElement.clientWidth
     }
 });
