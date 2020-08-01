@@ -988,7 +988,8 @@ timeline.to(sections, {
     scrollTrigger: {
 	      scroller: ".smooth-scroll",
         //  pin:'.horiz-pin',
-	    pin: pinner,
+	    pin: true,
+	   // pin: pinner,
         scrub: 1,
         overwrite: "auto",
         trigger: pinner,
@@ -1000,7 +1001,7 @@ let scrollTriggerTimeline = gsap.timeline();
 
 elements.forEach((element) => {
     scrollTriggerTimeline.from(element, {
-        //yPercent: 50,
+        yPercent: 50,
         opacity: 0,
         overwrite: "auto",
         scrollTrigger: {
@@ -1017,7 +1018,7 @@ elements.forEach((element) => {
 
 elements.forEach((element) => {
     scrollTriggerTimeline.to(element, {
-        //yPercent: 50,
+        yPercent: 50,
         opacity: 0,
         overwrite: "auto",
         scrollTrigger: {
