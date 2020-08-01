@@ -988,8 +988,8 @@ timeline.to(sections, {
     scrollTrigger: {
 	      scroller: ".smooth-scroll",
         //  pin:'.horiz-pin',
-	    pin: true,
-	   // pin: pinner,
+	   // pin: true,
+	    pin: pinner,
         scrub: 1,
         overwrite: "auto",
         trigger: pinner,
