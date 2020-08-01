@@ -975,7 +975,7 @@ gsap.to(".pin-wrap", {
 // HORIZZONTAL SCROLL WITH CHILD ANIMATION
 
 let sections = gsap.utils.toArray(".h-scroll--slide");
-let container = document.querySelector(".h-scroll--wrapper");
+let container = document.querySelector(".horiz-pin");
 let elements = gsap.utils.toArray(document.querySelectorAll(".h-scroll--content > *"));
 
 let timeline = gsap.timeline();
@@ -986,8 +986,8 @@ timeline.to(sections, {
     ease: "none",
     scrollTrigger: {
 	      scroller: ".smooth-scroll",
-          pin:'#horiz-pin',
-	    //pin: true,
+        //  pin:'.horiz-pin',
+	    pin: true,
         scrub: 1,
         overwrite: "auto",
         trigger: container,
