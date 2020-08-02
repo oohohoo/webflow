@@ -47,7 +47,7 @@ ScrollTrigger.refresh();
 Splitting();
 
 // IMAGE EXCHANGE GALLERY 
-var imgs = $.makeArray( $('#images img') );
+var imgs = $.makeArray( $('.proportional img') );
     imgs.reverse();
 
 function crossfade(){
