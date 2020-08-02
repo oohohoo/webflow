@@ -989,10 +989,10 @@ timeline.to(sections, {
 	      scroller: ".smooth-scroll",
         //  pin:'.horiz-pin',
 	   // pin: true,
-	    pin: pinner-div,
+	    pin: ".pinner-div",
         scrub: 1,
         overwrite: "auto",
-        trigger: pinner-div,
+        trigger: ".pinner-div",
         end: () => container.scrollWidth - document.documentElement.clientWidth
     }
 });
