@@ -976,7 +976,7 @@ gsap.to(".pin-wrap", {
 
 let sections = gsap.utils.toArray(".h-scroll--slide");
 let container = document.querySelector(".h-scroll--container");
-let pinner = document.querySelector(".h-scroll--");
+let pinner = document.querySelector(".pinner-div");
 let elements = gsap.utils.toArray(document.querySelectorAll(".h-scroll--slide > *"));
 
 let timeline = gsap.timeline();
@@ -988,8 +988,8 @@ timeline.to(sections, {
     scrollTrigger: {
 	      scroller: ".smooth-scroll",
         //  pin:'.horiz-pin',
-	   // pin: true,
-	    pin: ".pinner-div",
+	    pin: true,
+	   // pin: ".pinner-div",
         scrub: 1,
         overwrite: "auto",
         trigger: pinner,
