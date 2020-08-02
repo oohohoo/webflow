@@ -142,7 +142,7 @@ scroller: ".smooth-scroll",
         ease: "power1.inOut", 
         stagger: 0.1,
         delay: i * 0.3,
-        toggleActions: "restart pause restart pause"
+        toggleActions: "restart pause reverse pause"
       });
     });
   },
@@ -676,7 +676,6 @@ function calculatePosition(element) {
 // --- 019 - YOUTUBE PLAYER ONAJ FENSI  --------------------------------------------------------------------------
 
 /*
-
 var ytdefer_ic_w=73;var ytdefer_ic_h=52;var yt_icon='<svg height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#eb3223"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>';var yt_dark_icon='<svg height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>';function ytdefer_setup()
 {var d=document;var els=d.getElementsByClassName('ytdefer');for(var i=0;i<els.length;i++)
 {var e=els[i];var ds=e.getAttribute('data-src');if(!ds)
@@ -700,10 +699,7 @@ function gen_mouseover(bt)
 function gen_ytdefer_clk(i)
 {return function()
 {var d=document;var el=d.getElementById('ytdefer_vid'+i);var vid_id=el.parentNode.getAttribute('data-src');var player=new YT.Player(el.id,{height:el.style.height,width:el.style.width,videoId:vid_id,playerVars:{'color':'white','enablejsapi':1, 'controls':1,'autoplay':1,'mute':1, 'modestbranding': 0},events:{'onReady':function(ev){ev.target.playVideo()}}});}}
-
     window.addEventListener('load', ytdefer_setup);
-
-
 */
 
 // --- 020 - YOUTUBE CROP + FULLSCREEN bez YT pizdarija  --------------------------------------------------------------------------
@@ -781,18 +777,15 @@ function stopVideo() {
 
 /* ODVOJENI PLAY STOP BOTUNI
 function onPlayerReady(event) {
-
     // bind events
     var playButton = document.getElementById("play-button");
     playButton.addEventListener("click", function() {
         player.playVideo();
     });
-
      var stopButton = document.getElementById("stop-button");
     stopButton.addEventListener("click", function() {
         player.stopVideo();
     });
-
 }
 */
 
@@ -975,9 +968,9 @@ gsap.to(".pin-wrap", {
 // HORIZZONTAL SCROLL WITH CHILD ANIMATION
 
 let sections = gsap.utils.toArray(".h-scroll--slide");
-let container = document.querySelector(".h-scroll--container");
-let pinner = document.querySelector(".pinner-div");
-let elements = gsap.utils.toArray(document.querySelectorAll(".h-scroll--content > *"));
+let container = document.querySelector(".h-scroll--wrapper");
+let pinner = document.querySelector(".h-scroll--");
+let elements = gsap.utils.toArray(document.querySelectorAll(".h-scroll--slide > *"));
 
 let timeline = gsap.timeline();
 
@@ -988,8 +981,8 @@ timeline.to(sections, {
     scrollTrigger: {
 	      scroller: ".smooth-scroll",
         //  pin:'.horiz-pin',
-	    pin: true,
-	   // pin: ".pinner-div",
+	   // pin: true,
+	    pin: pinner,
         scrub: 1,
         overwrite: "auto",
         trigger: pinner,
@@ -1002,7 +995,7 @@ let scrollTriggerTimeline = gsap.timeline();
 elements.forEach((element) => {
     scrollTriggerTimeline.from(element, {
         yPercent: 50,
-        opacity: 30,
+        opacity: 0,
         overwrite: "auto",
         scrollTrigger: {
 	scroller: ".smooth-scroll",
@@ -1019,7 +1012,7 @@ elements.forEach((element) => {
 elements.forEach((element) => {
     scrollTriggerTimeline.to(element, {
         yPercent: 50,
-        opacity: 30,
+        opacity: 0,
         overwrite: "auto",
         scrollTrigger: {
 	scroller: ".smooth-scroll",
@@ -1036,49 +1029,7 @@ elements.forEach((element) => {
 });
 
 
-// ------ 028 HOVER + CLICK GSAP 3 MANFRED
-
-
-
-gsap.set("#red", {autoAlpha:1})
-
-var $button = $('.linko'),
-    $page = $('.c-scroll--slide'),
-    $click = $('.click');
-
-$button.on('mouseenter', function(e) {
-  var $thisPage = $(this).attr('id');
-//  var $thisClick = ($thisPage + "Click");
-
-  gsap.to($thisPage, 1, {autoAlpha:1});
-  gsap.to($page.not($thisPage), 0.5, {autoAlpha:0}); // faster
-  //gsap.to($thisClick, 0.4, {autoAlpha:0});
-
-});
-
-
-$button.on('click', function() {
-
-  var $thisPage = $(this).attr('id');
-  //var $thisClick = ($thisPage + "Click");
-
-
-  gsap.to($thisPage, 0.8, {autoAlpha:1});
-  gsap.to($page.not($thisPage), 0.4, {autoAlpha:0});
-  //gsap.to($click.not($thisClick), 0.4, {autoAlpha:0});
- // gsap.to($thisClick, 0.4, {autoAlpha:1});
-
-
-});
-
-
-
-
-
-
-
-
 
 //onaj	
 //}
-	
+
