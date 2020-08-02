@@ -977,7 +977,7 @@ gsap.to(".pin-wrap", {
 let sections = gsap.utils.toArray(".h-scroll--slide");
 let container = document.querySelector(".h-scroll--container");
 let pinner = document.querySelector(".pinner-div");
-let elements = gsap.utils.toArray(document.querySelectorAll(".h-scroll--contentx > *"));
+let elements = gsap.utils.toArray(document.querySelectorAll(".h-scroll--content > *"));
 
 let timeline = gsap.timeline();
 
@@ -1002,7 +1002,7 @@ let scrollTriggerTimeline = gsap.timeline();
 elements.forEach((element) => {
     scrollTriggerTimeline.from(element, {
         yPercent: 50,
-        opacity: 0,
+        opacity: 30,
         overwrite: "auto",
         scrollTrigger: {
 	scroller: ".smooth-scroll",
@@ -1019,7 +1019,7 @@ elements.forEach((element) => {
 elements.forEach((element) => {
     scrollTriggerTimeline.to(element, {
         yPercent: 50,
-        opacity: 0,
+        opacity: 30,
         overwrite: "auto",
         scrollTrigger: {
 	scroller: ".smooth-scroll",
