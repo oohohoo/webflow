@@ -992,7 +992,7 @@ timeline.to(sections, {
 	    pin: ".pinner-div",
         scrub: 1,
         overwrite: "auto",
-        trigger: ".pinner-div",
+        trigger: pinner,
         end: () => container.scrollWidth - document.documentElement.clientWidth
     }
 });
