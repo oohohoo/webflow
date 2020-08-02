@@ -977,7 +977,7 @@ gsap.to(".pin-wrap", {
 let sections = gsap.utils.toArray(".h-scroll--slide");
 let container = document.querySelector(".h-scroll--container");
 let pinner = document.querySelector(".pinner-div");
-let elements = gsap.utils.toArray(document.querySelectorAll(".h-scroll--slide > *"));
+let elements = gsap.utils.toArray(document.querySelectorAll(".h-scroll--contentx > *"));
 
 let timeline = gsap.timeline();
 
