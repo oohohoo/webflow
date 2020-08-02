@@ -47,7 +47,7 @@ ScrollTrigger.refresh();
 Splitting();
 
 // IMAGE EXCHANGE GALLERY 
-var imgs = $.makeArray( $('.proportional img') );
+var imgs = $.makeArray( $('#images img') );
     imgs.reverse();
 
 function crossfade(){
@@ -962,7 +962,7 @@ gsap.to(".pin-wrap", {
   ease: "none",
   scrollTrigger: {
   scroller: ".smooth-scroll",
-    trigger: ".020-hor-pin-scrtrig-gallery",
+    trigger: ".pin-wrap",
     start: "top top",
     end: () => innerWidth * 5,
     scrub: true,
@@ -989,10 +989,10 @@ timeline.to(sections, {
 	      scroller: ".smooth-scroll",
         //  pin:'.horiz-pin',
 	   // pin: true,
-	    pin: pinner,
+	    pin: pinner-div,
         scrub: 1,
         overwrite: "auto",
-        trigger: pinner,
+        trigger: pinner-div,
         end: () => container.scrollWidth - document.documentElement.clientWidth
     }
 });
