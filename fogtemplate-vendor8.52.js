@@ -956,13 +956,13 @@ var action = gsap.timeline({repeat:-1, defaults:{duration:0.8, ease:'none'}})
 
 
 // ????? Horizontal gallery scrolltrigger pin (demo---)
-gsap.to(".pin-box", {
+gsap.to(".pin-wrap", {
   xPercent: -100, 
   x: innerWidth,
   ease: "none",
   scrollTrigger: {
   scroller: ".smooth-scroll",
-    trigger: ".pin-wrap",
+    trigger: ".020-hor-pin-scrtrig-gallery",
     start: "top top",
     end: () => innerWidth * 5,
     scrub: true,
