@@ -142,7 +142,7 @@ scroller: ".smooth-scroll",
         ease: "power1.inOut", 
         stagger: 0.1,
         delay: i * 0.3,
-        toggleActions: "restart pause reverse pause"
+        toggleActions: "restart pause restart pause"
       });
     });
   },
@@ -956,7 +956,7 @@ var action = gsap.timeline({repeat:-1, defaults:{duration:0.8, ease:'none'}})
 
 
 // ????? Horizontal gallery scrolltrigger pin (demo---)
-gsap.to(".pin-wrap", {
+gsap.to(".pin-box", {
   xPercent: -100, 
   x: innerWidth,
   ease: "none",
