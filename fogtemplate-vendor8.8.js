@@ -1028,6 +1028,51 @@ elements.forEach((element) => {
     });
 });
 
+// ŽICA
+
+gsap.defaults({ease: "elastic(1, 0.2)"});
+
+var svg  = document.querySelector("svg");
+var path = document.querySelector("#path");
+
+var connected = false;
+var snapDist = 100;
+var startY = 200;
+
+// Break the path down into points
+// <path d="M200,200 Q 400,200 600,200" />
+var p0 = { x: 200, y: startY };
+var p1 = { x: 400, y: startY };
+var p2 = { x: 600, y: startY };
+
+svg.addEventListener("mousemove", onMove);
+
+gsap.ticker.add(update);
+update();
+
+function update() {
+   
+  var d = "M" + p0.x + "," + p0.y + " Q" + p1.x + "," + p1.y + " " + p2.x + "," + p2.y;
+  
+  path.setAttribute("d", d);
+  
+  if (Math.abs(p1.y - startY) > snapDist * 2) {        
+    connected = false;
+    gsap.to(p1, { duration: 1,  y: startY });
+  }  
+}
+
+function onMove(event) {
+  
+  if (!connected && event.target === path) {    
+    connected = true;    
+    gsap.killTweensOf(p1); // Kill any active tweens on the point
+  }
+  
+  if (connected) {    
+    p1.y = event.pageY * 2 - (p0.y + p2.y) / 2;    
+  }
+}
 
 
 //onaj	
