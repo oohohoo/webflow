@@ -1,7 +1,3 @@
- //window.onload=function(){
-
-
-
 // --- REGISTER SCROLLTRIGGER
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,7 +37,15 @@ ScrollTrigger.refresh();
 
 // 
 
-// --- 000 - INTRO ANIMATION --------------------------------------------------------------------------------
+
+
+
+
+
+
+/* =============================================
+000 - INTRO ANIMATION / SPLIT TEXT + FADE IN FADE OUT GALLERY
+================================================ */
 
 // SPLITTING 
 Splitting();
@@ -58,7 +62,12 @@ function crossfade(){
 
 var cycle = setInterval(crossfade,500)
 
-//  CLIPPING PATH MASK REVEAL & TEXT REVEAL  
+
+
+/* =============================================
+000 - CLIPPING PATH MASK REVEAL & TEXT REVEAL  
+================================================ */
+
 var animation = gsap.timeline({defaults:{duration:2, ease: "power3.inOut"}})
 animation
 .fromTo(".clip", {y:200, clipPath:"polygon(40% 30%, 60% 30%, 60% 90%, 40% 90%)"}, 
@@ -67,7 +76,11 @@ animation
 .from(".char", {stagger:0.02, yPercent:108}, "<0.1")
 
 
-// --- 001 --- FOR EACH WHEN ENTER --------------------------------------------------------------------------
+
+
+/* =============================================
+001 --- SCROLLTRIGGER FOR EACH WHEN ENTER 
+================================================ */
 gsap.utils.toArray('.block1').forEach((el, i) => { 
 	gsap.from(el, { 
 		scrollTrigger: { 
@@ -85,8 +98,9 @@ gsap.utils.toArray('.block1').forEach((el, i) => {
   })
 });
 
-
-// --- 002 PINNING PANELS --------------------------------------------------------------------------
+/* =============================================
+002 - PINNING PANELS / .s-snap / panel / galdier
+================================================ */
 
 gsap.utils.toArray(".panel").forEach((panel, i) => {
   ScrollTrigger.create({
@@ -106,7 +120,12 @@ snap: {snapTo: 0.5, duration: 0.6, delay: 0, ease: "power4.inOut"},
  // snap: 1 / 3 // snap whole page to the closest section!
 }); 
 
-// --- 003 SCROLLTRIGGER FADE IN ELEMENTS
+
+
+
+/* =============================================
+003 - SCROLLTRIGGER FADE IN ELEMENTS
+================================================ */
 
  gsap.utils.toArray('.imagefadein').forEach(box => {
  gsap.fromTo(box, {
@@ -127,8 +146,12 @@ snap: {snapTo: 0.5, duration: 0.6, delay: 0, ease: "power4.inOut"},
       ease:"power4.out",
   }, 6);
 });	
-	
-// --- 004 - TEXT REVEAL BATCH --------------------------------------------------------------------------
+  
+
+/* =============================================
+004 - SCROLLTRIGGER BATCH - TEXT REVEAL MULTILINE / VERZIJA 1
+================================================ */
+
 gsap.set('.b-text', {autoAlpha: 0, yPercent: 200});
 
 ScrollTrigger.batch(".batch-text", {
@@ -148,8 +171,10 @@ scroller: ".smooth-scroll",
   },
   start: "top 95%"
 });
-	
-// --- 005 GALLERY BATCH --------------------
+
+/* =============================================
+004 - SCROLLTRIGGER BATCH - GALLERY
+================================================ */
 
 gsap.defaults({ease: "power3"});
 gsap.set(".lazy", {autoAlpha:0, y: 100});
@@ -160,8 +185,8 @@ ScrollTrigger.batch(".lazy", {
   batchMax: 3,   // maximum batch size (targets)
   onEnter: batch => gsap.to(batch, {autoAlpha:1, y: 0, stagger: {each: 0.15, grid: [1, 3]}, overwrite: true}),
   onLeave: batch => gsap.set(batch, {autoAlpha:0, y: -100, overwrite: true}),
-  onEnterBack: batch => gsap.to(batch, {autoAlpha:1, y: 0, stagger: 0.15, overwrite: true}),
-  onLeaveBack: batch => gsap.set(batch, {autoAlpha:0, y: 100, overwrite: true})
+  //onEnterBack: batch => gsap.to(batch, {autoAlpha:1, y: 0, stagger: 0.15, overwrite: true}),
+  //onLeaveBack: batch => gsap.set(batch, {autoAlpha:0, y: 100, overwrite: true})
   // you can also define things like start, end, etc.
 });
 
@@ -173,8 +198,10 @@ ScrollTrigger.batch(".lazy", {
 // return a gsap.set() in the listener, it'll automatically revert it after the refresh()!
 ScrollTrigger.addEventListener("refreshInit", () => gsap.set(".lazy", {y: 0}));
 
-	
-// --- 006 - STICKY FOOTER ----------------------------------------------
+
+/* =============================================
+006 - STICKY FOOTER 
+================================================ */
 
 ScrollTrigger.create({
   trigger: "#stickywrap",
@@ -187,9 +214,9 @@ ScrollTrigger.create({
 });
 
 
-// --- 007 - SHEADER SWITCH ----------------------------------------------
-
-//gsap.registerPlugin(ScrollTrigger);
+/* =============================================
+007 - SCROLLTRIGGER - onscroll smanji menu i logo / scrub
+================================================ */
 
 gsap.to(".infoarea", {
 		scrollTrigger: {
@@ -218,7 +245,13 @@ gsap.to(".menushr", {
 	  ease: "power4.inOut",
 	});
 
-// --- 007 - SHOW HIDE MENU HEADER SWITCH WITH SCROLLTRIGGER ----------------------------------------------
+
+
+/* =============================================
+007a - SHOW HIDE MENU HEADER SWITCH WITH SCROLLTRIGGER 
+================================================ */
+
+
 ScrollTrigger.create({
   trigger: ".arrow-wrap",
     scroller: ".smooth-scroll",
@@ -424,7 +457,16 @@ function crossfade(){
 // start the crossfade after next = 3 sec
 gsap.delayedCall(next, crossfade);
 
-// --- 014 - MENU IMAGE OVERLAY  --------------------------------------------------------------------------
+
+
+
+
+
+
+
+/* =============================================
+014  --- MENU IMAGE OVERLAY - mislim da ima bolje riješeno
+================================================ */
 var cursor = $(".cursor"),
     overlay = $(".project-overlay");
 
@@ -469,7 +511,15 @@ $(overlay).mouseout(function() {
   gsap.to(cursor, {duration: 0.3, scale: 0.1, autoAlpha: 0});
 });
 
-// --- 015 - PROGRES LAJNA ŽUTA  --------------------------------------------------------------------------
+
+
+
+
+
+
+/* =============================================
+015  --- PROGRES LAJNA ŽUTA
+================================================ */
 
 //gsap.set(cursor, {opacity:0});
 gsap.from(".line-1", {
@@ -487,112 +537,12 @@ gsap.from(".line-1", {
 });
 
 
-// --- 016 - CUSTOM MOUSE  --------------------------------------------------------------------------
-
-
-gsap.set(".c-ball", {xPercent: -50, yPercent: -50});
-
-var ball = document.querySelector(".c-ball");
-var pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-var mouse = { x: pos.x, y: pos.y };
-var speed = .07;
-
-var xSet = gsap.quickSetter(ball, "x", "px");
-var ySet = gsap.quickSetter(ball, "y", "px");
-
-window.addEventListener("mousemove", e => {    
-  mouse.x = e.x;
-  mouse.y = e.y;  
-});
-
-gsap.ticker.add(() => {
-  pos.x += (mouse.x - pos.x) * speed;
-  pos.y += (mouse.y - pos.y) * speed;
-  xSet(pos.x);
-  ySet(pos.y);
-});
-
-gsap.set(".c-ball2", {xPercent: -50, yPercent: -50});
-
-var ball_2 = document.querySelector(".c-ball2");
-var pos_2 = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-var mouse_2 = { x: pos.x, y: pos.y };
-var speed_2 = .1;
-
-var xSet_2 = gsap.quickSetter(ball_2, "x", "px");
-var ySet_2 = gsap.quickSetter(ball_2, "y", "px");
-
-window.addEventListener("mousemove", e => {    
-  mouse_2.x = e.x;
-  mouse_2.y = e.y;  
-});
-
-gsap.ticker.add(() => {
-  pos_2.x += (mouse_2.x - pos_2.x) * speed_2;
-  pos_2.y += (mouse_2.y - pos_2.y) * speed_2;
-  xSet_2(pos_2.x);
-  ySet_2(pos_2.y);
-});
 
 
 
-$(".link").on("mouseenter", function() {
-  
-  gsap.to(ball, {
-        width: "110px",
-        height: "110px",
-        opacity:1,
-        duration:1,
-        ease: "elastic.out(1, 0.3)", 
-        border:"2px solid white", 
-        background:"none",
-        overwrite: true, 
-        background:"white"
-    });
-    
-});
-
-$(".link").on("mouseleave", function() {
-     gsap.to(ball, {
-        width: "30px",
-        height: "30px",
-        opacity:1,
-        duration:1,
-        ease: "elastic.out(1, 0.3)", 
-        border:"1px solid white", 
-        overwrite: true, 
-        background:"none"
-    });
-});
-
-
-
-
-// --- 017 - LOCOMOTIVE SCROLL TO  --------------------------------------------------------------------------
-
-// ScrollTo - Menu funkcije
-$( "#sec" ).on( "click", function() {
-locoScroll.scrollTo('#section')
-});
-$( "#sec1" ).on( "click", function() {
-locoScroll.scrollTo('#section1')
-});
-$( "#sec2" ).on( "click", function() {
-locoScroll.scrollTo('#section2')
-});
-$( "#sec3" ).on( "click", function() {
-locoScroll.scrollTo('#section3')
-});
-$( "#sec4" ).on( "click", function() {
-locoScroll.scrollTo('#section4')
-});
-$( "#sec5" ).on( "click", function() {
-locoScroll.scrollTo('#section5')
-});
-
-// --- 018 - CLICK ON BOX ZOOM TO FULLSCREEN (druga metoda je FLIP) ova je old school ali pametna i radi sa više boxeva --------------------------------------------------------------------------
-//console.clear();
-
+/* =============================================
+018  --- CLICK ON BOX ZOOM TO FULLSCREEN (druga metoda je FLIP) ova je old school ali pametna i radi sa više boxeva
+================================================ */
 var root  = document.documentElement;
 var body  = document.body;
 var pages = document.querySelectorAll(".page");
@@ -672,9 +622,15 @@ function calculatePosition(element) {
     width: rect.width,
   };
 }
-  
-// --- 019 - YOUTUBE PLAYER ONAJ FENSI  --------------------------------------------------------------------------
+ 
 
+
+
+
+
+/* =============================================
+019  --- YOUTUBE PLAYER ONAJ FENSI // ugašen 
+================================================ */
 /*
 var ytdefer_ic_w=73;var ytdefer_ic_h=52;var yt_icon='<svg height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#eb3223"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>';var yt_dark_icon='<svg height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg>';function ytdefer_setup()
 {var d=document;var els=d.getElementsByClassName('ytdefer');for(var i=0;i<els.length;i++)
@@ -702,7 +658,10 @@ function gen_ytdefer_clk(i)
     window.addEventListener('load', ytdefer_setup);
 */
 
-// --- 020 - YOUTUBE CROP + FULLSCREEN bez YT pizdarija  --------------------------------------------------------------------------
+
+/* =============================================
+020  --- YOUTUBE CROP + FULLSCREEN bez YT pizdarija 
+================================================ */
 
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement("script");
@@ -871,6 +830,8 @@ gsap.utils.toArray(".small-link-wrapper").forEach(container => {
 });
 
 
+
+
 // SWIPERI
 
 // SWIPER 01 ---
@@ -931,15 +892,17 @@ $('.swiper-slide').on('mouseup touchend', function(event) {
  gsap.to('.swiper-slide', {scale:1, duration: 0.4, delay:0.2});
 });
 
-// SWIPER 02
+
 	
 
 
 
 
 
-// SIMPLE FADE IN / FADE OUT / AUTOALPHA 023 simple fadein fadeout
 
+/* =============================================
+023  --- SIMPLE FADE IN / FADE OUT / AUTOALPHA 023 simple fadein fadeout 
+================================================ */
 
 var action = gsap.timeline({repeat:-1, defaults:{duration:0.8, ease:'none'}})
 
@@ -948,24 +911,12 @@ var action = gsap.timeline({repeat:-1, defaults:{duration:0.8, ease:'none'}})
 
 
 
-// ????? Horizontal gallery scrolltrigger pin (demo---)
-gsap.to(".pin-wrap", {
-  xPercent: -100, 
-  x: innerWidth,
-  ease: "none",
-  scrollTrigger: {
-  scroller: ".smooth-scroll",
-    trigger: ".pin-wrap",
-    start: "top top",
-    end: () => innerWidth * 5,
-    scrub: true,
-    pin: true,
-    anticipatePin: 1
-  }
-});
 
 
-// HORIZZONTAL SCROLL WITH CHILD ANIMATION
+
+/* =============================================
+026 --- HORIZONTAL SCROLL WITH CHILD ANIMATION 
+================================================ */
 
 let sections = gsap.utils.toArray(".h-scroll--slide");
 let container = document.querySelector(".h-scroll--wrapper");
@@ -1028,53 +979,4 @@ elements.forEach((element) => {
     });
 });
 
-// ŽICA
-
-gsap.defaults({ease: "elastic(1, 0.2)"});
-
-var svg  = document.querySelector("svg");
-var path = document.querySelector("#path");
-
-var connected = false;
-var snapDist = 100;
-var startY = 200;
-
-// Break the path down into points
-// <path d="M200,200 Q 400,200 600,200" />
-var p0 = { x: 200, y: startY };
-var p1 = { x: 400, y: startY };
-var p2 = { x: 600, y: startY };
-
-svg.addEventListener("mousemove", onMove);
-
-gsap.ticker.add(update);
-update();
-
-function update() {
-   
-  var d = "M" + p0.x + "," + p0.y + " Q" + p1.x + "," + p1.y + " " + p2.x + "," + p2.y;
-  
-  path.setAttribute("d", d);
-  
-  if (Math.abs(p1.y - startY) > snapDist * 2) {        
-    connected = false;
-    gsap.to(p1, { duration: 1,  y: startY });
-  }  
-}
-
-function onMove(event) {
-  
-  if (!connected && event.target === path) {    
-    connected = true;    
-    gsap.killTweensOf(p1); // Kill any active tweens on the point
-  }
-  
-  if (connected) {    
-    p1.y = event.pageY * 2 - (p0.y + p2.y) / 2;    
-  }
-}
-
-
-//onaj	
-//}
 
