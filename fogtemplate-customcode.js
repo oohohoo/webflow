@@ -209,8 +209,8 @@ ScrollTrigger.create({
   start: "top 20%",
   end:"bottom 80%",
   pin:'#sticky',
-  onEnter: () => gsap.set('#sticky', {autoAlpha:1}),
-  onLeaveBack: () => gsap.set('#sticky', {autoAlpha:0}),
+  onEnter: () => gsap.set('#sticky', {autoAlpha:1, rotate:45}),
+  onLeaveBack: () => gsap.set('#sticky', {autoAlpha:0, rotate: 270}),
 });
 
 
@@ -269,10 +269,12 @@ ScrollTrigger.create({
             }
       }
 });		
-	
-// --- 007a - SHOW HIDE MENU HEADER SWITCH (first version from locomotive scroll github ----------------------------------------------
 
-// MENU HIDE / ENTER ON SCROLL
+
+/* =============================================
+007b - SHOW HIDE MENU HEADER SWITCH (first version from locomotive scroll github
+================================================ */
+
 locoScroll.on('scroll', (instance) => {
     document.documentElement.setAttribute('data-direction', instance.direction)
 });
@@ -294,7 +296,9 @@ parallax.forEach(elem => {
 });
 */
 
-// --- 009 - SWIPER --------------------------------------------------------------------------
+/* =============================================
+009 - SWIPER // mislim onaj sa parallaxom
+================================================ */
 
 // svaka fotka ima: data-swiper-parallax-y: "35%"
 const slider = document.getElementById("js-cta-slider");
@@ -336,7 +340,9 @@ const swiper = new Swiper(slider, {
 });
 
 
-// --- 010 - MENU TOGGLE FUNCTION MOVE CONTENT TO REVEAL MENU --------------------------------------------------------------------------
+/* =============================================
+009 - MENU TOGGLE FUNCTION MOVE CONTENT TO REVEAL MENU / reversed
+================================================ */
 
 var trigger = document.querySelector('.menu-trigger');
 var tl = gsap.timeline({ paused: true, reversed: true })
@@ -369,7 +375,9 @@ function toggleState(tl_2) {
   tl_2.reversed() ? tl_2.play() : tl_2.reverse()
 }
 
-// --- 011 - ACCORDION --------------------------------------------------------------------------	
+/* =============================================
+011 - ACCORDION
+================================================ */
 
 var animations = $(".accordion-group").map(createAnimation);
 
@@ -399,8 +407,10 @@ function createAnimation(i, element) {
   }
 }
 
+/* =============================================
+012 - OPEN FULLSCREEN VIDEO AND PLAY/PAUSE 
+================================================ */
 
-// --- 012 - OPEN FULLSCREEN VIDEO AND PLAY/PAUSE  --------------------------------------------------------------------------
 var trigger = document.querySelector('.whitekrugxxx');
 var tl = gsap.timeline({ paused: true, reversed: true })
 //var tl_2 = gsap.timeline({ paused: true, reversed: true})
