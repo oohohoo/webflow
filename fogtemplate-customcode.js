@@ -990,3 +990,15 @@ elements.forEach((element) => {
 });
 
 
+/* =============================================
+MODULI 02 --- 01 DEFAULT SCROLLTRIGGER PIN
+================================================ */
+
+gsap.utils.toArray(".project-block-right").forEach((panel, i) => {
+  ScrollTrigger.create({
+    trigger: panel,
+    scroller: ".smooth-scroll",
+    start: "top top", 
+    pin: true, 
+  });
+});
