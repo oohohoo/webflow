@@ -492,7 +492,7 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
 
    tl.set(element, { autoAlpha: 1 });
    tl.from(letters, 2, {
-     transformOrigin: "bottom",
+     transformOrigin: "top",
      rotationX: -90,
      x: 30,
     ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
