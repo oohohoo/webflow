@@ -545,7 +545,7 @@ showAnim
 .set(".logo-frka", {autoAlpha:1 })
 .to(".logo-frka", {autoAlpha:0 }, 0)
 .fromTo(".navitem", {yPercent: 0, autoAlpha:1}, {yPercent: 50, autoAlpha:0, stagger: 0.05},"<0.1")
-.to(".kontakt", {x:30},"<0.2").progress(1);
+.to(".kontakt", {backgroundColor: "transparent", x:30},"<0.2").progress(1);
 
 var elementFirst = document.querySelector('.kontakt');
 
