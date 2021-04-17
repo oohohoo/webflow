@@ -405,7 +405,7 @@ ScrollTrigger.create({
         scroller: ".smooth-scroll",
        toggleClass: {
         targets: '.logofrka, .navstyle, .kontakt',
-        className: 'mrak'
+        className: 'orange'
       },
        /*  invalidateOnRefresh: true, */
          onUpdate(self) {
