@@ -396,7 +396,7 @@ MARQUEE + SCROLLTRIGGER change direction
 
 let direction = 1; // 1 = forward, -1 = backward scroll
 
-const roll1 = roll(".rollingtext", {duration: 20}),
+const roll1 = roll(".rollingtext", {duration: 40}),
       roll2 = roll(".rollingtext02", {duration: 40}, true);
 ScrollTrigger.create({
         trigger: '.smooth-scroll',
