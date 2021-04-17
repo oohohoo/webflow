@@ -519,11 +519,11 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
 
   /***********************/
  
-  var elementFirst = document.querySelector('.kontakt');
+ /*  var elementFirst = document.querySelector('.kontakt');
 
   function myfunction() {
     elementFirst.classList.toggle('outline')
-  };
+  }; */
 
   const showAnim = gsap.timeline({
     paused: true,
@@ -533,13 +533,13 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
     },
     scrollTrigger: {
         scroller: ".smooth-scroll",
-        start: "top center",
+        start: "top top",
         end: 99999,
         /* onEnter: () => myfunction(), */
-        onLeaveBack: () => myfunction(),
+       /*  onLeaveBack: () => myfunction(), */
 
         onUpdate: (self) => {
-          self.direction === 1 ? showAnim.play() : showAnim.reverse()
+          self.direction === -1 ? showAnim.play() : showAnim.reverse()
         }
 }
 });
