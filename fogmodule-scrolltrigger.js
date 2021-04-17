@@ -321,7 +321,7 @@ function numberWithCommas(x) {
 
 /* NUMBER COUNT from some value */
 
-var cont={val:244} , newval = 246 ;
+var cont={val:236} , newval = 246 ;
 
 gsap.to(cont,2,{
 scrollTrigger:{
@@ -394,63 +394,3 @@ gsap.to(".asterisk", {
 SCROLL TRIGGER SKEWER
 ================================================ */
 
-
-gsap.from(".one", {
-    scrollTrigger: {
-        trigger: ".skew1",
-        toggleActions: "restart none restart none",
-        start: "top center",
-        end: "bottom center",
-        scroller: ".smooth-scroll",
-    },
-    y: "-50vh",
-    opacity: 0,
-    ease: "Power1.easeInOut",
-    duration: 1,
-
-});
-
-gsap.from(".two", {
-    scrollTrigger: {
-        trigger: ".skew2",
-        toggleActions: "restart none none reverse",
-        start: "top center",
-        scroller: ".smooth-scroll",
-    },
-    y: "-50vh",
-    opacity: 0,
-    ease: "Power1.easeInOut",
-    duration: 1,
-});
-
-gsap.from(".three", {
-    scrollTrigger: {
-        trigger: ".skew3",
-        toggleActions: "restart none restart none",
-        start: "top center",
-        scroller: ".smooth-scroll",
-    },
-    y: "-50vh",
-    opacity: 0,
-    ease: "Power1.easeInOut",
-    duration: 1,
-
-});
-
-//skew
-let proxy = { skew: 0 },
-    skewSetter = gsap.quickSetter("#skewer", "skewY", "deg"),
-    clamp = gsap.utils.clamp(-20, 20); 
-
-ScrollTrigger.create({
-    scroller: ".smooth-scroll",
-  onUpdate: (self) => {
-    let skew = clamp(self.getVelocity() / -150);
-    if (Math.abs(skew) > Math.abs(proxy.skew)) {
-      proxy.skew = skew;
-      gsap.to(proxy, {skew: 0, duration: .8, ease: "power1.easeInOut", overwrite: true, onUpdate: () => skewSetter(proxy.skew)});
-    }
-  }
-});
-
-gsap.set("#skewer", {transformOrigin: "center center", force3D: true});
