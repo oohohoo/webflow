@@ -404,8 +404,8 @@ MARQUEE + SCROLLTRIGGER change direction
 
 let direction = 1; // 1 = forward, -1 = backward scroll
 
-const roll1 = roll(".rollingtext", {duration: 40}, true),
-      roll2 = roll(".rollingtext02", {duration: 60}, true),
+const roll1 = roll(".rollingtext", {duration: 40}, true), // ugasi true i mijenja smjer
+      roll2 = roll(".rollingtext02", {duration: 60}),
       roll3 = roll(".rollingtext03", {duration: 80}, true);
 ScrollTrigger.create({
         trigger: '.cd-wrap',
