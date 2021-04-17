@@ -388,7 +388,7 @@ gsap.to(".asterisk", {
   scrollTrigger: {
     trigger: ".rotatetrigger",
     scroller: ".smooth-scroll",
-    scrub: true,
+    //scrub: true,
     pin: ".asterisk",
     start: "top center",
     end: "bottom 30%",
