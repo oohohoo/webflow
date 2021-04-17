@@ -402,7 +402,20 @@ const roll1 = roll(".rollingtext", {duration: 10}),
          onUpdate(self) {
           if (self.direction !== direction) {
             direction *= -1;
-            gsap.to([roll1, roll2], {timeScale: direction, overwrite: true});
+            gsap.to([roll1, roll2], {
+                timeScale: direction, 
+                overwrite: true,
+                scrollTrigger: {
+                    /* trigger: ".smooth-scroll", */
+                    scroller: ".smooth-scroll",
+                    /* scrub: true,
+                    start: "top top",
+                    end: "bottom bottom", */
+                   
+                  },
+            
+            
+            });
           }
         }
       });
