@@ -496,6 +496,6 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
      rotationY: 90,
      x: 30,
     ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
-     stagger: 0.025 });
+     stagger: 0.1 });
 
  });
