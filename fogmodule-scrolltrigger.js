@@ -386,10 +386,10 @@ onUpdate:function(){
 //gsap.set(cursor, {opacity:0});
 gsap.to(".asterisk", {
   scrollTrigger: {
-    trigger: ".smooth-scroll",
+    trigger: ".asterisk",
     scroller: ".smooth-scroll",
     scrub: true,
-    pin: ".asterisk",
+    //pin: ".asterisk",
     start: "top top",
     end: "bottom bottom",
    // onUpdate: self => textProgress.innerText = self.progress.toFixed(3) + "%"
