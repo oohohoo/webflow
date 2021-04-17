@@ -492,12 +492,12 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
 
  const showAnim = gsap.from('.header-hider', { 
     yPercent: -100,
-    scroller: ".smooth-scroll",
     paused: true,
     duration: 0.2
   }).progress(1);
     
   ScrollTrigger.create({
+    scroller: ".smooth-scroll",
     start: "top top",
     end: 99999,
     onUpdate: (self) => {
@@ -505,3 +505,4 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
     }
   });
   
+
