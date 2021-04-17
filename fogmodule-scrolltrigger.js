@@ -485,13 +485,13 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
    let tl = gsap.timeline({
      scrollTrigger: {
         scroller: ".smooth-scroll",
-        scrub: true,
+        scrub: 1,
        trigger: element,
        toggleActions: "restart none none reset" } });
 
 
    tl.set(element, { autoAlpha: 1 });
-   tl.from(letters, 10, {
+   tl.from(letters, 2, {
      transformOrigin: "center",
      rotationY: 90,
      x: 30,
