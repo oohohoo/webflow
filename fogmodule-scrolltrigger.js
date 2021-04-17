@@ -272,8 +272,8 @@ gsap.to(".grid-element", {
 				start: "top bottom", 
 				end: "bottom top", 
 				scrub: 1,
-                onRefresh: ({progress, direction, isActive}) => console.log(progress, direction, isActive)
-
+/*                 onRefresh: ({progress, direction, isActive}) => console.log(progress, direction, isActive)
+ */
 				
 			},
 			x: -200,
