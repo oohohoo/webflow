@@ -454,10 +454,10 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
 
 
  // Wrap every letter in a span
- var textWrapper = document.querySelectorAll(".reveal-text");
+ var textWrapper = document.querySelectorAll(".reveal-textx");
 
  gsap.registerPlugin(CustomEase);
- gsap.registerPlugin(ScrollTrigger);
+ /* gsap.registerPlugin(ScrollTrigger); */
  textWrapper.forEach(element => {
    element.innerHTML = element.textContent.replace(
    /([A-Za-z0-9'<>/.!?\\-]+)/g,
