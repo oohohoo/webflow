@@ -473,15 +473,15 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
 
    let tl = gsap.timeline({
      scrollTrigger: {
-       
+      toggleClass: {
+        targets: '.logofrka, .navstyle',
+        className: 'orange'
+      },
         scroller: ".smooth-scroll",
         /* scrub: 3, */
        trigger: element,
-       toggleActions: "restart none none reset" } }),
-       toggleClass: {
-          targets: '.logofrka, .navstyle',
-          className: 'orange'
-        },
+       toggleActions: "restart none none reset" } });
+       
 
    tl.set(element, { autoAlpha: 1 });
    tl.from(letters, 1.6, {
