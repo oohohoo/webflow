@@ -391,19 +391,15 @@ gsap.to(".asterisk", {
 });
 
   /* =============================================
-SCROLL TRIGGER SKEWER
+MARQUEE + SCROLLTRIGGER change direction
 ================================================ */
 
 let direction = 1; // 1 = forward, -1 = backward scroll
 
 const roll1 = roll(".rollingtext", {duration: 20}),
-      roll2 = roll(".rollingtext02", {duration: 20}, true);
+      roll2 = roll(".rollingtext02", {duration: 40}, true);
 ScrollTrigger.create({
-        trigger: '.smooth-scroll',
-        start: "top 80%",
-        end: "bottom 50%",
-        markers: true,
-        scroller: ".smooth-scroll",
+         scroller: ".smooth-scroll",
          onUpdate(self) {
           if (self.direction !== direction) {
             direction *= -1;
