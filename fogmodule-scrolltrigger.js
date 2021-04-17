@@ -539,9 +539,10 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
         }
 }
 });
-.set(".logo-frka", {autoAlpha:1 }, 0);
+
 
 showAnim
+.set(".logo-frka", {autoAlpha:1 });
 .to(".logo-frka", {autoAlpha:0 }, 0)
 .to(".navitem", {yPercent: 50, autoAlpha:0, stagger: 0.05},"<0.1")
 .to(".kontakt", {x:30},"<0.2").progress(1);
