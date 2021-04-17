@@ -491,7 +491,7 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
 ================================================ */
 
  const showAnim = gsap.from('.header-hider', { 
-    yPercent: -100,
+    yPercent: -105,
     ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
     paused: true,
     duration: 0.2
