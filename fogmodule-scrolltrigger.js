@@ -532,6 +532,7 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
 }
 });
 
+
 tl.to(".logo-frka", {
 y: 400, rotation: 360, ease: "none", duration:1})
 
@@ -540,3 +541,6 @@ y: 200, rotation: 360, duration:1})
 
 tl.to(".kontakt", {
 backgroundColor: "purple", x:30, duration:1}).progress(1);
+
+
+
