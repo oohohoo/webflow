@@ -477,7 +477,7 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
         scroller: ".smooth-scroll",
         /* scrub: 3, */
        trigger: element,
-       toggleActions: "restart none none reset" } });
+       toggleActions: "restart none none reset" } }),
        toggleClass: {
           targets: '.logofrka, .navstyle',
           className: 'orange'
