@@ -527,7 +527,7 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
         start: "top top",
         end: 99999,
         onUpdate: (self) => {
-          self.direction === -1 ? showAnim.play() : showAnim.reverse()
+          self.direction === 1 ? showAnim.play() : showAnim.reverse()
         }
 }
 });
