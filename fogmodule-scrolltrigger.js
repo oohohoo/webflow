@@ -475,7 +475,7 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
      scrollTrigger: {
       toggleClass: {
         targets: '.logofrka, .navstyle, .kontakt',
-        className: 'orange'
+        className: 'mrak'
       },
         scroller: ".smooth-scroll",
         /* scrub: 3, */
@@ -543,10 +543,10 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
     },
     scrollTrigger: {
         scroller: ".smooth-scroll",
-        toggleClass: {
+       /*  toggleClass: {
           targets: '.logofrka, .navstyle, .kontakt',
           className: 'mrak'
-        },
+        }, */
         start: "top top",
         end: 99999,
         /* onEnter: () => myfunction(), */
