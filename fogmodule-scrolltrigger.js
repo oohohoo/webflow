@@ -386,11 +386,11 @@ onUpdate:function(){
 //gsap.set(cursor, {opacity:0});
 gsap.to(".asterisk", {
   scrollTrigger: {
-    trigger: "#rot",
+    trigger: ".rotatetrigger",
     scroller: ".smooth-scroll",
     scrub: true,
     //pin: ".asterisk",
-    start: "top top",
+    start: "top center",
     end: "bottom bottom",
    // onUpdate: self => textProgress.innerText = self.progress.toFixed(3) + "%"
   },
