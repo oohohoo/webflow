@@ -539,7 +539,7 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
         }
 }
 });
-.set(".logo-frka", {autoAlpha:1 }, 0)
+.set(".logo-frka", {autoAlpha:1 }, 0);
 
 showAnim
 .to(".logo-frka", {autoAlpha:0 }, 0)
