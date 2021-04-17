@@ -391,7 +391,7 @@ gsap.to(".asterisk", {
     scrub: true,
     pin: ".asterisk",
     start: "top center",
-    end: "bottom bottom",
+    end: "bottom 30%",
    // onUpdate: self => textProgress.innerText = self.progress.toFixed(3) + "%"
   },
   rotate: 1440, 
