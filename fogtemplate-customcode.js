@@ -296,48 +296,6 @@ parallax.forEach(elem => {
 });
 */
 
-/* =============================================
-009 - SWIPER // mislim onaj sa parallaxom
-================================================ */
-
-// svaka fotka ima: data-swiper-parallax-y: "35%"
-const slider = document.getElementById("js-cta-slider");
-const sliderCounter = document.getElementById("js-cta-slider-counter");
-const sliderNext = document.getElementById("js-cta-slider-next");
-const sliderPrevious = document.getElementById("js-cta-slider-previous");
-
-const interleaveOffset = 0.75;
-
-
-const swiper = new Swiper(slider, {
-  autoplay: false,
-  parallax: true,
-  //loop: true,
-  effect: "slide",
-  direction: "vertical", // put horizontal
-  speed: 1000,
-  grabCursor: true,
-  watchSlidesProgress: true, // turn off for horizontal
-  //mousewheelControl: true,
-  mousewheelControl: 1,
-  mousewheel: {
-     // forceToAxis: true,
-	releaseOnEdges: true,
-      //invert: true
-    },
-    pagination: {
-    el: sliderCounter,
-    type: "custom",
-    renderCustom: function(swiper, current, total) {
-      let i = current ? current : 0;
-      return `${("0" + i).slice(-2)} / ${("0" + total).slice(-2)}`;
-    }
-  },
-  navigation: {
-    nextEl: sliderNext,
-    prevEl: sliderPrevious
-  },
-});
 
 
 /* =============================================
@@ -375,37 +333,6 @@ function toggleState(tl_2) {
   tl_2.reversed() ? tl_2.play() : tl_2.reverse()
 }
 
-/* =============================================
-011 - ACCORDION
-================================================ */
-
-var animations = $(".accordion-group").map(createAnimation);
-
-$(".accordion-menu").click(playAnimation);
-
-function playAnimation(event) {
-  
-  var selected = this;
-  
-  animations.each(function(i, animate) {
-    animate(selected);
-  });
-}
-
-function createAnimation(i, element) {
-    
-  var menu = element.querySelector(".accordion-menu");
-  var box  = element.querySelector(".accordion-content");
-  
-  gsap.set(box, { height: "auto"})
-  var tween = gsap.from(box, { duration:0.5, height: 0, ease: Power1.easeInOut }).reverse();
-  
-  return function(selected) {
-    
-    var reversed = selected !== menu ? true : !tween.reversed();
-    tween.reversed(reversed);
-  }
-}
 
 /* =============================================
 012 - OPEN FULLSCREEN VIDEO AND PLAY/PAUSE 
@@ -474,57 +401,6 @@ gsap.delayedCall(next, crossfade);
 
 
 
-/* =============================================
-014  --- MENU IMAGE OVERLAY - mislim da ima bolje riješeno
-================================================ */
-var cursor = $(".cursor"),
-    overlay = $(".project-overlay");
-
-gsap.set(cursor, {opacity:0});
-
-function moveCircle(e) {
-  gsap.to(cursor, {
-    duration:.5,
-    css: {
-      left: e.pageX,
-      top: e.pageY
-    }
-  });
-}
-
-$(".p-1").hover(function(){
-  $(".cursor").css({"background-image": "url(https://uploads-ssl.webflow.com/5e3ac0099daa812301be51d5/5ed694a7d99be97ea1381299_tosja-long-woolblend-coat-side-front-800x1067.png)" });
-});
-
-$(".p-2").hover(function(){
-  $(".cursor").css({ "background-image": "url(https://uploads-ssl.webflow.com/5e3ac0099daa812301be51d5/5ed694a65ebae463717d52be_zazi-long-printed-dress-side-front-800x1067.jpg)" });
-});
-$(".p-3").hover(function(){
-  $(".cursor").css({ "background-image": "url(https://uploads-ssl.webflow.com/5e3ac0099daa812301be51d5/5ed694a5bf55014325e86f75_romke-hooded-jacket-side-front-800x1067.png)" });
-});
-$(".p-4").hover(function(){
-  $(".cursor").css({ "background-image": "url(https://uploads-ssl.webflow.com/5e3ac0099daa812301be51d5/5ed694a4d1429d2e3a740e4a_oved-straight-dress-side-front-800x1067.jpg)" });
-});
-$(".p-4").hover(function(){
-  $(".cursor").css({ "background-image": "url(https://uploads-ssl.webflow.com/5e3ac0099daa812301be51d5/5ed694a3023d8e2af1a6099c_paskal-long-knitted-vest-side-front-800x1067.jpg)" });
-});
-
-var flag = false;
-$(overlay).mousemove(function() {
-  flag = true;
-  gsap.to(cursor, {duration: 0.3, scale: 1, autoAlpha: 1});
-  $(overlay).on("mousemove", moveCircle);
-});
-
-$(overlay).mouseout(function() {
-  flag = false;
-  gsap.to(cursor, {duration: 0.3, scale: 0.1, autoAlpha: 0});
-});
-
-
-
-
-
 
 
 /* =============================================
@@ -545,94 +421,6 @@ gsap.from(".line-1", {
   transformOrigin: "left center", 
   ease: "none"
 });
-
-
-
-
-
-/* =============================================
-018  --- CLICK ON BOX ZOOM TO FULLSCREEN (druga metoda je FLIP) ova je old school ali pametna i radi sa više boxeva
-================================================ */
-var root  = document.documentElement;
-var body  = document.body;
-var pages = document.querySelectorAll(".page");
-var tiles = document.querySelectorAll(".tile");
-
-for (var i = 0; i < tiles.length; i++) {  
-  addListeners(tiles[i], pages[i]);
-}
-
-function addListeners(tile, page) {
-  
-  var closeBtn = page.querySelector(".b-close");
-  
-  tile.addEventListener("click", function() {
-    animateHero(tile, page);
-     gsap.to(".b-close", {duration: 0.3, delay:0.3, opacity:1})
-  });
-  
- /*page.addEventListener("click", function() {
-    animateHero(page, tile);
-  });  */
-    closeBtn.addEventListener("click", function() {
-    animateHero(page, tile);
-    gsap.to(".b-close", {duration: 0.2, opacity:0})
-  }); 
-  
-  
-}
-
-function animateHero(fromHero, toHero) {
-    
-  var clone = fromHero.cloneNode(true);
-      
-  var from = calculatePosition(fromHero);
-  var to = calculatePosition(toHero);
-  
-  gsap.set([fromHero, toHero], { visibility: "hidden" });
-  gsap.set(clone, { position: "absolute", margin: 0 });
-  
-  body.appendChild(clone);  
-      
-  var style = {
-    x: to.left - from.left,
-    y: to.top - from.top,
-    width: to.width,
-    height: to.height,
-    autoRound: false,
-    ease: "power1.Out",
-    onComplete: onComplete
-  };
-   
-  gsap.set(clone, from);  
-  gsap.to(clone, 0.3, style)
-
-    
-  function onComplete() {
-    
-    gsap.set(toHero, { visibility: "visible" });
-    body.removeChild(clone);
-  }
-}
-
-function calculatePosition(element) {
-    
-  var rect = element.getBoundingClientRect();
-  
-  var scrollTop  = window.pageYOffset || root.scrollTop  || body.scrollTop  || 0;
-  var scrollLeft = window.pageXOffset || root.scrollLeft || body.scrollLeft || 0;
-  
-  var clientTop  = root.clientTop  || body.clientTop  || 0;
-  var clientLeft = root.clientLeft || body.clientLeft || 0;
-    
-  return {
-    top: Math.round(rect.top + scrollTop - clientTop),
-    left: Math.round(rect.left + scrollLeft - clientLeft),
-    height: rect.height,
-    width: rect.width,
-  };
-}
- 
 
 
 
@@ -990,15 +778,3 @@ elements.forEach((element) => {
 });
 
 
-/* =============================================
-MODULI 02 --- 01 DEFAULT SCROLLTRIGGER PIN
-================================================ */
-
-gsap.utils.toArray(".project-block-right").forEach((panel, i) => {
-  ScrollTrigger.create({
-    trigger: panel,
-    scroller: ".smooth-scroll",
-    start: "top top", 
-    pin: true, 
-  });
-});
