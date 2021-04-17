@@ -38,10 +38,8 @@ ScrollTrigger.refresh();
 
 
 
-$(window).resize(function(){
-    ScrollTrigger.refresh();
-    });
-    
+
+
 /////////////////
 
 gsap.set(".circle", {xPercent: -50, yPercent: -50});
@@ -444,3 +442,8 @@ function roll(targets, vars, reverse) {
   });
   return tl;
 }
+
+$(window).resize(function(){
+    ScrollTrigger.refresh();
+    console.log("scrolltrigger REFRESHHHH");
+    });
