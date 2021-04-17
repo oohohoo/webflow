@@ -529,7 +529,7 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
     },
     scrollTrigger: {
         scroller: ".smooth-scroll",
-        start: "top 80%",
+        start: "top top",
         end: 99999,
         onEnter: () => myfunction(),
         onLeaveBack: () => myfunction(),
@@ -539,6 +539,7 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
         }
 }
 });
+.set(".logo-frka", {autoAlpha:1 }, 0)
 
 showAnim
 .to(".logo-frka", {autoAlpha:0 }, 0)
