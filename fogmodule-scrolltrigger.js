@@ -521,7 +521,7 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
  
 
 
-  const showAnim  = gsap.timeline({ defaults: { duration: 6 }});
+  const showAnim  = gsap.timeline({ defaults: { duration: 6 }})
     paused: true,
     scrollTrigger: {
         scroller: ".smooth-scroll",
