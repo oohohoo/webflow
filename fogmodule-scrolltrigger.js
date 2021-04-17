@@ -494,7 +494,7 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
     yPercent: -100,
     ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
     paused: true,
-    duration: 0.2
+    duration: 0.6
   }).progress(1);
     
   ScrollTrigger.create({
