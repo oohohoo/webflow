@@ -522,7 +522,7 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
 
 
   const showAnim = gsap.timeline({
-    paused: true,
+    //paused: true,
     defaults: { // children inherit these defaults
       duration: 0.3,
       ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
