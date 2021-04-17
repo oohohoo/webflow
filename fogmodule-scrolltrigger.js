@@ -494,7 +494,8 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
    tl.from(letters, 1.6, {
      transformOrigin: "center",
      rotationY: 90,
-     x: 60,
+     rotate:20,
+     x: 200,
     ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
      stagger: 0.025 });
 
