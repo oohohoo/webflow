@@ -409,7 +409,7 @@ const roll1 = roll(".rollingtext", {duration: 40}), // ugasi true i mijenja smje
       roll3 = roll(".rollingtext03", {duration: 80}, true);
 ScrollTrigger.create({
         trigger: '.cd-wrap',
-        start: "top top",
+        start: "top 30%",
         end: "bottom top",
         scroller: ".smooth-scroll",
        /*  invalidateOnRefresh: true, */
