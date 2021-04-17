@@ -531,7 +531,7 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
         scroller: ".smooth-scroll",
         start: "top top",
         end: 99999,
-        onEnter: () => myfunction(),
+        /* onEnter: () => myfunction(), */
         onLeaveBack: () => myfunction(),
 
         onUpdate: (self) => {
