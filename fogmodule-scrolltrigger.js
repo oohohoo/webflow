@@ -404,7 +404,7 @@ ScrollTrigger.create({
         end: "bottom top",
         scroller: ".smooth-scroll",
         toggleClass: {
-          targets: '.logofrka',
+          targets: '.logofrka, .navstyle',
           className: 'orange'
         },
        /*  invalidateOnRefresh: true, */
@@ -473,11 +473,15 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
 
    let tl = gsap.timeline({
      scrollTrigger: {
+       
         scroller: ".smooth-scroll",
         /* scrub: 3, */
        trigger: element,
        toggleActions: "restart none none reset" } });
-
+       toggleClass: {
+        targets: '.logofrka, .navstyle',
+        className: 'crni'
+      },
 
    tl.set(element, { autoAlpha: 1 });
    tl.from(letters, 1.6, {
