@@ -272,6 +272,8 @@ gsap.to(".grid-element", {
 				start: "top bottom", 
 				end: "bottom top", 
 				scrub: 1,
+                onRefresh: ({progress, direction, isActive}) => console.log(progress, direction, isActive)
+
 				
 			},
 			x: -200,
@@ -444,7 +446,3 @@ function roll(targets, vars, reverse) {
   return tl;
 }
 
-$(window).resize(function(){
-    ScrollTrigger.refresh();
-    console.log("scrolltrigger REFRESHHHH");
-    });
