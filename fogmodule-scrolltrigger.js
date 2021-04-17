@@ -400,11 +400,11 @@ const roll1 = roll(".rollingtext", {duration: 40}, true),
       roll2 = roll(".rollingtext02", {duration: 60}, true),
       roll3 = roll(".rollingtext03", {duration: 80}, true);
 ScrollTrigger.create({
-        trigger: '.smooth-scroll',
+        trigger: '.cd-wrap',
         start: "top top",
-        end: "bottom bottom",
+        end: "bottom top",
         scroller: ".smooth-scroll",
-        invalidateOnRefresh: true,
+       /*  invalidateOnRefresh: true, */
          onUpdate(self) {
           if (self.direction !== direction) {
             direction *= -1;
