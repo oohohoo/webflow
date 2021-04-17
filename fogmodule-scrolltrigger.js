@@ -473,7 +473,7 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
 
    words.forEach(word => {
      word.innerHTML = word.innerHTML.replace(
-     /[-A-Za-z0-9!$#%^&*@()_+|~=`{}\[\]:";'<>?,.\/]/g,
+     /[-A-Za-z0-9!$#%^&ČĆŽĐŠ*@()_+|~=`{}\[\]:";'<>?,.\/]/g,
      "<div class='perspective'><div class='letter'><div>$&</div></div></div>");
 
    });
