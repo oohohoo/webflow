@@ -535,7 +535,7 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
         onLeaveBack: () => myfunction(),
 
         onUpdate: (self) => {
-          self.direction === 1 ? showAnim.play() : showAnim.reverse()
+          self.direction === -1 ? showAnim.play() : showAnim.reverse()
         }
 }
 });
