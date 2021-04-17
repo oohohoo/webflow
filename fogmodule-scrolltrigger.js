@@ -533,8 +533,8 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
 });
 
 showAnim
-.to(".logo-frka", {yPercent: -100, ease: "none"}, 1)
-.to(".navitem", {yPercent: -100, stagger: 0.05, ease: "none"}, 2)
+.to(".logo-frka", {yPercent: 100, ease: "none"}, 1)
+.to(".navitem", {yPercent: 100, stagger: 0.05, ease: "none"}, 2)
 .to(".kontakt", {backgroundColor: "white", x:30}).progress(1);
 
 
