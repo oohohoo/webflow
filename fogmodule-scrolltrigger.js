@@ -531,6 +531,9 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
         scroller: ".smooth-scroll",
         start: "top top",
         end: 99999,
+        onEnter: () => myfunction(),
+        onLeaveBack: () => myfunction(),
+
         onUpdate: (self) => {
           self.direction === 1 ? showAnim.play() : showAnim.reverse()
         }
@@ -542,5 +545,9 @@ showAnim
 .to(".navitem", {yPercent: 50, autoAlpha:0, stagger: 0.05},"<0.1")
 .to(".kontakt", {backgroundColor: "transparent", x:30},"<0.2").progress(1);
 
+var elementFirst = document.querySelector('.kontakt');
 
+function myfunction() {
+  elementFirst.classList.toggle('outline')
+};
 
