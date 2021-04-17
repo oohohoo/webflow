@@ -396,8 +396,8 @@ SCROLL TRIGGER SKEWER
 
 let direction = 1; // 1 = forward, -1 = backward scroll
 
-const roll1 = roll(".rollingtext", {duration: 10}),
-      roll2 = roll(".rollingtext02", {duration: 10}, true);
+const roll1 = roll(".rollingtext", {duration: 20}),
+      roll2 = roll(".rollingtext02", {duration: 20}, true);
 ScrollTrigger.create({
         trigger: '.smooth-scroll',
         start: "top 80%",
