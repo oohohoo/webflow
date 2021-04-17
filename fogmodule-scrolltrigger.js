@@ -397,7 +397,8 @@ MARQUEE + SCROLLTRIGGER change direction
 let direction = 1; // 1 = forward, -1 = backward scroll
 
 const roll1 = roll(".rollingtext", {duration: 40}),
-      roll2 = roll(".rollingtext02", {duration: 60}, true);
+      roll2 = roll(".rollingtext02", {duration: 60}),
+      roll3 = roll(".rollingtext03", {duration: 80}, true);
 ScrollTrigger.create({
         trigger: '.smooth-scroll',
         start: "top top",
@@ -407,7 +408,7 @@ ScrollTrigger.create({
           if (self.direction !== direction) {
             direction *= -1;
            
-            gsap.to([roll1, roll2], {
+            gsap.to([roll1, roll2, roll3], {
                 timeScale: direction, 
                 overwrite: true            
             });
