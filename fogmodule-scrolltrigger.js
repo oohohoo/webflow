@@ -403,6 +403,10 @@ ScrollTrigger.create({
         start: "top 30%",
         end: "bottom top",
         scroller: ".smooth-scroll",
+        toggleClass: {
+          targets: '.logofrka',
+          className: 'orange'
+        },
        /*  invalidateOnRefresh: true, */
          onUpdate(self) {
           if (self.direction !== direction) {
