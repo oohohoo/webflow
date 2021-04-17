@@ -1,6 +1,10 @@
+<script src="https://fogtemplate.netlify.app/customizi.js"></script>
+
 // --- REGISTER SCROLLTRIGGER
 
+
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(CustomEase);
 
 // --- SMOOTH SCROLL -----------------------------------------
 
