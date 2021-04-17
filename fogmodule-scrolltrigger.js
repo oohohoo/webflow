@@ -490,11 +490,11 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
 
 
    tl.set(element, { autoAlpha: 1 });
-   tl.from(letters, 1.6, {
+   tl.from(letters, 5, {
      transformOrigin: "center",
      rotationY: 90,
      x: 30,
-     ease: "hop",
+     //ease: "hop",
      stagger: 0.025 });
 
  });
