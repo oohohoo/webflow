@@ -404,6 +404,7 @@ ScrollTrigger.create({
         start: "top top",
         end: "bottom bottom",
         scroller: ".smooth-scroll",
+        invalidateOnRefresh: true,
          onUpdate(self) {
           if (self.direction !== direction) {
             direction *= -1;
