@@ -479,9 +479,9 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
        trigger: element,
        toggleActions: "restart none none reset" } });
        toggleClass: {
-        targets: '.logofrka, .navstyle',
-        className: 'crni'
-      },
+          targets: '.logofrka, .navstyle',
+          className: 'orange'
+        },
 
    tl.set(element, { autoAlpha: 1 });
    tl.from(letters, 1.6, {
