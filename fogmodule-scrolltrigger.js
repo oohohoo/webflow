@@ -398,9 +398,8 @@ let direction = 1; // 1 = forward, -1 = backward scroll
 
 const roll1 = roll(".rollingtext", {duration: 10}),
       roll2 = roll(".rollingtext02", {duration: 10}, true),
-      scroll = ScrollTrigger.create({
-        scroller: ".smooth-scroll",
-        onUpdate(self) {
+      scroll = ScrollTriggerx.create({
+         onUpdate(self) {
           if (self.direction !== direction) {
             direction *= -1;
             gsap.to([roll1, roll2], {timeScale: direction, overwrite: true});
