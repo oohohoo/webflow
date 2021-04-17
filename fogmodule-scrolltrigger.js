@@ -407,16 +407,11 @@ ScrollTrigger.create({
           if (self.direction !== direction) {
             direction *= -1;
            
-            gsap.to([roll1], {
-                timeScale: -1, 
+            gsap.to([roll1, roll2], {
+                timeScale: direction, 
                 overwrite: true            
             });
 
-            gsap.to([roll2], {
-                timeScale: 1, 
-                duration: 40,
-                overwrite: true            
-            });
             
           }
         }
