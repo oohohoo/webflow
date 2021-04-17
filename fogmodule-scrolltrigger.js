@@ -485,3 +485,22 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
      stagger: 0.025 });
 
  });
+
+  /* =============================================
+SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
+================================================ */
+
+ const showAnim = gsap.from('.header-hider', { 
+    yPercent: -100,
+    paused: true,
+    duration: 0.2
+  }).progress(1);
+  
+  ScrollTrigger.create({
+    start: "top top",
+    end: 99999,
+    onUpdate: (self) => {
+      self.direction === -1 ? showAnim.play() : showAnim.reverse()
+    }
+  });
+  
