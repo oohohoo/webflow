@@ -490,7 +490,7 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
 SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
 ================================================ */
 
- const showAnim = gsap.from('.header-hider', { 
+/*  const showAnim = gsap.from('.header-hider', { 
     yPercent: -105,
     ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
     paused: true,
@@ -505,5 +505,38 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
       self.direction === -1 ? showAnim.play() : showAnim.reverse()
     }
   });
-  
+   */
 
+
+/* 
+  const showAnim = gsap.from('.header-hider', { 
+    yPercent: -105,
+    ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
+    paused: true,
+    duration: 0.2
+  }).progress(1);
+     */
+
+  /***********************/
+
+  const showAnim  = gsap.timeline({
+    paused: true,
+    duration: 0.2,
+	scrollTrigger: {
+        scroller: ".smooth-scroll",
+        start: "top top",
+        end: 99999,
+        onUpdate: (self) => {
+          self.direction === -1 ? showAnim.play() : showAnim.reverse()
+        }
+}
+});
+
+tl.to(".logo-frka", {
+y: 400, rotation: 360, ease: "none", duration:1})
+
+tl.to(".navitem", {
+y: 200, rotation: 360, duration:1})
+
+tl.to(".kontakt", {
+backgroundColor: "purple", x:30, duration:1}).progress(1);
