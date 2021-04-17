@@ -285,21 +285,7 @@ gsap.to(".grid-element", {
 
 		})
 
-/* NUMBER COUNT */
 
-	gsap.to(".imagex", {
-			scrollTrigger:{
-      scroller: ".smooth-scroll",
-				trigger: ".imagex",
-				start: "top bottom", 
-				end: "bottom top", 
-				scrub: 1,
-				
-			},
-			x: -200,
-
-		})
-    
 
 /* NUMBER COUNT from zero */
 const items = document.querySelectorAll(".data");
@@ -382,10 +368,9 @@ onUpdate:function(){
     });
     
     
-  /* rotate asterisk through whole page */
   
   /* =============================================
-015  --- PROGRES LAJNA ŽUTA
+ROTATE ASTERISK
 ================================================ */
 
 //gsap.set(cursor, {opacity:0});
@@ -495,7 +480,7 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
      transformOrigin: "center",
      rotationY: 90,
      rotate:20,
-     x: 200,
+     x: 30,
     ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
      stagger: 0.025 });
 
