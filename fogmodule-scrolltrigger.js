@@ -480,12 +480,12 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
 
    const letters = element.querySelectorAll(".letter");
 
-   CustomEase.create("hop", "M0,0 C0.425,0.005 0,1 1,1");
+   //CustomEase.create("hop", "M0,0 C0.425,0.005 0,1 1,1");
 
    let tl = gsap.timeline({
      scrollTrigger: {
         scroller: ".smooth-scroll",
-        scrub: 1,
+        scrub: 3,
        trigger: element,
        toggleActions: "restart none none reset" } });
 
@@ -495,7 +495,7 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
      transformOrigin: "center",
      rotationY: 90,
      x: 30,
-    ease: "hop",
+    ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
      stagger: 0.025 });
 
  });
