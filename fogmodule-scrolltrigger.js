@@ -93,7 +93,7 @@ revealContainers.forEach((container) => {
     scrollTrigger: {
       trigger: container,
        scroller: ".smooth-scroll",
-       invalidateOnRefresh: true,
+      
       toggleActions: "restart none none reset"
     }
   });
