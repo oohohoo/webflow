@@ -1,10 +1,8 @@
-<script src="https://fogtemplate.netlify.app/customizi.js"></script>
 
 // --- REGISTER SCROLLTRIGGER
 
 
 gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(CustomEase);
 
 // --- SMOOTH SCROLL -----------------------------------------
 
@@ -461,7 +459,7 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
  var textWrapper = document.querySelectorAll(".reveal-textx");
 
  gsap.registerPlugin(CustomEase);
- gsap.registerPlugin(ScrollTrigger); 
+ //gsap.registerPlugin(ScrollTrigger); 
  textWrapper.forEach(element => {
    element.innerHTML = element.textContent.replace(
    /([A-Za-z0-9'<>/.!?\\-]+)/g,
@@ -479,6 +477,8 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
 
    const letters = element.querySelectorAll(".letter");
 
+   CustomEase.create("hop", "M0,0 C0.425,0.005 0,1 1,1");
+
    let tl = gsap.timeline({
      scrollTrigger: {
         scroller: ".smooth-scroll",
@@ -491,7 +491,7 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
      transformOrigin: "center",
      rotationY: 90,
      x: 30,
-     ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
+     ease: "hop",
      stagger: 0.025 });
 
  });
