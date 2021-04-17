@@ -533,7 +533,7 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
     },
     scrollTrigger: {
         scroller: ".smooth-scroll",
-        start: "top 10",
+        start: "top center",
         end: 99999,
         /* onEnter: () => myfunction(), */
         onLeaveBack: () => myfunction(),
