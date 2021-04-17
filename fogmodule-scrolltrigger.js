@@ -406,11 +406,11 @@ const roll1 = roll(".rollingtext", {duration: 10}),
                 timeScale: direction, 
                 overwrite: true,
                 scrollTrigger: {
-                    /* trigger: ".smooth-scroll", */
+                     trigger: ".smooth-scroll", 
                     scroller: ".smooth-scroll",
-                    /* scrub: true,
+                     scrub: true,
                     start: "top top",
-                    end: "bottom bottom", */
+                    end: "bottom bottom", 
                    
                   },
             
