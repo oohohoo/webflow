@@ -400,13 +400,13 @@ const roll1 = roll(".rollingtext", {duration: 40}), // ugasi true i mijenja smje
       roll3 = roll(".rollingtext03", {duration: 80}, true);
 ScrollTrigger.create({
        /* trigger: '.cd-wrap',*/
-        start: "top 30%",
+        start: "top 10%",
         end: "bottom top",
         scroller: ".smooth-scroll",
-        toggleClass: {
-          targets: '.logofrka, .navstyle, .kontakt',
-          className: 'orange'
-        },
+       toggleClass: {
+        targets: '.logofrka, .navstyle, .kontakt',
+        className: 'mrak'
+      },
        /*  invalidateOnRefresh: true, */
          onUpdate(self) {
           if (self.direction !== direction) {
@@ -533,6 +533,8 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
     elementFirst.classList.toggle('outline')
   }; */
 
+
+  
   const showAnim = gsap.timeline({
     paused: true,
     defaults: { // children inherit these defaults
@@ -541,6 +543,10 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
     },
     scrollTrigger: {
         scroller: ".smooth-scroll",
+        toggleClass: {
+          targets: '.logofrka, .navstyle, .kontakt',
+          className: 'mrak'
+        },
         start: "top top",
         end: 99999,
         /* onEnter: () => myfunction(), */
