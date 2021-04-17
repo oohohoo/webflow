@@ -450,7 +450,7 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
  //gsap.registerPlugin(ScrollTrigger); 
  textWrapper.forEach(element => {
    element.innerHTML = element.textContent.replace(
-   /([A-Za-z0-9'<>/.ČĆŽĐŠčćžšđ!?\\-]+)/g,
+   /([A-Za-z0-9'<>/.ČĆŽĐŠčćžšđ()!?\\-]+)/g,
    '<div class="word">$1</div>');
 
 
