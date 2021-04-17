@@ -447,3 +447,46 @@ function roll(targets, vars, reverse) {
   return tl;
 }
 
+
+  /* =============================================
+TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
+================================================ */
+
+
+ // Wrap every letter in a span
+ var textWrapper = document.querySelectorAll(".reveal-text");
+
+ gsap.registerPlugin(CustomEase);
+ gsap.registerPlugin(ScrollTrigger);
+ textWrapper.forEach(element => {
+   element.innerHTML = element.textContent.replace(
+   /([A-Za-z0-9'<>/.!?\\-]+)/g,
+   '<div class="word">$1</div>');
+
+
+   let words = element.querySelectorAll(".word");
+
+   words.forEach(word => {
+     word.innerHTML = word.innerHTML.replace(
+     /[-A-Za-z0-9!$#%^&*@()_+|~=`{}\[\]:";'<>?,.\/]/g,
+     "<div class='perspective'><div class='letter'><div>$&</div></div></div>");
+
+   });
+
+   const letters = element.querySelectorAll(".letter");
+
+   let tl = gsap.timeline({
+     scrollTrigger: {
+       trigger: element,
+       toggleActions: "restart none none reset" } });
+
+
+   tl.set(element, { autoAlpha: 1 });
+   tl.from(letters, 1.6, {
+     transformOrigin: "center",
+     rotationY: 90,
+     x: 30,
+     ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
+     stagger: 0.025 });
+
+ });
