@@ -405,13 +405,14 @@ ScrollTrigger.create({
         scroller: ".smooth-scroll",
          onUpdate(self) {
           if (self.direction !== direction) {
-            direction *= -1;
+            direction = -1;
            
             gsap.to([roll1, roll2], {
                 timeScale: direction, 
                 overwrite: true            
-            
             });
+
+            
           }
         }
       });
