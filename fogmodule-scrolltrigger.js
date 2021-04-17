@@ -399,7 +399,10 @@ let direction = 1; // 1 = forward, -1 = backward scroll
 const roll1 = roll(".rollingtext", {duration: 20}),
       roll2 = roll(".rollingtext02", {duration: 40}, true);
 ScrollTrigger.create({
-         scroller: ".smooth-scroll",
+        trigger: '.smooth-scroll',
+        start: "top top",
+        end: "bottom bottom",
+        scroller: ".smooth-scroll",
          onUpdate(self) {
           if (self.direction !== direction) {
             direction *= -1;
