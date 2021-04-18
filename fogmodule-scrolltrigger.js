@@ -554,10 +554,10 @@ tl5.from(cover.querySelector('img'), {
 SVG CURVED TRANSITION
 ================================================================================ */
 
-let svganima = gsap.timeline()
+let svganima = gsap.timeline({ paused:true })
 
 let $path = document.querySelector(".path"),
-    $logo = document.querySelector(".logo"),
+    /* $logo = document.querySelector(".logo"), */
     repeat = false,
     animate = () => {
       const start = "M 0 100 V 50 Q 50 0 100 50 V 100 z";
