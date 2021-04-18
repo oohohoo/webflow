@@ -568,7 +568,7 @@ let path = document.querySelector(".path"),
            scrollTrigger: {
           scroller: ".smooth-scroll",
           trigger: ".trigerish",  
-          start: 'center top',
+          start: 'top top',
           end: "bottom bottom", 
           /*  scrub: true, */
            toggleActions: "restart none none reset"
