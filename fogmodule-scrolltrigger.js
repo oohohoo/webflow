@@ -565,8 +565,8 @@ let svganima = gsap.timeline( {
     scroller: ".smooth-scroll",
     trigger: ".svgcurve-wrap",  
     start: 'top top',
-    end: "bottom 30%", 
-    scrub: 2,
+    end: "bottom top", 
+    /* scrub: 2, */
   },
 
 
