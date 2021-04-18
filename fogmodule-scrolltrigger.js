@@ -567,7 +567,7 @@ let path = document.querySelector(".path"),
         paused: true,
            scrollTrigger: {
           scroller: ".smooth-scroll",
-          /* trigger: ".svgcurve-wrap",   */ 
+          trigger: ".trigerish",  
           start: 'top top',
           end: "bottom bottom", 
           /*  scrub: true, */
