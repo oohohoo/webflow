@@ -556,6 +556,7 @@ SVG CURVED TRANSITION
 
 let svganima = gsap.timeline( {
   paused: true,
+  delay: 3,
   /* repeat: -1,  */
   defaults: { // children inherit these defaults
     duration: 0.5,
@@ -563,7 +564,7 @@ let svganima = gsap.timeline( {
   },
   scrollTrigger: {
     scroller: ".smooth-scroll",
-    trigger: ".svgcurve-wrap",  
+    trigger: ".transition",  
     start: 'top 20%',
     end: "bottom top", 
     /* scrub: 2, */
