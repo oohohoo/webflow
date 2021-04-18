@@ -557,7 +557,7 @@ SVG CURVED TRANSITION
 let svganima = gsap.timeline( {
   paused: true,
   delay: 3,
-   repeat: -1,  
+   repeat: 1,  
   defaults: { // children inherit these defaults
     duration: 5,
     ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
@@ -582,8 +582,8 @@ let $path = document.querySelector(".path"),
       
       svganima
       /* new TimelineMax(repeat ? { paused: true } : {repeat: 1, repeatDelay: 1}) */
-        .to($path, 0.8, {attr: { d: start }, ease: Power2.in})
-        .to($path, 0.4, {attr: { d: end }, ease: Power2.out})
+        .to($path, 0.8, {attr: { d: start }, ease: Power2.easeIn})
+        .to($path, 0.4, {attr: { d: end }, ease: Power2.easeOut})
         /* .from($logo, .8, {y: 75}, '-=.8') */
         .play(0);
     };
