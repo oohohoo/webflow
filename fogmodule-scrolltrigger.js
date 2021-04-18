@@ -565,8 +565,8 @@ let $path = document.querySelector(".path"),
       
       svganima
       /* new TimelineMax(repeat ? { paused: true } : {repeat: 1, repeatDelay: 1}) */
-        .to($path, 0.8, {attr: { d: start }, ease: Power2.easeIn})
-        .to($path, 0.4, {attr: { d: end }, ease: Power2.easeOut})
+        .to($path, 5, {attr: { d: start }, ease: Power2.easeIn})
+        .to($path, 5, {attr: { d: end }, ease: Power2.easeOut})
         .from($logo, .8, {y: 75}, '-=.8')
         .play(0);
     };
