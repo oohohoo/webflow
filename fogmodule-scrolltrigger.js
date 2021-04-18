@@ -559,14 +559,14 @@ let svganima = gsap.timeline( {
   delay: 3,
   /* repeat: -1,  */
   defaults: { // children inherit these defaults
-    duration: 0.5,
+    duration: 5,
     ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
   },
   scrollTrigger: {
     scroller: ".smooth-scroll",
     trigger: ".transition",  
     start: 'top 20%',
-    end: "bottom top", 
+    end: "bottom bottom", 
     markers: true,
     /* scrub: 2, */
   },
