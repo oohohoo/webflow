@@ -567,7 +567,6 @@ let $path = document.querySelector(".path"),
       /* new TimelineMax(repeat ? { paused: true } : {repeat: 1, repeatDelay: 1}) */
       scrollTrigger: {
         scroller: ".smooth-scroll",
-        trigger: firstSection,    
         start: 'top top',
         end: "+=30%",    
         scrub: 2,
