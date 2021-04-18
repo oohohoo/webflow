@@ -549,7 +549,7 @@ tl5.from(cover.querySelector('img'), {
     trigger: firstSection,    
     start: 'top top',
     end: "+=50%",    
-    scrub: true,
+    /* scrub: true, */
   },
   clipPath: 'inset(10%)',
 })
