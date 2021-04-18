@@ -569,8 +569,8 @@ let path = document.querySelector(".path"),
           scroller: ".smooth-scroll",
           trigger: ".svgcurve-wrap",   
           start: 'top top',
-          //end: "bottom bottom", 
-           scrub: true,
+          end: "bottom bottom", 
+          /*  scrub: true, */
            toggleActions: "restart none none reset"
         },
       
