@@ -385,7 +385,7 @@ gsap.to(".asterisk", {
    // onUpdate: self => textProgress.innerText = self.progress.toFixed(3) + "%"
   },
   rotate: 1440, 
-//  transformOrigin: "center center", 
+  transformOrigin: "center center", 
   ease: "none"
 });
 
@@ -403,10 +403,10 @@ ScrollTrigger.create({
         start: "top 10%",
         end: "bottom top",
         scroller: ".smooth-scroll",
-      /*  toggleClass: {
+        toggleClass: {
         targets: '.logofrka, .navstyle, .kontakt',
         className: 'orange'
-      }, */
+      }, 
        /*  invalidateOnRefresh: true, */
          onUpdate(self) {
           if (self.direction !== direction) {
