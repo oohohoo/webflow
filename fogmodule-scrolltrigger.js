@@ -405,7 +405,7 @@ ScrollTrigger.create({
         targets: '.logofrka, .navstyle, .kontakt',
         className: 'orange'
       }, 
-        start: "top 15%",
+        start: "top 5%",
         end: "bottom top",
         scroller: ".smooth-scroll",
             /*  invalidateOnRefresh: true, */
