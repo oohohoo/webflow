@@ -536,10 +536,8 @@ SCROLL TRIGGER INSET CLIPMASK ON FIRST, and PIN other sections
 let tl5 = gsap.timeline()
 
 let cover = document.querySelector('.project-cover')
-
-let allSections = document.querySelectorAll('.project-section')
 let firstSection = document.querySelector('.project-section.first')
-let otherSections = document.querySelectorAll('.project-section:not(.first)')
+
 
 
 
@@ -548,7 +546,7 @@ tl5.from(cover.querySelector('img'), {
     scroller: ".smooth-scroll",
     trigger: firstSection,    
     start: 'top top',
-    end: "+=50%",    
+    end: "+=30%",    
     scrub: 2,
   },
   clipPath: 'inset(10%)',
@@ -556,50 +554,8 @@ tl5.from(cover.querySelector('img'), {
 
 
 
-ScrollTrigger.create({
-    trigger: firstSection,
-    scroller: ".smooth-scroll",
-    start: 'top top',
-    end: "+=200%",
-    
-    pin: true,
-    pinSpacing: false,
-})
 
 
-
-otherSections.forEach((section, index) => {
-  
-  gsap.set(section, { yPercent: 100 })
-  
-  tl.to(section, {
-      scrollTrigger: {
-      scroller: ".smooth-scroll",
-      trigger: section,
-      pin: true,
-      pinSpacing: false,
-    },
-  })
-})
-
-
-
-allSections.forEach((section, index) => {
-  
-  ScrollTrigger.create({
-      scroller: ".smooth-scroll",
-      trigger: section,
-      start: 'top bottom',
-      end: "+=100%",
-      onEnter: () => {
-        console.log('Enter Section ' + (index + 1));
-      },
-      onLeaveBack: () => {
-        console.log('Enter Section ' + (index));
-      }
-  })
-  
-});
 
 
 
