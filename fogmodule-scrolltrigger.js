@@ -554,7 +554,22 @@ tl5.from(cover.querySelector('img'), {
 SVG CURVED TRANSITION
 ================================================================================ */
 
-let svganima = gsap.timeline()
+let svganima = gsap.timeline( {
+  paused: true,
+  defaults: { // children inherit these defaults
+    duration: 0.5,
+    ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
+  },
+  scrollTrigger: {
+    scroller: ".smooth-scroll",
+    /* trigger: ".svgcurve-wrap",   */  
+    start: 'top top',
+    end: "bottom 30%", 
+    scrub: 2,
+  },
+
+
+});
 
 let $path = document.querySelector(".path"),
     $logo = document.querySelector(".logo"),
@@ -565,12 +580,6 @@ let $path = document.querySelector(".path"),
       
       svganima
       /* new TimelineMax(repeat ? { paused: true } : {repeat: 1, repeatDelay: 1}) */
-      scrollTrigger: {
-        scroller: ".smooth-scroll",
-        start: 'top top',
-        end: "+=30%",    
-        scrub: 2,
-      },
         .to($path, 0.8, {attr: { d: start }, ease: Power2.easeIn})
         .to($path, 0.4, {attr: { d: end }, ease: Power2.easeOut})
         /* .from($logo, .8, {y: 75}, '-=.8') */
@@ -578,3 +587,5 @@ let $path = document.querySelector(".path"),
     };
 
 animate();
+
+
