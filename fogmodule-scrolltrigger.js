@@ -567,6 +567,7 @@ let svganima = gsap.timeline( {
     trigger: ".transition",  
     start: 'top 20%',
     end: "bottom top", 
+    markers: true,
     /* scrub: 2, */
   },
 
