@@ -494,47 +494,10 @@ TEXT REVEAL ANIMATION SPLIT BY LETTER - cameron knight
 
  });
 
-  /* =============================================
-SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION
-================================================ */
+  /* ============================================================================
+SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION + CHANGE COLOR ON DIFF BACKGROUNDS
+================================================================================ */
 
-/*  const showAnim = gsap.from('.header-hider', { 
-    yPercent: -105,
-    ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
-    paused: true,
-    duration: 0.2
-  }).progress(1);
-    
-  ScrollTrigger.create({
-    scroller: ".smooth-scroll",
-    start: "top top",
-    end: 99999,
-    onUpdate: (self) => {
-      self.direction === -1 ? showAnim.play() : showAnim.reverse()
-    }
-  });
-   */
-
-
-/* 
-  const showAnim = gsap.from('.header-hider', { 
-    yPercent: -105,
-    ease: CustomEase.create("custom", "M0,0 C0.425,0.005 0,1 1,1 "),
-    paused: true,
-    duration: 0.2
-  }).progress(1);
-     */
-
-  /***********************/
- 
- /*  var elementFirst = document.querySelector('.kontakt');
-
-  function myfunction() {
-    elementFirst.classList.toggle('outline')
-  }; */
-
-
-  
   const showAnim = gsap.timeline({
     paused: true,
     defaults: { // children inherit these defaults
@@ -566,7 +529,77 @@ showAnim
 .to(".kont-color", {color: "black", duration:0.2},"<0.2");
 
 
+  /* ============================================================================
+SCROLL TRIGGER INSET CLIPMASK ON FIRST, and PIN other sections 
+================================================================================ */
 
+let tl5 = gsap.timeline()
+
+let cover = document.querySelector('.project-cover')
+
+let allSections = document.querySelectorAll('.project-section')
+let firstSection = document.querySelector('.project-section.first')
+let otherSections = document.querySelectorAll('.project-section:not(.first)')
+
+
+
+tl5.from(cover.querySelector('img'), {
+  scrollTrigger: {
+    scroller: ".smooth-scroll",
+    trigger: firstSection,    
+    start: 'top top',
+    end: "+=50%",    
+    scrub: true,
+  },
+  clipPath: 'inset(10%)',
+})
+
+
+
+ScrollTrigger.create({
+    trigger: firstSection,
+    scroller: ".smooth-scroll",
+    start: 'top top',
+    end: "+=200%",
+    
+    pin: true,
+    pinSpacing: false,
+})
+
+
+
+otherSections.forEach((section, index) => {
+  
+  gsap.set(section, { yPercent: 100 })
+  
+  tl.to(section, {
+      scrollTrigger: {
+      scroller: ".smooth-scroll",
+      trigger: section,
+      pin: true,
+      pinSpacing: false,
+    },
+  })
+})
+
+
+
+allSections.forEach((section, index) => {
+  
+  ScrollTrigger.create({
+      scroller: ".smooth-scroll",
+      trigger: section,
+      start: 'top bottom',
+      end: "+=100%",
+      onEnter: () => {
+        console.log('Enter Section ' + (index + 1));
+      },
+      onLeaveBack: () => {
+        console.log('Enter Section ' + (index));
+      }
+  })
+  
+});
 
 
 
