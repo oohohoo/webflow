@@ -560,7 +560,7 @@ let svganima = gsap.timeline( {
    repeat: -1,  
   scrollTrigger: {
     scroller: ".smooth-scroll",
-    trigger: ".transition",  
+    /* trigger: ".transition",   */
     start: 'top center',
     end: "bottom bottom", 
      scrub: 2,
