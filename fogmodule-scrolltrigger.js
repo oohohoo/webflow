@@ -530,16 +530,13 @@ showAnim
 
 
   /* ============================================================================
-SCROLL TRIGGER INSET CLIPMASK ON FIRST, and PIN other sections 
+SCROLL TRIGGER INSET CLIPMASK ON FIRST
 ================================================================================ */
 
 let tl5 = gsap.timeline()
 
 let cover = document.querySelector('.project-cover')
 let firstSection = document.querySelector('.project-section.first')
-
-
-
 
 tl5.from(cover.querySelector('img'), {
   scrollTrigger: {
