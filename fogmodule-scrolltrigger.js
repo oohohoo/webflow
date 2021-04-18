@@ -543,7 +543,7 @@ tl5.from(cover.querySelector('img'), {
   scrollTrigger: {
     scroller: ".smooth-scroll",
     trigger: firstSection,    
-    start: 'top top',
+    start: 'top center',
     end: "+=30%",    
     scrub: 2,
   },
