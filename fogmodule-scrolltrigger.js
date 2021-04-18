@@ -506,10 +506,10 @@ SHOW HIDE HEADER ON SCROLL + CUSTOM ANIMATION + CHANGE COLOR ON DIFF BACKGROUNDS
     },
     scrollTrigger: {
         scroller: ".smooth-scroll",
-       /*  toggleClass: {
+        toggleClass: {
           targets: '.logofrka, .navstyle, .kontakt',
           className: 'mrak'
-        }, */
+        }, 
         start: "top top",
         end: 99999,
         /* onEnter: () => myfunction(), */
@@ -548,12 +548,4 @@ tl5.from(cover.querySelector('img'), {
   },
   clipPath: 'inset(10%)',
 })
-
-
-
-
-
-
-
-
 
