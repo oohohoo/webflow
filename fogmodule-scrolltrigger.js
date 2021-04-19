@@ -603,7 +603,7 @@ gsap.to(".panelx:not(:last-child)", {
   stagger: 0.5,
   onComplete() {
     ScrollTrigger.refresh(true);
-  }
+  },
     scrollTrigger: {
     trigger: "#container",
     start: "top top",
