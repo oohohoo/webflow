@@ -612,7 +612,7 @@ gsap.to(".panelx:not(:last-child)", {
     trigger: "#container",
     start: "top top",
   /*   end: "bottom bottom", */
-     end: "+=300%", 
+     /* end: "+=300%",  */
     scrub: true,
     pin: true,
     scroller: ".smooth-scroll",  // * //     
