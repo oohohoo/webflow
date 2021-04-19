@@ -601,7 +601,10 @@ gsap.to(".panelx:not(:last-child)", {
   /* yPercent: -100,  */
   ease: "none",
   stagger: 0.5,
-   scrollTrigger: {
+  onComplete() {
+    ScrollTrigger.refresh(true);
+  }
+    scrollTrigger: {
     trigger: "#container",
     start: "top top",
   /*   end: "bottom bottom", */
@@ -609,9 +612,7 @@ gsap.to(".panelx:not(:last-child)", {
     scrub: true,
     pin: true,
     scroller: ".smooth-scroll",  // * //     
-  },
- 
-  
+  }  
   
 });
 
