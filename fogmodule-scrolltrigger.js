@@ -5,7 +5,7 @@
 // --- REGISTER SCROLLTRIGGER
 
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 // --- SMOOTH SCROLL -----------------------------------------
 
@@ -31,7 +31,7 @@ ScrollTrigger.scrollerProxy(".smooth-scroll", {
   // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, 
   // we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
   // UKLJUČITI SAMO NA MOBILNOJ VERZIJI
-// pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed"
+ pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed"
 });
 
 // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
@@ -588,3 +588,120 @@ let path = document.querySelector(".path"),
 animate();
 
 
+
+
+  /* ============================================================================
+Horizontal Section Pinning with anchor links and Locomotive scroll - scrollto plugin
+================================================================================ */
+
+
+var $ = jQuery;
+
+var container = document.querySelector('.scroll-container');
+	
+	ScrollTrigger.create({
+		trigger: ".scroll-container",
+		start: "top top",
+		end: () => (container.scrollWidth - window.innerWidth),
+		pin: true,
+		anticipatePin: 1,
+		scroller: ".smooth-scroll",
+		scrub: true,
+		//animation: scrollBar,
+		invalidateOnRefresh: true,
+	});	
+	
+	var scrollPanels = gsap.utils.toArray(".scroll-section");
+	
+    scrollPanels.forEach( function(panels, i) {
+	    
+	    if (panels.classList.contains('pinned')) {
+		    
+			function prevAll(element) {
+				var result = [];
+				while (element = element.previousElementSibling)
+				result.push(element);
+				return result;
+			}
+			
+			var totalWidthToMove;
+			
+			function getTotalWidthToMove() {
+				totalWidthToMove = 0;	
+					prevAll(panels).forEach( function(panelsBefore, i) {
+					var style = panelsBefore.currentStyle || window.getComputedStyle(panelsBefore);
+					var marginRight = parseInt(style.marginRight);
+					totalWidthToMove += panelsBefore.offsetWidth + marginRight;
+				});
+				return totalWidthToMove;
+			}
+			
+			gsap.to(panels, {
+				scrollTrigger: {
+					trigger: ".scroll-container-inner",
+					start: 'top top',
+					scrub: true,
+					invalidateOnRefresh: true,
+					scroller: ".smooth-scroll",
+					end: () => "+=" + getTotalWidthToMove(),
+				},
+				x: () => { return - getTotalWidthToMove() },
+				ease: "none"                   
+			});
+			
+	    } else {
+			gsap.to(panels, {
+				scrollTrigger: {
+					trigger: ".scroll-container-inner",
+					start: 'top top',
+					scrub: true,
+					invalidateOnRefresh: true,
+					scroller: ".smooth-scroll",
+					end: () => "+=" + (container.scrollWidth),
+				},
+				x: () => { return - (container.scrollWidth) },
+				ease: "none"
+			});			
+			
+	    }
+	    
+    });
+
+	$(window).on("resize", function () {
+		var wrapperWidth = 0;
+		$('.scroll-container-inner > *').each(function () {
+			wrapperWidth += $(this).outerWidth();
+		});
+		$('.scroll-container-inner').css({ width: wrapperWidth });
+	}).resize();
+	
+	
+	//anchor links
+  //	var panelsSection = $(".scroll-container");
+  
+  //anchor links
+	var panelsSection = document.querySelector(".scroll-container");
+	
+	document.querySelectorAll(".anchor").forEach(anchor => {
+	
+	  anchor.addEventListener("click", function(e) {
+	    
+	      e.preventDefault();
+	
+	      const targetElem = document.querySelector(e.target.getAttribute("href"));
+	    
+	      const containerOffset = panelsSection.offsetTop + targetElem.offsetLeft;
+	
+//	      gsap.to(window, {
+//	        scrollTo: {
+//	          y: containerOffset,
+//	          autoKill: false
+//	        },
+//	        duration: 1
+//	      });
+            
+      locoScroll.scrollTo(containerOffset)
+	    
+	  });
+	  
+	});
