@@ -8,7 +8,7 @@
 // --- REGISTER SCROLLTRIGGER
 
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 // --- SMOOTH SCROLL -----------------------------------------
 
