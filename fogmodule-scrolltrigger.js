@@ -611,6 +611,7 @@ gsap.to(".panelx:not(:last-child)", {
     scroller: ".smooth-scroll",  // * //     
   },
   onComplete: ScrollTrigger.refresh()
+  console.log("REFREŠŠŠŠŠŠŠŠŠŠŠ!");
   
 });
 
