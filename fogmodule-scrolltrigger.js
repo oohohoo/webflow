@@ -602,7 +602,7 @@ const runOnComplete = () => {
 }
 
 
-gsap.to(".panelx:not(:last-child)", {
+gsap.to(".panelx", {
 
   yPercent: -100, 
   ease: "none",
