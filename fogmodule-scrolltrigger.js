@@ -15,7 +15,8 @@ const locoScroll = new LocomotiveScroll({
   el: document.querySelector(".smooth-scroll"),
   smooth: true,
   getDirection: true,
-   inertia: .6,
+  getSpeed: true,
+   inertia: .75,
 });
 // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
 locoScroll.on("scroll", ScrollTrigger.update);
@@ -32,7 +33,7 @@ ScrollTrigger.scrollerProxy(".smooth-scroll", {
   // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, 
   // we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
   // UKLJUČITI SAMO NA MOBILNOJ VERZIJI
- //pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed"
+pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed"
 });
 
 // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
@@ -592,6 +593,29 @@ animate();
 
 
   /* ============================================================================
-Horizontal Section Pinning with anchor links and Locomotive scroll - scrollto plugin
+Layered Pinning from Bottom - akapowl
 ================================================================================ */
 
+gsap.to(".panelx", {
+  yPercent: -100, 
+  ease: "none",
+  stagger: 0.5,
+  scrollTrigger: {
+    trigger: "#container",
+    start: "top top",
+    end: "+=300%",
+    scrub: true,
+    pin: true,
+    scroller: ".smooth-scroll",  // * //     
+  }
+});
+
+ScrollTrigger.create({
+    trigger: ".contentx",
+    start: "top top",
+    end: "+=100%",
+    pin: true,
+    scroller: ".smooth-scroll", // * //   
+})
+
+gsap.set(".panelx", {zIndex: (i, target, targets) => targets.length - i});
