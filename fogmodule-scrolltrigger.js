@@ -600,14 +600,14 @@ Horizontal Section Pinning with anchor links and Locomotive scroll - scrollto pl
 
 var $ = jQuery;
 
-var container = document.querySelector('.scroll-container');
+var container = document.querySelector('.smooth-scroll');
 	
 	ScrollTrigger.create({
 		trigger: ".scroll-container",
 		start: "top top",
 		end: () => (container.scrollWidth - window.innerWidth),
 		pin: true,
-		anticipatePin: 1,
+		//anticipatePin: 1,
 		scroller: ".smooth-scroll",
 		scrub: true,
 		//animation: scrollBar,
