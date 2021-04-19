@@ -594,7 +594,7 @@ animate();
 
 
   /* ============================================================================
-Layered Pinning from Bottom - akapowl
+Layered Pinning from Bottom - akapowl ////// NERADI sjebava sve ostale pinove
 ================================================================================ */
 
 
