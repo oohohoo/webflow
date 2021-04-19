@@ -610,7 +610,7 @@ gsap.to(".panelx:not(:last-child)", {
     pin: true,
     scroller: ".smooth-scroll",  // * //     
   },
-  onComplete: ScrollTrigger.refresh()
+ 
   
   
 });
