@@ -382,7 +382,7 @@ gsap.to(".asterisk", {
     scroller: ".smooth-scroll",
     scrub: true,
     pin: ".asterisk",
-    invalidateOnRefresh: true,
+    /* invalidateOnRefresh: true, */
     start: "top top",
     end: "bottom 30%",
    // onUpdate: self => textProgress.innerText = self.progress.toFixed(3) + "%"
@@ -616,6 +616,7 @@ gsap.to(".panelx", {
      /* end: "+=300%",  */
     scrub: true,
     pin: true,
+    pinSpacing: true,
     scroller: ".smooth-scroll",  // * //     
   }
   
