@@ -606,7 +606,7 @@ var container = document.querySelector('.scroll-container');
 		trigger: ".scroll-container",
 		start: "top top",
 		end: () => (container.scrollWidth - window.innerWidth),
-		pin: true,
+		pin: container,
 		anticipatePin: 1,
 		scroller: ".smooth-scroll",
 		scrub: true,
