@@ -382,6 +382,7 @@ gsap.to(".asterisk", {
     scroller: ".smooth-scroll",
     scrub: true,
     pin: ".asterisk",
+    invalidateOnRefresh: true,
     start: "top top",
     end: "bottom 30%",
    // onUpdate: self => textProgress.innerText = self.progress.toFixed(3) + "%"
