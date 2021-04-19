@@ -598,7 +598,7 @@ Layered Pinning from Bottom - akapowl
 
 gsap.to(".panelx:not(:last-child)", {
 
-  /* yPercent: -100,  */
+  yPercent: -100, 
   ease: "none",
   stagger: 0.5,
   onComplete() {
