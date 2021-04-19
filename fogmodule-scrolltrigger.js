@@ -607,7 +607,7 @@ gsap.to(".panelx:not(:last-child)", {
   yPercent: -100, 
   ease: "none",
   stagger: 0.5,
-  onComplete: runOnComplete,
+  onComplete: runOnCompleteg,
      scrollTrigger: {
     trigger: "#container",
     start: "top top",
