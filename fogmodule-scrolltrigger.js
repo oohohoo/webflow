@@ -598,7 +598,7 @@ Horizontal Section Pinning with anchor links and Locomotive scroll - scrollto pl
 ================================================================================ */
 
 
-/* var $ = jQuery;
+var $ = jQuery;
 
 var container = document.querySelector('.scroll-container');
 	
@@ -707,4 +707,4 @@ var container = document.querySelector('.scroll-container');
 	    
 	  });
 	  
-	}); */
+	});
