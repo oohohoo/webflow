@@ -596,15 +596,19 @@ animate();
 Layered Pinning from Bottom - akapowl
 ================================================================================ */
 
+
+const runOnComplete = () => {
+  ScrollTrigger.refresh(true);
+}
+
+
 gsap.to(".panelx:not(:last-child)", {
 
   yPercent: -100, 
   ease: "none",
   stagger: 0.5,
-  onComplete() {
-    ScrollTrigger.refresh(true);
-  },
-    scrollTrigger: {
+  onComplete: runOnComplete,
+     scrollTrigger: {
     trigger: "#container",
     start: "top top",
   /*   end: "bottom bottom", */
@@ -612,7 +616,7 @@ gsap.to(".panelx:not(:last-child)", {
     scrub: true,
     pin: true,
     scroller: ".smooth-scroll",  // * //     
-  }  
+  }
   
 });
 
