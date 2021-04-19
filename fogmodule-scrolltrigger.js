@@ -600,15 +600,15 @@ gsap.to(".panelx:not(:last-child)", {
   yPercent: -100, 
   ease: "none",
   stagger: 0.5,
-  onComplete: ScrollTrigger.refresh();
-  scrollTrigger: {
+   scrollTrigger: {
     trigger: "#container",
     start: "top top",
     end: "+=300%",
     scrub: true,
     pin: true,
     scroller: ".smooth-scroll",  // * //     
-  }
+  },
+  onComplete: ScrollTrigger.refresh()
   
 });
 
