@@ -603,7 +603,7 @@ gsap.to(".panelx", {
   scrollTrigger: {
     trigger: "#container",
     start: "top top",
-    end: "+=300%",
+    end: "+=100%",
     scrub: true,
     pin: true,
     scroller: ".smooth-scroll",  // * //     
