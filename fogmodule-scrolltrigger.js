@@ -550,7 +550,7 @@ tl5.from(cover.querySelector('img'), {
     end: "+=30%",    
     scrub: 2,
   },
-  clipPath: 'inset(10%)',
+  clipPath: 'outset(10%)',
 })
 
   /* ============================================================================
