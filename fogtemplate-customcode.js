@@ -158,7 +158,7 @@ ScrollTrigger.batch(".batch-text", {
 scroller: ".smooth-scroll",
   onEnter: batch => {
     batch.forEach((section, i) => {
-      gsap.to(section.querySelectorAll(".b-text"), {
+      gsap.to(section.querySelectorAll(".b-txt"), {
         autoAlpha: 1,
         yPercent: 0,
         duration: 0.8,

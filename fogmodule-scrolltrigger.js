@@ -543,14 +543,13 @@ let cover = document.querySelector('.project-cover')
 let firstSection = document.querySelector('.project-section.first')
 
 tl5.from(cover.querySelector('img'), {
-  scrollTrigger: {
     scroller: ".smooth-scroll",
     trigger: firstSection,    
     start: 'top center',
     end: "+=30%",    
     scrub: 2,
   },
-  clipPath: 'outset(10%)',
+  clipPath: 'inset(10%)',
 })
 
   /* ============================================================================
