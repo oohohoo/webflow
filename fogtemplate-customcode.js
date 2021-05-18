@@ -152,13 +152,13 @@ snap: {snapTo: 0.5, duration: 0.6, delay: 0, ease: "power4.inOut"},
 004 - SCROLLTRIGGER BATCH - TEXT REVEAL MULTILINE / VERZIJA 1
 ================================================ */
 
-gsap.set('.b-txt', {autoAlpha: 0, yPercent: 200});
+gsap.set('.b-text', {autoAlpha: 0, yPercent: 200});
 
 ScrollTrigger.batch(".batch-text", {
 scroller: ".smooth-scroll",
   onEnter: batch => {
     batch.forEach((section, i) => {
-      gsap.to(section.querySelectorAll(".b-txt"), {
+      gsap.to(section.querySelectorAll(".b-text"), {
         autoAlpha: 1,
         yPercent: 0,
         duration: 0.8,
