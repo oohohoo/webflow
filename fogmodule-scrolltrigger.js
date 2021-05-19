@@ -537,7 +537,7 @@ showAnim
 SCROLL TRIGGER INSET CLIPMASK ON FIRST
 ================================================================================ */
 
-let tl5 = gsap.timeline()
+/* let tl5 = gsap.timeline()
 
 let cover = document.querySelector('.project-cover')
 let firstSection = document.querySelector('.project-section.first')
@@ -550,7 +550,7 @@ tl5.from(cover.querySelector('img'), {
     scrub: 2,
   },
   clipPath: 'inset(10%)',
-})
+}) */
 
   /* ============================================================================
 SVG CURVED TRANSITION
