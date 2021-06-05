@@ -676,7 +676,7 @@ function init() {
   
   jQuery("#append").click(function(i) {
     const newContent = $.parseHTML(ajaxitem);
-    jQuery(".container").append(newContent);
+    jQuery(".append-container").append(newContent);
     
     // Create a new batch just for the new content
     createBatch(newContent);
