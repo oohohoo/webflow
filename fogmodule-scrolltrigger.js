@@ -634,3 +634,53 @@ console.log("REFREŠŠŠŠŠŠŠŠŠŠŠ!");
 }) */
 
 gsap.set(".panelx", {zIndex: (i, target, targets) => targets.length - i});
+
+
+
+
+  /* ============================================================================
+APPEND LOAD MORE
+================================================================================ */
+
+
+// Show the given batch
+function show(batch) {
+  gsap.set(batch, {opacity: 0, y:80});
+  
+  batch.forEach((item, i) => {
+    // Do whatever you want with each item in the batch
+    gsap.timeline().to(item, {opacity: 1, y: 0, overwrite: true, duration: 0.75, delay: i * 0.15});
+  })
+}
+
+// Hide the given batch
+function hide(batch) {
+  gsap.set(batch, {opacity: 0, y: -80, overwrite: true});
+}
+
+// Create a new batch
+function createBatch(target) {
+  ScrollTrigger.batch(target, {
+		//interval: 0.15,
+		onEnter: show,
+		onLeave: hide,
+		onEnterBack: show,
+		onLeaveBack: hide
+	});
+}
+
+var ajaxitem = '<div class="card"></div><div class="card"></div><div class="card"></div><div class="card"></div><div class="card"></div><div class="card"></div>';
+
+function init() {
+  createBatch(".card");
+  
+  jQuery("#append").click(function(i) {
+    const newContent = $.parseHTML(ajaxitem);
+    jQuery(".container").append(newContent);
+    
+    // Create a new batch just for the new content
+    createBatch(newContent);
+  });
+}
+
+init();
