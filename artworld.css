@@ -976,8 +976,7 @@ main {
 
 .scroll-item {
     height: 100%;
-    width: fit-content;
-    width: -moz-fit-content
+    width: 60rem;
 }
 
 .horizontal-scroll .slide-text {
