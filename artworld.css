@@ -1,61 +1,3 @@
-@font-face {
-    font-family: cardinal fruit;
-    src: url(../fonts/5dc6f8465bc6479f5a07c273258b5bd4.woff) format('woff');
-    src: url(../fonts/5dc6f8465bc6479f5a07c273258b5bd4.woff2) format('woff2'), url(../fonts/5dc6f8465bc6479f5a07c273258b5bd4.woff) format('woff'), url(../fonts/5dc6f8465bc6479f5a07c273258b5bd4.ttf) format('truetype'), url(../fonts/5dc6f8465bc6479f5a07c273258b5bd4.svg#Cardinal-Fruit) format('svg'), url(../fonts/5dc6f8465bc6479f5a07c273258b5bd4.eot), url(../fonts/5dc6f8465bc6479f5a07c273258b5bd4d41d.eot?#iefix) format('embedded-opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-    unicode-range: U+000-5FF
-}
-
-@font-face {
-    font-family: cardinal fruit italic;
-    src: url(../fonts/94dd75dcec3a4d1e1021c4bf0749af0c.woff) format('woff');
-    src: url(../fonts/94dd75dcec3a4d1e1021c4bf0749af0c.woff2) format('woff2'), url(../fonts/94dd75dcec3a4d1e1021c4bf0749af0c.ttf) format('truetype'), url(../fonts/94dd75dcec3a4d1e1021c4bf0749af0c.svg#Cardinal-Fruit-Italic) format('svg'), url(../fonts/94dd75dcec3a4d1e1021c4bf0749af0c.eot), url(../fonts/94dd75dcec3a4d1e1021c4bf0749af0cd41d.eot?#iefix) format('embedded-opentype');
-    font-weight: 400;
-    font-display: swap;
-    unicode-range: U+000-5FF
-}
-
-@font-face {
-    font-family: cardinal classic;
-    src: url(../fonts/04c592dfa79bc56cdfdd11b838d90ad8.woff) format('woff');
-    src: url(../fonts/04c592dfa79bc56cdfdd11b838d90ad8.woff2) format('woff2'), url(../fonts/04c592dfa79bc56cdfdd11b838d90ad8.ttf) format('truetype'), url(../fonts/04c592dfa79bc56cdfdd11b838d90ad8.svg#Cardinal-Classic) format('svg'), url(../fonts/04c592dfa79bc56cdfdd11b838d90ad8.eot), url(../fonts/04c592dfa79bc56cdfdd11b838d90ad8d41d.eot?#iefix) format('embedded-opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-    unicode-range: U+000-5FF
-}
-
-@font-face {
-    font-family: graphik light;
-    src: url(../fonts/Graphik-Light.woff) format('woff');
-    src: url(../fonts/Graphik-Light.woff2) format('woff2'), url(../fonts/Graphik-Light.ttf) format('truetype'), url(../fonts/Graphik-Light.svg#Graphik-Light) format('svg'), url(../fonts/Graphik-Light.eot), url(../fonts/Graphik-Lightd41d.eot?#iefix) format('embedded-opentype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-    unicode-range: U+000-5FF
-}
-
-@font-face {
-    font-family: cardinal classic italic;
-    src: url(../fonts/78eca283d8e58e54b414ebe70420d91c.woff) format('woff');
-    src: url(../fonts/78eca283d8e58e54b414ebe70420d91c.woff2) format('woff2'), url(../fonts/78eca283d8e58e54b414ebe70420d91c.ttf) format('truetype'), url(../fonts/78eca283d8e58e54b414ebe70420d91c.svg#Cardinal-Classic-Italic) format('svg'), url(../fonts/78eca283d8e58e54b414ebe70420d91c.eot), url(../fonts/78eca283d8e58e54b414ebe70420d91cd41d.eot?#iefix) format('embedded-opentype');
-    font-weight: 400;
-    font-display: swap;
-    unicode-range: U+000-5FF
-}
-
-@font-face {
-    font-family: graphik extralight;
-    src: url(../fonts/Graphik-Extralight.woff) format('woff');
-    src: url(../fonts/Graphik-Extralight.woff2) format('woff2'), url(../fonts/Graphik-Extralight.ttf) format('truetype'), url(../fonts/Graphik-Extralight.svg#Graphik-Extralight) format('svg'), url(../fonts/Graphik-Extralight.eot), url(../fonts/Graphik-Extralightd41d.eot?#iefix) format('embedded-opentype');
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
-    unicode-range: U+000-5FF
-}
-
 *,
 *::before,
 *::after {
@@ -100,8 +42,6 @@
 }
 
 html {
-    font-family: var(--sans);
-    font-size: var(--body-font);
     color: var(--color-black);
     background: var(--color-white)
 }
