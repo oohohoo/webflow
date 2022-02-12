@@ -92,7 +92,7 @@ $('.two').each(function () {
 
 /**/
 
-})(jQuery);
+
 ! function (a) {
 "function" == typeof define && define.amd ? define(["jquery"], a) : "object" == typeof exports ? module.exports = a : a(jQuery)
 }(function (a) {
