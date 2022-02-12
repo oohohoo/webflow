@@ -1,3 +1,4 @@
+(function($) {
 $(function () {
     if (window.matchMedia('(min-width: 768px)').matches) {
         $(".horizontal-scroll").mousewheel(function (event, delta) {
