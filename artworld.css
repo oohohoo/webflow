@@ -66,6 +66,7 @@ html {
 
 img {
     width: 100%
+    max-width: auto;
 }
 
 ::selection {
