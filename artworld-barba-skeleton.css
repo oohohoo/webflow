@@ -1,0 +1,218 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background: 0 0;
+    text-decoration: none;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: 300;
+    color: inherit;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased
+}
+
+:root {
+    --padding: 30px;
+    --color-black: #000;
+    --color-white: #fff;
+    --sans: "Graphik Light", sans-serif;
+    --sans-extralight: "Graphik Extralight", sans-serif;
+    --serif: "Cardinal Classic", serif;
+    --serif-italic: "Cardinal Classic Italic", serif;
+    --head-serif: "Cardinal Fruit", serif;
+    --head-serif-italic: "Cardinal Fruit Italic", serif;
+    --big-font: 78px;
+    --body-font: 20px;
+    --title-font: 28px;
+    --content-font: 14px;
+    --splash-font: 100px;
+    --small-font: 12px;
+    --menu-font: 63px;
+    --menu-big-font: 30px;
+    --about-big-font: 44px;
+    --slide-text: 48px;
+    --overview-font: 36px;
+    --line-height: 30px;
+    --big-line-height: 52px
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    padding: var(--padding);
+    display: block;
+}
+
+
+/**/
+
+
+.slide-up-leave,
+.slide-up-enter-to {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.slide-up-leave {
+    z-index: 4
+}
+
+.slide-up-leave-active,
+.slide-up-enter-active {
+    transition: transform .8s cubic-bezier(1, 0, .47, 1.01), opacity .8s cubic-bezier(1, 0, .47, 1.01);
+    -webkit-transition: transform .8s cubic-bezier(1, 0, .47, 1.01), opacity .8s cubic-bezier(1, 0, .47, 1.01);
+    opacity: 1
+}
+
+.slide-up-leave-to {
+    transform: translateY(-20%);
+    -webkit-transform: translateY(-20%);
+    opacity: 0
+}
+
+.slide-up-enter {
+    transform: translateY(100vh);
+    -webkit-transform: translateY(100vh);
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    z-index: -2;
+    opacity: 1
+}
+
+.slide-up-enter-to {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    min-height: 100vh;
+    opacity: 1;
+    -webkit-transform: translateZ(0)
+}
+
+.slide-down-leave,
+.slide-down-enter-to {
+    transform: translateY(0);
+    -webkit-transform: translateY(0)
+}
+
+.slide-down-leave-active,
+.slide-down-enter-active {
+    transition: transform .8s cubic-bezier(1, 0, .47, 1.01), opacity .8s cubic-bezier(1, 0, .47, 1.01);
+    -webkit-transition: transform .8s cubic-bezier(1, 0, .47, 1.01), opacity .8s cubic-bezier(1, 0, .47, 1.01)
+}
+
+.slide-down-leave {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    z-index: 6
+}
+
+.slide-down-leave-to {
+    transform: translateY(100vh);
+    -webkit-transform: translateY(100vh);
+    opacity: 1;
+    position: absolute;
+    bottom: -100vh;
+    left: 0;
+    z-index: 6;
+    min-height: 100vh
+}
+
+.slide-down-enter {
+    transform: translateY(-20%);
+    -webkit-transform: translateY(-20%);
+    opacity: 0;
+    position: absolute;
+    top: -20%;
+    left: 0;
+    z-index: -1
+}
+
+.slide-down-enter-to {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    opacity: 1;
+    min-height: 100vh;
+    -webkit-transform: translateZ(0)
+}
+/**/
+
+
+.with-cover-leave,
+.with-cover-enter {
+    transition: opacity .5s ease
+}
+
+.with-cover-leave .splash-screen {
+    opacity: 0
+}
+
+.with-cover-leave-active .splash-screen {
+    transition: opacity .5s ease
+}
+
+.with-cover-leave-to .splash-screen {
+    opacity: 1
+}
+
+.with-cover-enter .splash-screen {
+    opacity: 1
+}
+
+.with-cover-enter-active .splash-screen {
+    transition: opacity .5s ease
+}
+
+.with-cover-enter-to .splash-screen {
+    opacity: 0
+}
+
+.fade-leave {
+    opacity: 1
+}
+
+.fade-leave-active {
+    transition: opacity .3s ease
+}
+
+.fade-leave-to {
+    opacity: 0
+}
+
+.fade-enter {
+    opacity: 0
+}
+
+.fade-enter-active {
+    transition: opacity .3s ease
+}
+
+.fade-enter-to {
+    opacity: 1
+}
+
+/**/
