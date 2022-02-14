@@ -62,6 +62,7 @@
                 disableScroll();
                 fix_close();
                 reloadArtists();
+                revealVideo();
             },
             afterEnter(data) {
                 fix_back();
@@ -1851,12 +1852,23 @@
      /*================= SCROLL REVEAL NEWS ============================*/
 
     function revealNews() {
-        ScrollReveal().reveal('.news-img_img, .videoreveal', {
+        ScrollReveal().reveal('.news-img_img', {
             interval: 300,
             delay: 300,
             viewFactor: 0
         });
     }
+
+         /*================= REVEAL VIDEO============================*/
+
+         function revealVideo() {
+            ScrollReveal().reveal('.videoreveal', {
+                interval: 300,
+                delay: 300,
+                viewFactor: 0
+            });
+        }
+    
 
  /*================= RELOAD VIDEOS ============================*/
 
