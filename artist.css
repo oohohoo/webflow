@@ -290,7 +290,8 @@
 .expanded .artist-project.standard video,
 .expanded .artist-project.standard .skeleton {
     width: 100%;
-    height: auto
+    height: auto;
+    height: 9999999999999999px;
 }
 
 .expanded .artist-project p {
