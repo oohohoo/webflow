@@ -1851,7 +1851,7 @@
      /*================= SCROLL REVEAL NEWS ============================*/
 
     function revealNews() {
-        ScrollReveal().reveal('.news-img_img, video', {
+        ScrollReveal().reveal('.news-img_img, .videoreveal', {
             interval: 300,
             delay: 300,
             viewFactor: 0
