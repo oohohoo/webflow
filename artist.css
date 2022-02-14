@@ -184,7 +184,8 @@
 }
 
 .skeleton {
-    background: #f7f6f6
+    background: #f7f6f6;
+z-index:-1;
 }
 
 .lazyload,

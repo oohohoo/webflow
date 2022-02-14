@@ -58,18 +58,10 @@
         }],
         views: [{
             namespace: 'artist',
-            beforeEnter({
-                next
-            }) {
-                let scrollreveal = document.createElement('script');
-                scrollreveal.src = 'https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.js';
-                next.container.appendChild(scrollreveal);
-            },
             beforeEnter(data) {
                 disableScroll();
                 fix_close();
                 reloadArtists();
-                revealVideo();
             },
             afterEnter(data) {
                 fix_back();
@@ -1868,13 +1860,7 @@
 
          /*================= REVEAL VIDEO============================*/
 
-         function revealVideo() {
-            ScrollReveal().reveal('.videoreveal', {
-                interval: 300,
-                delay: 300,
-                viewFactor: 0
-            });
-        }
+        
     
 
  /*================= RELOAD VIDEOS ============================*/
