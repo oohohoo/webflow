@@ -123,7 +123,7 @@
 
       /*================= INTRO ============================*/
 
-
+/*
     const introLoader = document.getElementById('introLoader');
     let introAnimation = bodymovin.loadAnimation({
         wrapper: introLoader,
