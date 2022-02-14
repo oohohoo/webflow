@@ -2024,7 +2024,7 @@
 
 /*================= HIDE ARTIST INFO ============================*/ 
 
-        $(body).on("click", function () {
+        $('h2').on("click", function () {
             $('.expand').toggleClass('rotated');
             $('.artist-left').toggleClass('not-hidded');
             $('.artist-left').toggleClass('hidded');
