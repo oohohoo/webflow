@@ -58,6 +58,13 @@
         }],
         views: [{
             namespace: 'artist',
+            beforeEnter({
+                next
+            }) {
+                let scrollreveal = document.createElement('script');
+                scrollreveal.src = 'https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.js';
+                next.container.appendChild(scrollreveal);
+            },
             beforeEnter(data) {
                 disableScroll();
                 fix_close();
