@@ -2024,12 +2024,13 @@
 
 /*================= HIDE ARTIST INFO ============================*/ 
 
-        $('h2').on("click", function () {
+        $('.expand').on("click", function () {
             $('.expand').toggleClass('rotated');
             $('.artist-left').toggleClass('not-hidded');
             $('.artist-left').toggleClass('hidded');
             $('.artist-right').toggleClass('expanded');
             $('.collapsed-info').toggleClass('header-showed');
+            console.log("EXPAND CLICKED");
         })
 
 
