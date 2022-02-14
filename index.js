@@ -83,21 +83,25 @@
             afterEnter({
                 next
             }) {
+/*                
                 let jspdf = document.createElement('script');
                 jspdf.src = 'https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js';
                 next.container.appendChild(jspdf);
+                */
             }
         }, {
             namespace: 'overview',
             beforeEnter({
                 next
             }) {
+                /*
                 let jszip = document.createElement('script');
                 jszip.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js';
                 next.container.appendChild(jszip);
                 let jspdf = document.createElement('script');
                 jspdf.src = 'https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js';
                 next.container.appendChild(jspdf);
+                */
                 disableScroll();
             },
             beforeLeave(data) {
@@ -1847,7 +1851,7 @@
      /*================= SCROLL REVEAL NEWS ============================*/
 
     function revealNews() {
-        ScrollReveal().reveal('.news-img_img', {
+        ScrollReveal().reveal('.news-img_img, video', {
             interval: 300,
             delay: 300,
             viewFactor: 0
