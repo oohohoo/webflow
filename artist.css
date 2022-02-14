@@ -213,7 +213,8 @@
 .artist-project.standard video {
     width: 100%;
     height: auto;
-    display: block
+    display: block;
+    height: 9999999999999999px;
 }
 
 .artist-project.standard .skeleton {
@@ -489,7 +490,7 @@
     .artist-project.standard video {
         width: 100%;
         height: 100%;
-        height: 9999999999999999px;
+        
     }
 
     .artist-project.adapted img,
