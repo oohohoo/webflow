@@ -2062,8 +2062,9 @@
 
     /*================= VIDEO PLAY ============================*/ 
 
-        $('.artist-project video, .video video').each(function () {
+        $('.artist-project video, .video video, .w-background-video>video').each(function () {
             $(this)[0].play();
+            console.log("Video Play!");
         });
 
     /*================= VIDEO MUTE ============================*/ 
