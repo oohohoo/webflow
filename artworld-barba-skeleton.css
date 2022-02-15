@@ -145,7 +145,7 @@ main {
     -webkit-transform: translateY(100vh);
     opacity: 1;
     position: absolute;
-    bottom: -50vh;
+    bottom: -99vh;
     left: 0;
     z-index: 6;
     min-height: 100vh;
