@@ -66,7 +66,8 @@ main {
     -webkit-transform: translateY(0);
     position: absolute;
     top: 0;
-    left: 0
+    left: 0;
+    rotate: 90deg;
 }
 
 .slide-up-leave {
@@ -132,7 +133,6 @@ main {
     transform: translateY(100vh);
     -webkit-transform: translateY(100vh);
     opacity: 1;
-    rotate: 90deg;
     position: absolute;
     bottom: -100vh;
     left: 0;
