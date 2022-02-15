@@ -98,7 +98,7 @@ main {
     z-index: -2;
     opacity: 1
 }
-/*
+
 .slide-up-enter-to {
     position: absolute;
     top: 0;
@@ -108,7 +108,7 @@ main {
     opacity: 1;
     -webkit-transform: translateZ(0)
 }
-*/
+
 .slide-down-leave,
 .slide-down-enter-to {
     transform: translateY(0);
