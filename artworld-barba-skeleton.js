@@ -4,6 +4,7 @@
       barba.use(barbaPrefetch);
       barba.use(barbaCss);
       barba.init({
+        debug: true,
           preventRunning: true,
           timeout: 5000,
           transitions: [{
