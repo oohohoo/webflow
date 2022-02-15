@@ -60,26 +60,26 @@
           views: [{
               namespace: 'artist',
               beforeEnter(data) {
-                  disableScroll();
-                  fix_close();
-                  reloadArtists();
+               //   disableScroll();
+            //      fix_close();
+               //   reloadArtists();
               },
               afterEnter(data) {
-                  fix_back();
-                  enableScroll();
-                  stopAnimation();
+               //   fix_back();
+                //  enableScroll();
+               //   stopAnimation();
               },
               beforeLeave(data) {
-                  fix_close();
+               //   fix_close();
               }
           }, {
               namespace: 'default',
               beforeEnter(data) {
-                  disableScroll();
-                  reloadSliders();
-                  reloadPeaking();
-                  reloadBackground();
-                  reloadVideos();
+                //  disableScroll();
+               //   reloadSliders();
+               //   reloadPeaking();
+                //  reloadBackground();
+                //  reloadVideos();
               },
               afterEnter({
                   next
@@ -103,25 +103,25 @@
                   jspdf.src = 'https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js';
                   next.container.appendChild(jspdf);
                   */
-                  disableScroll();
+                 // disableScroll();
               },
               beforeLeave(data) {
-                  disableScroll();
+                 // disableScroll();
               },
               afterEnter(data) {
-                  enableScroll();
+                //  enableScroll();
               }
           }, {
               namespace: 'news',
               beforeEnter({
                   next
               }) {
-                  let scrollreveal = document.createElement('script');
+                /*  let scrollreveal = document.createElement('script');
                   scrollreveal.src = 'https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.js';
-                  next.container.appendChild(scrollreveal);
+                  next.container.appendChild(scrollreveal);*/
               },
               afterEnter(data) {
-                  revealNews();
+                /*  revealNews();*/
               }
           }]
       });
