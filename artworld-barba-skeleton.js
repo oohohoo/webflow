@@ -66,7 +66,7 @@
               },
               afterEnter(data) {
                //   fix_back();
-                //  enableScroll();
+                  enableScroll();
                //   stopAnimation();
               },
               beforeLeave(data) {
@@ -75,7 +75,7 @@
           }, {
               namespace: 'default',
               beforeEnter(data) {
-                //  disableScroll();
+                disableScroll();
                //   reloadSliders();
                //   reloadPeaking();
                 //  reloadBackground();
