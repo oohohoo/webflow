@@ -60,14 +60,14 @@
           views: [{
               namespace: 'artist',
               beforeEnter(data) {
-               //   disableScroll();
+                 disableScroll();
             //      fix_close();
                //   reloadArtists();
               },
               afterEnter(data) {
                //   fix_back();
                   enableScroll();
-               //   stopAnimation();
+                  stopAnimation();
               },
               beforeLeave(data) {
                //   fix_close();
@@ -103,13 +103,13 @@
                   jspdf.src = 'https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js';
                   next.container.appendChild(jspdf);
                   */
-                 // disableScroll();
+                 disableScroll();
               },
               beforeLeave(data) {
-                 // disableScroll();
+                 disableScroll();
               },
               afterEnter(data) {
-                //  enableScroll();
+                 enableScroll();
               }
           }, {
               namespace: 'news',
