@@ -149,14 +149,13 @@ left: 0;
 }
 
 .slide-down-leave-to {
-    transform: translateY(100vh);
-    -webkit-transform: translateY(100vh);
+    transform: translateY(66vh);
+    -webkit-transform: translateY(66vh);
     opacity: 1;
     position: absolute;
-    bottom: -110vh;
+    bottom: -100vh;
     left: 0;
     z-index: 6;
-    height: 100vh;
     min-height: 100vh;
     will-change: transform;
 }
