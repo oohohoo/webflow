@@ -132,7 +132,7 @@ main {
     transform: translateY(100vh);
     -webkit-transform: translateY(100vh);
     opacity: 1;
-    rotate: 30;
+    rotate: 90deg;
     position: absolute;
     bottom: -100vh;
     left: 0;
