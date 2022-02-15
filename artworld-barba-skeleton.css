@@ -133,8 +133,8 @@ left: 0;
 
 .slide-down-leave-active,
 .slide-down-enter-active {
-    transition: transform .8s cubic-bezier(1, 0, .47, 1.01), opacity .8s cubic-bezier(1, 0, .47, 1.01);
-    -webkit-transition: transform .8s cubic-bezier(1, 0, .47, 1.01), opacity .8s cubic-bezier(1, 0, .47, 1.01)
+    transition: transform 2s cubic-bezier(1, 0, .47, 1.01), opacity 2 cubic-bezier(1, 0, .47, 1.01);
+    -webkit-transition: transform 2 cubic-bezier(1, 0, .47, 1.01), opacity 2 cubic-bezier(1, 0, .47, 1.01)
 }
 
 .slide-down-leave {
