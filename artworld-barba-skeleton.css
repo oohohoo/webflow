@@ -156,11 +156,8 @@ left: 0; */
     -webkit-transform: translateY(100vh);
     opacity: 1;
     position: absolute;
-    bottom: 100vh;
-    left: 0;
-    z-index: 6;
-   /* min-height: 100vh;
-    will-change: transform;*/
+    bottom: -100vh;
+  
 }
 /**/
 
