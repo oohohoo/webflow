@@ -150,7 +150,7 @@ main {
 .slide-down-leave-to {
     transform: translateY(50vh);
     -webkit-transform: translateY(50vh);
-  /*  opacity: 1;*/
+   opacity: 1;
     position: absolute;
     bottom: -100vh;
     left: 0;
