@@ -8,7 +8,7 @@
           preventRunning: true,
           timeout: 5000,
           transitions: [{
-              name: 'slide-up',
+              name: 'slide-down',
               sync: true,
               from: {
                   namespace: ['artist']
