@@ -135,15 +135,15 @@ main {
     position: absolute;
     bottom: 0;
     left: 0;
-    opacity: .5;
+    opacity: 1;
     z-index: 6;
     will-change: transform;
 }
 
 .slide-down-leave-to {
-    transform: translateY(100vh);
-    -webkit-transform: translateY(100vh);
-    opacity: .5;
+    transform: translateY(50vh);
+    -webkit-transform: translateY(50vh);
+    opacity: 1;
     position: absolute;
     bottom: -100vh;
     left: 0;
