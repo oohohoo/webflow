@@ -118,7 +118,8 @@ main {
 .slide-down-leave,
 .slide-down-enter-to {
     transform: translateY(0);
-    -webkit-transform: translateY(0)
+    -webkit-transform: translateY(0);
+    will-change: transform;
 }
 
 .slide-down-leave-active,
@@ -134,7 +135,8 @@ main {
     bottom: 0;
     left: 0;
     opacity: 1;
-    z-index: 6
+    z-index: 6;
+    will-change: transform;
 }
 
 .slide-down-leave-to {
@@ -145,7 +147,8 @@ main {
     bottom: -100vh;
     left: 0;
     z-index: 6;
-    min-height: 100vh
+    min-height: 100vh;
+    will-change: transform;
 }
 
 .slide-down-enter {
@@ -155,7 +158,8 @@ main {
     position: absolute;
     top: -20%;
     left: 0;
-    z-index: -1
+    z-index: -1;
+    will-change: transform;
 }
 
 .slide-down-enter-to {
@@ -165,7 +169,8 @@ main {
     z-index: 0;
     opacity: 1;
     min-height: 100vh;
-    -webkit-transform: translateZ(0)
+    -webkit-transform: translateZ(0);
+    will-change: transform;
 }
 /**/
 
