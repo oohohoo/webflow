@@ -67,7 +67,8 @@ main {
     position: absolute;
     top: 0;
     left: 0;
-    rotate: 90deg;
+    will-change: transform;
+  /*  rotate: 90deg;*/
 }
 
 .slide-up-leave {
@@ -85,7 +86,8 @@ main {
 .slide-up-leave-to {
     transform: translateY(-20%);
     -webkit-transform: translateY(-20%);
-    opacity: 0
+    opacity: 0;
+    will-change: transform;
 }
 
 .slide-up-enter {
@@ -95,7 +97,8 @@ main {
     top: 100vh;
     left: 0;
     z-index: -2;
-    opacity: 1
+    opacity: 1;
+    will-change: transform;
 }
 
 .slide-up-enter-to {
@@ -105,8 +108,12 @@ main {
     z-index: 99;
     min-height: 100vh;
     opacity: 1;
+    will-change: transform;
     -webkit-transform: translateZ(0)
 }
+
+/**/
+
 
 .slide-down-leave,
 .slide-down-enter-to {
