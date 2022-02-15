@@ -156,7 +156,7 @@ main {
 .slide-down-enter {
     transform: translateY(-20%);
     -webkit-transform: translateY(-20%);
-   opacity: 0;
+   /* opacity: 0;*/
     position: absolute;
     top: -20%;
     left: 0;
@@ -169,7 +169,7 @@ main {
     top: 0;
     left: 0;
     z-index: 0;
-    opacity: 0;
+    opacity: 1;
     min-height: 100vh;
     -webkit-transform: translateZ(0);
     will-change: transform;
