@@ -137,7 +137,22 @@ left: 0; */
     -webkit-transition: transform 2s cubic-bezier(1, 0, .47, 1.01), opacity 2s cubic-bezier(1, 0, .47, 1.01)
 }
 
+/* ODAVDE */
 
+
+.slide-down-leave-to {
+    transform: translateY(100vh);
+    -webkit-transform: translateY(100vh);
+    opacity: 1;
+    position: absolute;
+    bottom: -100vh;
+    left: 0;
+    z-index: 6;
+    min-height: 100vh;
+    will-change: transform;
+}
+
+/*DOVDE*/
 
 .slide-down-enter {
     transform: translateY(-20%);
