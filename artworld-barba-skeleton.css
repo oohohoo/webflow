@@ -137,7 +137,7 @@ left: 0; */
     -webkit-transition: transform .8s cubic-bezier(1, 0, .47, 1.01), opacity .8s cubic-bezier(1, 0, .47, 1.01)
 }
 
-/* ODAVDE */
+
 .slide-down-leave {
     transform: translateY(0);
     -webkit-transform: translateY(0);
@@ -149,8 +149,19 @@ left: 0; */
     will-change: transform;
 }
 
+/* ODAVDE */
 
-
+.slide-down-leave-to {
+    transform: translateY(100vh);
+    -webkit-transform: translateY(100vh);
+    opacity: 1;
+    position: absolute;
+    bottom: -20vh;
+    left: 0;
+    z-index: 6;
+    min-height: 100vh;
+    will-change: transform;
+}
 /**/
 
 .slide-down-enter {
