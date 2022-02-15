@@ -116,13 +116,6 @@ main {
 /**/
 
 
-/*DODANO*/
-/*
-.slide-down-leave {
-    z-index: 4
-}
-*/
-
 .slide-down-leave,
 .slide-down-enter-to {
     transform: translateY(0);
@@ -150,37 +143,32 @@ main {
 .slide-down-leave-to {
     transform: translateY(100vh);
     -webkit-transform: translateY(100vh);
-   opacity: 1;
+    opacity: 1;
     position: absolute;
-    bottom: -10vh;
+    bottom: -100vh;
     left: 0;
-   z-index: 6;
+    z-index: 6;
     min-height: 100vh;
     will-change: transform;
 }
 
-
-/* VRAĆA NA PRETHODNI SLIDE*/
 .slide-down-enter {
     transform: translateY(-20%);
     -webkit-transform: translateY(-20%);
-   opacity: 0;
-    z-index: -1; 
+    opacity: 0;
     position: absolute;
     top: -20%;
     left: 0;
-
+    z-index: -1;
     will-change: transform;
 }
 
-
-/* PRETHODNI SLIDE 2*/
 .slide-down-enter-to {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 0;
-    opacity: 1; 
+    opacity: 1;
     min-height: 100vh;
     -webkit-transform: translateZ(0);
     will-change: transform;
