@@ -136,7 +136,7 @@ main {
     bottom: 0;
     left: 0;
     opacity: 1;
-   /* z-index: 6;*/
+    z-index: 6;
     will-change: transform;
 }
 
@@ -147,7 +147,7 @@ main {
     position: absolute;
     bottom: -100vh;
     left: 0;
-   /* z-index: 6;*/
+    z-index: 6;
     min-height: 100vh;
     will-change: transform;
 }
@@ -159,7 +159,7 @@ main {
     position: absolute;
     top: -20%;
     left: 0;
-    z-index: -1;
+  /*  z-index: -1;*/
     will-change: transform;
 }
 
@@ -167,7 +167,7 @@ main {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 0;
+   /* z-index: 0;*/
     opacity: 1;
     min-height: 100vh;
     -webkit-transform: translateZ(0);
