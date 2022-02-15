@@ -81,13 +81,14 @@ main {
     -webkit-transition: transform .8s cubic-bezier(1, 0, .47, 1.01), opacity .8s cubic-bezier(1, 0, .47, 1.01);
     opacity: 1
 }
-*/
+
 .slide-up-leave-to {
     transform: translateY(-20%);
     -webkit-transform: translateY(-20%);
     opacity: 0
 }
-/*
+*/
+
 .slide-up-enter {
     transform: translateY(100vh);
     -webkit-transform: translateY(100vh);
