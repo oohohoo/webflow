@@ -59,7 +59,7 @@ main {
 
 /**/
 
-/*
+
 .slide-up-leave,
 .slide-up-enter-to {
     transform: translateY(0);
@@ -87,7 +87,6 @@ main {
     -webkit-transform: translateY(-20%);
     opacity: 0
 }
-*/
 
 .slide-up-enter {
     transform: translateY(100vh);
