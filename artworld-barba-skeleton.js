@@ -39,7 +39,21 @@
               },
               leave() {},
               enter() {},
-          },  {
+          }, {
+              name: 'with-cover',
+              from: {
+                  custom: ({
+                      trigger
+                  }) => {
+                      return trigger.classList && trigger.classList.contains('artist-link');
+                  },
+              },
+              to: {
+                  namespace: ['artist']
+              },
+              leave() {},
+              enter() {},
+          }, {
               name: 'self',
               enter() {}
           }],
