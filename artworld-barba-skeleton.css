@@ -159,8 +159,8 @@ left: 0; */
     bottom: 100vh;
     left: 0;
     z-index: 6;
-    min-height: 100vh;
-    will-change: transform;
+   /* min-height: 100vh;
+    will-change: transform;*/
 }
 /**/
 
