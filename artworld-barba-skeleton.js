@@ -19,7 +19,7 @@
               leave() {},
               enter() {},
           }, {
-              name: 'slide-down',
+              name: 'slide-up',
               sync: true,
               from: {
                   namespace: ['default', 'overview']
