@@ -159,6 +159,7 @@ main {
     will-change: transform;
 }
 
+
 /* VRAĆA NA PRETHODNI SLIDE*/
 .slide-down-enter {
     transform: translateY(-20%);
