@@ -97,6 +97,18 @@
               afterEnter(data) {
                 //  enableScroll();
               }
+          }, {
+              namespace: 'news',
+              beforeEnter({
+                  next
+              }) {
+                /*  let scrollreveal = document.createElement('script');
+                  scrollreveal.src = 'https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.js';
+                  next.container.appendChild(scrollreveal);*/
+              },
+              afterEnter(data) {
+                /*  revealNews();*/
+              }
           }]
       });
   
