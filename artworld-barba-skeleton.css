@@ -155,11 +155,11 @@ main {
 .slide-down-enter {
     transform: translateY(-20%);
     -webkit-transform: translateY(-20%);
-    opacity: 0;
+   /* opacity: 0;*/
     position: absolute;
     top: -20%;
     left: 0;
-  /*  z-index: -1;*/
+    z-index: -1;
     will-change: transform;
 }
 
@@ -167,7 +167,7 @@ main {
     position: absolute;
     top: 0;
     left: 0;
-   /* z-index: 0;*/
+    z-index: 0;
     opacity: 1;
     min-height: 100vh;
     -webkit-transform: translateZ(0);
