@@ -73,7 +73,7 @@ main {
 .slide-up-leave {
     z-index: 4
 }
-*/
+
 
 .slide-up-leave-active,
 .slide-up-enter-active {
@@ -81,7 +81,7 @@ main {
     -webkit-transition: transform .8s cubic-bezier(1, 0, .47, 1.01), opacity .8s cubic-bezier(1, 0, .47, 1.01);
     opacity: 1
 }
-/*
+*/
 .slide-up-leave-to {
     transform: translateY(-20%);
     -webkit-transform: translateY(-20%);
