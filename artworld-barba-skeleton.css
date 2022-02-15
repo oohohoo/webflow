@@ -59,7 +59,7 @@ main {
 
 /**/
 
-
+/*
 .slide-up-leave,
 .slide-up-enter-to {
     transform: translateY(0);
@@ -73,7 +73,8 @@ main {
 .slide-up-leave {
     z-index: 4
 }
-/*
+*/
+
 .slide-up-leave-active,
 .slide-up-enter-active {
     transition: transform .8s cubic-bezier(1, 0, .47, 1.01), opacity .8s cubic-bezier(1, 0, .47, 1.01);
