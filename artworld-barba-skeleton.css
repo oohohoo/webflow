@@ -134,7 +134,7 @@ main {
     position: absolute;
     bottom: 0;
     left: 0;
-    opacity: 0;
+    opacity: 1;
     z-index: 6;
     will-change: transform;
 }
@@ -142,7 +142,7 @@ main {
 .slide-down-leave-to {
     transform: translateY(100vh);
     -webkit-transform: translateY(100vh);
-    opacity: 1;
+    opacity: 0;
     position: absolute;
     bottom: -100vh;
     left: 0;
